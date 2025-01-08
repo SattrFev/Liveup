@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bar Chart UI</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #1E293B; /* Warna latar belakang */
+      color: #E2E8F0; /* Warna teks */
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    canvas {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .chart-container {
+      position: relative;
+      margin: auto;
+      width: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
+
+  <script>
+    const data = {
+      labels: ['5 star', '4 star', '3 star', '2 star', '1 star'],
+      datasets: [{
+        label: 'Ratings',
+        data: [70, 17, 8, 4, 1],
+        backgroundColor: 'rgba(237, 206, 0)', // Warna kuning
+        borderRadius: 5, // Membulatkan ujung bar
+        barThickness: 20, // Ketebalan bar
+      }]
+    };
+
+    const percentageLabel = {
+      id: 'percentageLabel',
+      afterDatasetsDraw(chart) {
+        const { ctx, data, chartArea: { right }, scales: { x, y } } = chart;
+
+        ctx.save();
+        ctx.font = '14px Arial';
+        ctx.fillStyle = '#E2E8F0'; // Warna teks persentase
+        ctx.textAlign = 'right';
+
+        data.datasets[0].data.forEach((value, index) => {
+          const xPos = right + 10; // Posisi persentase di kanan bar
+          const yPos = y.getPixelForValue(index) + y.getPixelForValue(index + 1) / 2;
+
+          ctx.fillText(`${value}%`, xPos, yPos);
+        });
+
+        ctx.restore();
+      }
+    };
+
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        indexAxis: 'y', // Bar chart horizontal
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false, // Menyembunyikan legenda
+          },
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false, // Hilangkan grid horizontal
+            },
+            ticks: {
+              display: false, // Hilangkan angka sumbu X
+            },
+            border: {
+              display: false, // Hilangkan garis sumbu X
+            },
+          },
+          y: {
+            grid: {
+              display: false, // Hilangkan grid vertikal
+            },
+            ticks: {
+              color: '#E2E8F0', // Warna label di kiri
+            },
+            border: {
+              display: false, // Hilangkan garis sumbu Y
+            },
+          },
+        },
+      },
+      plugins: [percentageLabel],
+    };
+
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
+</body>
+</html>
