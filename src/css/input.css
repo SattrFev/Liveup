@@ -5,6 +5,10 @@
 @tailwind utilities;
 
 @layer components {
+
+.swiper-button-prev, .swiper-button-next {
+    @apply shadow border text-black px-2 py-1 items-center content-center bg-white rounded-full
+}
     .ccc {
         @apply max-h-full overflow-hidden  transition-all duration-200 ease-out   ;
     }
