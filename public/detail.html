@@ -135,7 +135,7 @@
     <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger" data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"  class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full   cursor-pointer text-gray-400">
         <div class="lg:flex lg:items-center lg:gap-x-3">
             <i class="ri-search-line text-lg  lg:text-base      rounded-full  cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"></i>
-     <span class="hidden lg:inline">Quick Search...</span>
+     <span class="hidden lg:inline">Pencarian Cepat</span>
         </div>
     <span class=" font-medium hidden lg:inline"><i class="ri-command-line"></i> + /</span>
     </button>
@@ -218,10 +218,10 @@
             <div class="max-w-7xl lg:m-auto">
   
               <ul id="dropdown"  class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10">
-                <li class="link2 w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Tentang Kami</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
+                <li  x-on:click="window.location.href='tentang.html'" class="link2 w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Tentang Kami</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
                 <li class="link2    w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Jelajahi Perusahaan</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Memulai Karir</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Konsultasi</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
+                <li x-on:click="window.location.href='jobPage.html'" class="link2    w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Memulai Karir</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
+                <li  x-on:click="window.location.href='konsultasi.html'" class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Konsultasi</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
                
             </ul>
             </div>
@@ -251,13 +251,18 @@
                       <button x-data="{save : false}" x-on:click="save = !save"
                           class="border-2 py-2 md:px-0 px-8 m-auto md:border-none  flex rounded-full bg-white items-center gap-x-1 shadow-sm shadow-transparent transition-all duration-500 group">
                           <i class="  "  x-bind:class="save === true ? 'ri-bookmark-fill' : 'ri-bookmark-line' "></i>
-                          <span class="px-2 font-semibold  text-sm md:text-base leading-7 text-black ">Save</span>
+                          <span class="px-2 font-semibold  text-sm md:text-base leading-7 text-black ">Simpan</span>
                       </button>
-                      <button
-                          class=" py-2 px-8 flex rounded-full bg-teal-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700">
-                     
-                          <span class="px-2 font-semibold text-sm md:text-base leading-7 text-white ">Apply</span>
-                      </button>
+                      
+                      <a href="apply.html">
+
+                        <button
+                          
+                            class=" py-2 px-8 flex rounded-full bg-teal-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700">
+                       
+                            <span class="px-2 font-semibold text-sm md:text-base leading-7 text-white "  >Lamar</span>
+                        </button>
+                      </a>
                     </div>
                 </div>
                 <!-- <div class="flex max-sm:flex-wrap max-sm:justify-center items-center gap-4">
@@ -272,7 +277,7 @@
             <div class="space-y-7 w-full p-4  md:p-9  border rounded-xl">
   
               <div class="space-y-2 " x-data="{open:true}">
-                <h1 class="font-bold text-lg text-gray-800">Overview</h1>
+                <h1 class="font-bold text-lg text-gray-800">Ringkasan</h1>
                 <div class="text-gray-700 md:text-black block space-y-4 ">
       
                   <p x-on:click="open = !open" x-transition.origin.top.right.duration.100ms  class="cursor-pointer  text-sm    " x-bind:class="open ? 'line-clamp-3'  : ''">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate deleniti totam ducimus labore vitae, facilis iure et esse animi nemo, rem aliquam. Qui facilis id sequi veritatis. Voluptatem, tenetur velit. <span class="block md:inline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo excepturi facilis amet nisi ullam iste expedita nulla, eum ad magnam inventore placeat saepe cupiditate quisquam illum animi doloremque temporibus. Impedit!</span> </p>
@@ -280,7 +285,7 @@
                 </div>
               </div>
               <div class=" space-y-2  relative">
-                <h1 class="  font-bold base text-gray-900 text-lg">Responsibilities</h1>
+                <h1 class="  font-bold base text-gray-900 text-lg">Tanggung jawab</h1>
    
       
                   <ul class="text-gray-700 text-sm  lg:space-y-2 space-y-3 pl-5 marker:text-sm marker:text-gray-600 md:text-black   block    list-disc   cursor-pointer" x-data="{ open : false} " x-on:click="open = !open"  >
@@ -318,7 +323,7 @@
                
               </div>
               <div class=" space-y-2  relative">
-                <h1 class="  font-bold base text-gray-900 text-lg">Qualifications</h1>
+                <h1 class="  font-bold base text-gray-900 text-lg">Kualifikasi</h1>
    
       
                   <ul class="text-gray-700 text-sm  lg:space-y-2 space-y-3 pl-5 marker:text-sm marker:text-gray-600 md:text-black   block    list-disc   cursor-pointer" x-data="{ open : false} " x-on:click="open = !open"  >
@@ -356,7 +361,7 @@
                
               </div>
               <div class=" space-y-2  ">
-                <h1 class="  font-bold base text-gray-900 text-lg">Skils</h1>
+                <h1 class="  font-bold base text-gray-900 text-lg">Keterampilan</h1>
    <div class="space-x-1">
     <span class="inline-flex items-center gap-x-1.5  py-1.5 px-5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600">Tailwind</span>
     <span class="inline-flex items-center gap-x-1.5  py-1.5 px-5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600">React Js</span>
@@ -370,7 +375,7 @@
               </div>
             </div>
   <div class="space-y-4 sticky w-full lg:w-[38em]  p-4  md:p-8  border rounded-xl">
-    <h1 class=" text-gray-800 text-2xl font-bold border-b pb-4">Job Detail</h1>
+    <h1 class=" text-gray-800 text-2xl font-bold border-b pb-4">Detail Pekerjaan</h1>
   
     <div class=" space-y-8 relative ">
       <div class="space-y-1">
@@ -467,14 +472,14 @@
   
     </div>
     
-    <button class="w-full bg-slate-700 text-white rounded-full transition ease-in duration-100 hover:shadow-xl hover:bg-black py-2 font-medium" >View More</button>
+    <button class="w-full bg-slate-700 text-white rounded-full transition ease-in duration-100 hover:shadow-xl hover:bg-black py-2 font-medium" >Lihat Lebih</button>
   </div>
   
           </div>
           <div class="lg:flex space-y-7  lg:space-y-0 gap-x-7">
 
             <div class="space-y-7 w-full p-4  md:p-9  border rounded-xl">
-              <h1 class=" text-gray-800 text-2xl font-bold border-b pb-4">About Company</h1>
+              <h1 class=" text-gray-800 text-2xl font-bold border-b pb-4">Tentang Perusahaan</h1>
             
               <div class="  relative ">
                 <div class="">
@@ -493,7 +498,7 @@
             
                 </div>
               <div class="">
-                <h1 class="font-semibold text-lg mb-4">Latest Activity</h1>
+                <h1 class="font-semibold text-lg mb-4">Aktivitas Terbaru</h1>
                 <div class="bg-gray-50  p-6 rounded-xl">
                   <div class="flex items-center justify-between ">
             
@@ -565,8 +570,8 @@
               <div class="lg:w-[40em] space-y-7">
                 <div class="space-y-7 w-full md:h-fit    p-8  border rounded-xl">
                   <div class="border-b pb-4 flex justify-between items-center">
-                    <h1 class=" text-gray-800 text-2xl font-bold ">Similars Jobs</h1>
-                    <span class="block  text-sm text-gray-600">907 Jobs</span>
+                    <h1 class=" text-gray-800 text-2xl font-bold ">Pekerjaan Serupa</h1>
+                    <span class="block  text-sm text-gray-600">907 Pekerjaan</span>
                   </div>
                 
                   <div class=" relative  ">
@@ -611,7 +616,7 @@
                      </div>
                      <div class="">
                        <h1 class="text-sm font-semibold">$174,900</h1>
-                       <h1 class="text-xs text-gray-500">Avg Salary</h1>
+                       <h1 class="text-xs text-gray-500">Pendapatan</h1>
      
                      </div>
                     </li>
@@ -624,12 +629,12 @@
                 </ul>
               </div>
               
-              <button class="w-full bg-transparent text-black border hover:border-gray-500 border-gray-300 rounded-full transition ease-in duration-100 hover:shadow-md hover:bg-gray-50 py-2 font-medium" >View All</button>
+              <button class="w-full bg-transparent text-black border hover:border-gray-500 border-gray-300 rounded-full transition ease-in duration-100 hover:shadow-md hover:bg-gray-50 py-2 font-medium" >Lihat Semua</button>
                   <!-- <button class="w-full bg-gray-500 text-white rounded-full transition ease-in duration-100 hover:shadow-xl hover:bg-black py-2 font-medium" >View More</button> -->
                 </div>
                 <div class="space-y-5 w-full     p-8  border rounded-xl">
               
-                    <h1 class=" text-gray-800 text-2xl  border-b-2  font-bold  pb-4">Job Rating</h1>
+                    <h1 class=" text-gray-800 text-2xl  border-b-2  font-bold  pb-4">Infomasi Lain</h1>
                  
                 
                   <div class=" relative  ">
@@ -649,13 +654,12 @@
                       <i class="ri-star-half-line text-teal-500 text-lg md:text-base  transition-all ease-in duration-100 hover:-translate-y-1 "></i>
                     </div>
                     <div class="text-gray-500 lg:text-sm">
-                      <p>4.95
-out of
+                      <p>4.95 dari
 5</p>
                       </div>
                   </div>
 <div class="text-gray-500 lg:text-sm">
-<p>1,745 global ratings</p>
+<p>1,745 Rating Keseluruhan</p>
 </div>
                 </div>
                </div>
@@ -751,6 +755,12 @@ out of
             });
           });
         })();
+
+
+
+
+
       </script>
+   
 </body>
 </html>

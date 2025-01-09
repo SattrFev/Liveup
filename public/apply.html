@@ -140,7 +140,7 @@
     <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger" data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"  class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full   cursor-pointer text-gray-400">
         <div class="lg:flex lg:items-center lg:gap-x-3">
             <i class="ri-search-line text-lg  lg:text-base      rounded-full  cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"></i>
-     <span class="hidden lg:inline">Quick Search...</span>
+     <span class="hidden lg:inline">Pencarian Cepat</span>
         </div>
     <span class=" font-medium hidden lg:inline"><i class="ri-command-line"></i> + /</span>
     </button>
@@ -223,10 +223,10 @@
             <div class="max-w-7xl lg:m-auto">
   
               <ul id="dropdown"  class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10">
-                <li class="link2 w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Tentang Kami</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
+                <li  x-on:click="window.location.href='tentang.html'" class="link2 w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Tentang Kami</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
                 <li class="link2    w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Jelajahi Perusahaan</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Memulai Karir</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Konsultasi</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
+                <li x-on:click="window.location.href='jobPage.html'" class="link2    w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Memulai Karir</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
+                <li  x-on:click="window.location.href='konsultasi.html'" class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Konsultasi</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
                
             </ul>
             </div>
@@ -239,36 +239,39 @@
 
 
     
-<section class="py-10 ">
-    <div class=" m-auto">
-      <div class="mb-9 px-5  sticky top-0 items-center ">
-        <div class="max-w-7xl m-auto md:flex md:justify-center ">
-          <div class="flex md:inline-block  space-x-3 md:text-center md:space-x-0">
-            <img src="https://i.pinimg.com/736x/5b/e2/85/5be2857945e61a48d5a031eb301a8caf.jpg" alt="" class="w-12 md:w-16 border shadow rounded-full md:m-auto">
-             <div class="md:block">
-              <h1 class="text-lg md:text-xl font-semibold">Creative Producer</h1>
-              <p class="text-sm md:text-lg">Netflix</p>
-             </div>
-
-          </div>
-
-        </div>
+<section class="py-7 "  x-data="{open:true}" >
+  <div class="px-5">
+    <section    class="relative max-w-7xl m-auto  pt-32 md:pt-40 pb-10">
+      <img src="https://pagedone.io/asset/uploads/1705473908.png" alt="cover-image" class="w-full absolute top-0 left-0 z-0 h-48 md:h-52 object-cover rounded-xl">
+      <div class="w-full max-w-7xl mx-auto px-6 md:px-8">
+        <div class="flex items-center justify-center relative z-10 mb-2.5">
+          <img src="https://i.pinimg.com/736x/32/af/d2/32afd2431d845f90668bcea60379b7a9.jpg" alt="user-avatar-image"
+              class="border-8 md:border-4 border-white rounded-full object-cover md:w-20 w-24">
       </div>
-        <div data-hs-stepper="" class="">
-            <!-- Stepper Nav -->
-             <div class="  border-b px-5 py-4 border-t  bg-gray-50">
-               <ul class="relative flex flex-row justify-center gap-x-2 max-w-7xl m-auto ">
+
+          <h3 class="text-center font-manrope font-bold text-3xl leading-10 text-gray-900 mb-1">Fullstack Developer</h3>
+        <p class="font-normal md:font-medium   text-gray-800 text-center max-sm:text-center md:text-base   "><span >Google</span><i class="ri-verified-badge-fill text-blue-500  "></i></p>
+      
+      </div>
+  </section>
+    <div class=" m-auto  max-w-7xl ">
+
+      </div>
+        <div data-hs-stepper="" class=" max-w-7xl m-auto">
+            <!-- Stepper Nav --> 
+        
+               <ul x-show="open"  class="  relative flex text-center flex-row justify-center gap-x-2 bg-slate-50 border-t border-b  py-5 px-5  m-auto ">
                  <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
                    "index": 1
                  }'>
                    <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
-                     <span class="size-7 md:pb-[0.1rem]  flex justify-center items-center shrink-0 bg-white-100 shadow border font-semibold text-blue-600 rounded-full group-focus:bg-white hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-green-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
-                       <span class="hs-stepper-success:hidden md:text-base hs-stepper-completed:hidden  ">1</span>
+                     <span class="size-7  md:p-[1.2rem]  flex justify-center items-center shrink-0 bg-white-100 shadow border font-semibold text-blue-600 rounded-full group-focus:bg-white hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-green-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
+                       <span class="hs-stepper-success:hidden md:text-xl text-sm hs-stepper-completed:hidden  ">1</span>
                        <svg class="hidden shrink-0 size-4 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                          <polyline points="20 6 9 17 4 12"></polyline>
                        </svg>
                      </span>
-                     <span class="ms-2 md:text-sm font-semibold text-gray-800 hs-stepper-success:text-green-600">
+                     <span class="ms-2  md:ms-3 md:text-lg font-semibold text-gray-800 hs-stepper-success:text-green-600">
                       Personal
                      </span>
                    </span>
@@ -278,56 +281,117 @@
                    "index": 2
                  }'>
                    <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
-                     <span class="size-7 md:pb-[0.1rem]  flex justify-center items-center shrink-0 bg-white-100 shadow border font-semibold text-blue-600 rounded-full group-focus:bg-white hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-green-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
-                       <span class="hs-stepper-success:hidden md:text-base hs-stepper-completed:hidden  ">2</span>
+                     <span class="size-7 md:p-[1.2rem]  flex justify-center items-center shrink-0 bg-white-100 shadow border font-semibold text-blue-600 rounded-full group-focus:bg-white hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-green-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
+                       <span class="hs-stepper-success:hidden md:text-xl text-sm hs-stepper-completed:hidden  ">2</span>
                        <svg class="hidden shrink-0 size-4 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                          <polyline points="20 6 9 17 4 12"></polyline>
                        </svg>
                      </span>
-                     <span class="ms-2 md:text-sm font-semibold text-gray-800 hs-stepper-success:text-green-600">
-                      Additional
+                     <span class="ms-2  md:ms-3 md:text-lg font-semibold text-gray-800 hs-stepper-success:text-green-600">
+                     Tambahan
                      </span>
                    </span>
                    <div class="  w-full h-px flex-1 bg-black group-last:hidden hs-stepper-success:bg-green-600 hs-stepper-completed:bg-teal-600"></div>
                  </li>
-                 <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
+                 <li class="  group" data-hs-stepper-nav-item='{
                    "index": 3
                  }'>
                    <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
-                     <span class="size-7 md:pb-[0.1rem]  flex justify-center items-center shrink-0 bg-white-100 shadow border font-semibold text-blue-600 rounded-full group-focus:bg-white hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-green-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
-                       <span class="hs-stepper-success:hidden md:text-base hs-stepper-completed:hidden  ">3</span>
+                     <span class="size-7  md:p-[1.2rem]  flex justify-center items-center shrink-0 bg-white-100 shadow border font-semibold text-blue-600 rounded-full group-focus:bg-white hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-green-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
+                       <span class="hs-stepper-success:hidden md:text-xl text-sm hs-stepper-completed:hidden  ">3</span>
                        <svg class="hidden shrink-0 size-4 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                          <polyline points="20 6 9 17 4 12"></polyline>
                        </svg>
                      </span>
-                     <span class="ms-2 md:text-sm font-semibold text-gray-800 hs-stepper-success:text-green-600">
-                       Review
+                     <span class="ms-2 md:ms-3 md:text-lg font-semibold text-gray-800 hs-stepper-success:text-green-600">
+                      Review
                      </span>
                    </span>
-                
+                   <div class="  w-full h-px flex-1 bg-black group-last:hidden hs-stepper-success:bg-green-600 hs-stepper-completed:bg-teal-600"></div>
                  </li>
+          
              
             
                  <!-- End Item -->
                </ul>
 
-             </div>
+             
             <!-- End Stepper Nav -->
           
             <!-- Stepper Content -->
-            <div class="mt-7 sm:mt-8 px-5 ">
-              <div class="max-w-7xl m-auto">
+            <div class="mt-5   ">
+              <div class="">
 
               
               <!-- First Content -->
               <div data-hs-stepper-content-item='{
                 "index": 1
               }'>
-                <div class=" h-48 bg-white    rounded-xl">
-                  <div class="">
-                    <h1 class="font-semibold text-xl">Personal Information</h1>
-                   <p class="text-gray-400 font-medium text-sm mb-1">Let us get to know you a bit better by sharring tour basic info</p>
-                  <span class="text-red-500 font-semibold">*Required fields</span>
+                <div class=" h-fit py-7 bg-white   border-b-2  ">
+                  <div class="mb-5 px-5">
+                    <h1 class="font-semibold text-xl ">Informasi Pribadi</h1>
+                   <p class="text-gray-500  mb-1">Biarkan kami mengenal Anda lebih baik dengan berbagi informasi dasar </p>
+                  <span class="text-red-500 font-semibold text-sm">*Bidang yang wajib diisi</span>
+                  </div>
+                  <div class="space-y-6">
+                    <div class="space-y-4 pb-10 px-5 border-b-8 border-gray-100 ">
+                      <div class="w-full ">
+                        <label for="input-label-with-helper-text" class="block text-base font-medium mb-2">Nama Lengkap<span class="text-red-500">*</span></label>
+                        <input type="email" id="input-label-with-helper-text" class="py-3 h-14 px-4 block w-full border-gray-300 rounded-md text-sm bg-slate-100 focus:bg-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" placeholder="Nama Lengkap" aria-describedby="hs-input-helper-text">
+                        <p class="mt-2 text-sm text-gray-500" id="hs-input-helper-text">kami sangat menyukai nama asli, jadi orang tahu siapa itu siapa.</p>
+                      </div>
+                      <div class="font-normal">
+                        <div class=""></div>
+                       <!-- Select -->
+                       <div class="w-full space-y-3">
+                        <div>
+                          <label for="hs-inline-leading-select-label" class="block text-sm font-medium mb-2"><h1 class="mb-2 text-base font-medium">Phone Number <span class="text-red-500">*</span></h1></label>
+                          <div class="relative pl-[6rem]">
+                            <input type="text" id="hs-inline-leading-select-label" name="inline-add-on" class="bg-slate-100 h-14 focus:bg-transparent py-3  block w-full ml-auto border-gray-300 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" placeholder="+62 800-000-000">
+                            <div class="absolute inset-y-0 start-0 flex items-center text-gray-500 ps-px border border-gray-300 rounded-xl ">
+                              <label for="hs-inline-leading-select-country" class="sr-only">Country</label>
+                              <select id="hs-inline-leading-select-country" name="hs-inline-leading-select-country" class="block w-full border-transparent rounded-lg focus:ring-blue-600 focus:border-blue-600">
+                                <option>ID</option>
+                                <option>USA</option>
+                                <option>EU</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    
+                    <!-- End Select -->
+                      </div>
+                      <div class="w-full space-y-3">
+                        <div>
+                          <label for="hs-leading-icon" class="block text-sm font-medium mb-2"> <h1 class="mb-2 text-base font-medium">Email<span class="text-red-500">*</span></h1></label>
+                          <div class="relative">
+                            <input type="text" id="hs-leading-icon" name="hs-leading-icon" class="py-3 px-4 ps-11 block w-full h-14 border-gray-300 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none bg-slate-100 focus:bg-transparent" placeholder="you@site.com">
+                            <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4">
+                              <svg class="shrink-0 size-4 text-gray-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="px-5 space-y-4">
+                      <h1 class="font-bold text-xl text-gray-700">Opsional</h1>
+                      <div class="space-y-4 ">
+                       <div class="w-full ">
+                         <label for="input-label-with-helper-text" class="block text-base font-medium mb-2">Portofolio Website</label>
+                         <input type="email" id="input-label-with-helper-text" class="py-3 h-14 px-4 block w-full border-gray-300 rounded-md text-sm bg-slate-100 focus:bg-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" placeholder="you@site.com" aria-describedby="hs-input-helper-text">
+                         <p class="mt-2 text-sm text-gray-500" id="hs-input-helper-text">Halaman Beranda, blog, atau situs perusahaan Anda</p>
+                       </div>
+                       <div class="w-full ">
+                         <label for="input-label-with-helper-text" class="block text-base font-medium mb-2">Personal Website</label>
+                         <input type="email" id="input-label-with-helper-text" class="py-3 h-14 px-4 block w-full border-gray-300 rounded-md text-sm bg-slate-100 focus:bg-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" placeholder="you@site.com" aria-describedby="hs-input-helper-text">
+                         <p class="mt-2 text-sm text-gray-500" id="hs-input-helper-text">Hanya dibagikan kepada calon pemberi kerja</p>
+                       </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -337,10 +401,40 @@
               <div data-hs-stepper-content-item='{
                 "index": 2
               }' style="display: none;">
-                <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl">
-                  <h3 class="text-gray-500">
-                    Second content
-                  </h3>
+                <div class="h-fit py-7 bg-white   border-b-2">
+                  <div class="mb-5 px-5">
+                    <h1 class="font-semibold text-xl">Informasi Tambahan</h1>
+                   <p class="text-gray-500 md:text-base text-sm  mb-1">untuk mencocokkan Anda dengan peluang yang tepat, kami memerlukan beberapa informasi tambahan terlebih dahulu</p>
+                  <span class="text-red-500 font-semibold text-xs md:text-sm">*Wajib Diisi</span>
+                  </div>
+                  <div class="  w-full space-y-7">
+                    <!-- Floating Textarea -->
+                     <div class="space-y-1 mb-1 border-b-8 px-5  border-gray-100  pb-10">
+                       <h1 class="font-medium md:text-base text-sm">Kalimat Pengantar<span class="text-red-600">*</span></h1>
+                       <div class="w-full space-y-3">
+                        <textarea class="py-3 px-4 block w-full border-gray-300 bg-slate-100 focus:bg-transparent rounded-md min-h-32 text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none" rows="3" placeholder="Deskripsikan dirimu disini"></textarea>
+                      </div>
+
+                     </div>
+                    
+                    <!-- End Floating Textarea -->
+                  <div class="mb-2 px-5">
+                     <h1 class="font-medium text-xl mb-4">Resume</h1>
+                        <div class="relative cursor-pointer group">
+                          <input type="file" class="absolute w-full cursor-pointer h-full opacity-0 " >
+                          <div class="flex items-center space-x-3">
+                            <div class="bg-black group-hover:bg-blue-700 transition ease-in duration-100 group-hover:shadow-lg  p-3 rounded-full w-fit"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 5V19M19 12H5" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" class="my-path"></path>
+                              </svg></div>
+<div class="block">
+  <h1 class="text-gray-800 font-medium md:text-lg">Tambahkan File</h1>
+  <p class="text-slate-500 text-xs font-medium">Maximal Ukuran File <span class="text-gray-800" >12MB</span>(.pdf,.doc,.docx)</p>
+</div>
+                          </div>
+                        </div>
+                  </div>
+
+                  </div>
                 </div>
               </div>
               <!-- End First Content -->
@@ -349,10 +443,99 @@
               <div data-hs-stepper-content-item='{
                 "index": 3
               }' style="display: none;">
-                <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl">
-                  <h3 class="text-gray-500">
-                    Third content
-                  </h3>
+                <div class="h-fit py-7 bg-white   border-b-2">
+                  <div class="mb-5 px-5">
+                    <h1 class="font-semibold text-xl">Tinjau Lamaran Anda</h1>
+                   <p class="text-gray-500 md:text-base text-sm  mb-1">Apakah informasi anda sudah benar?</p>
+             
+                  </div>
+
+                  <div class="space-y-5">
+                    <div class="">
+                      <div class="flex  px-5 bg-slate-50  justify-between items-center  py-3 mb-4 ">
+                        <h1 class="font-bold text-gray-700   text-lg">Personal Information</h1>
+                      <button class="flex rounded-full text-sm transition ease-in duration-100  hover:bg-teal-600 text-white bg-black px-4 py-2 items-center gap-x-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.2995 4.42255L6.34327 13.4872C6.11694 13.7162 6.00377 13.8308 5.9332 13.9717C5.86262 14.1127 5.83924 14.271 5.79248 14.5875L5.55022 16.2271C5.36753 17.4635 5.27619 18.0817 5.64364 18.435C6.01109 18.7883 6.63525 18.6823 7.88356 18.4704L9.53897 18.1894C9.85851 18.1352 10.0183 18.1081 10.1593 18.0349C10.3004 17.9617 10.4136 17.8471 10.6399 17.618L19.5962 8.55344C20.2588 7.88278 20.5901 7.54745 20.5848 7.13611C20.5796 6.72476 20.2397 6.39805 19.5601 5.74462L18.147 4.38599C17.4673 3.73256 17.1275 3.40584 16.7105 3.4112C16.2935 3.41655 15.9622 3.75188 15.2995 4.42255Z" stroke="#ffffff" stroke-width="1.8" class="my-path"></path>
+                        <path d="M18 10L14 6" stroke="#ffffff" stroke-width="1.8" class="my-path"></path>
+                        </svg><span>Edit</span></button>
+                      </div>
+                      <ul class="space-y-4 px-5">
+                        <li class="border-b-2 pb-8">
+                          <ul class="space-y-4">
+                            <li class="">
+                              <label for="name"><h1 class="font-medium text-gray-400">Nama Lengkap</h1></label>
+                               <input type="text" value="Liam Nelson" id="name" readonly class="w-full p-0 font-medium text-base border-none rounded-md py-1 focus:right-0 ">
+                            </li>
+                            <li class="">
+                              <label for="phone-Number"><h1 class="font-medium text-gray-400">Nomor Hp</h1></label>
+                               <input type="text" value="+62-899-906-993-3" id="phone-Number" readonly class="w-full p-0 font-medium text-base border-none rounded-md py-1  focus:right-0  ">
+                            </li>
+                            <li class="">
+                              <label for="Email"><h1 class="font-medium text-gray-400">Email</h1></label>
+                               <input type="text" value="yusuf@gmail.com" id="email" readonly class="w-full p-0 font-medium text-base border-none rounded-md py-1  focus:right-0 ">
+                            </li>
+                          </ul>
+                        </li>
+                        <li class="">
+                          <ul class="space-y-4">
+                            <li class="">
+                              <label for="personalWeb"><h1 class="font-medium text-gray-400">Website Pribadi</h1></label>
+                               <input type="text" value="" placeholder="Kosong" id="personalWeb" readonly class="w-full placeholder:text-gray-400 p-0 font-medium text-base border-none rounded-md py-1 focus:right-0  ">
+                            </li>
+                            <li class="">
+                              <label for="Portofolio-Web"><h1 class="font-medium text-gray-400">Website Portofolio</h1></label>
+                               <input type="text" value="" placeholder="Kosong" id="Portofolio-Web" readonly class="w-full placeholder:text-gray-400 p-0 font-medium text-base border-none rounded-md py-1  focus:right-0 ">
+                            </li>
+                  
+                          </ul>
+                        </li>
+                       
+  
+                      </ul>
+                    </div>
+                    <div class="">
+                      <div class="flex px-5 bg-slate-50  justify-between items-center  py-3 mb-4 ">
+                        <h1 class="font-bold text-gray-700  text-base  md:text-lg">Informasi Tambahan</h1>
+                      <button class="flex rounded-full text-xs md:text-sm transition ease-in duration-100  hover:bg-teal-600 text-white bg-black px-3 md:px-4 py-2 items-center gap-2 md:gap-x-3"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.2995 4.42255L6.34327 13.4872C6.11694 13.7162 6.00377 13.8308 5.9332 13.9717C5.86262 14.1127 5.83924 14.271 5.79248 14.5875L5.55022 16.2271C5.36753 17.4635 5.27619 18.0817 5.64364 18.435C6.01109 18.7883 6.63525 18.6823 7.88356 18.4704L9.53897 18.1894C9.85851 18.1352 10.0183 18.1081 10.1593 18.0349C10.3004 17.9617 10.4136 17.8471 10.6399 17.618L19.5962 8.55344C20.2588 7.88278 20.5901 7.54745 20.5848 7.13611C20.5796 6.72476 20.2397 6.39805 19.5601 5.74462L18.147 4.38599C17.4673 3.73256 17.1275 3.40584 16.7105 3.4112C16.2935 3.41655 15.9622 3.75188 15.2995 4.42255Z" stroke="#ffffff" stroke-width="1.8" class="my-path"></path>
+                        <path d="M18 10L14 6" stroke="#ffffff" stroke-width="1.8" class="my-path"></path>
+                        </svg><span>Edit</span></button>
+                      </div>
+                      <ul class=" px-5" x-data="{deskrpsion:'Dear Google, I am excited to apply for the Fullstack developer role at Google. With 8+ years of experience in web design and a passion for creating outstanding user experiences, I believe I can contribute significantly to your team. Please find my resume attached. Thank you for considering my application. Sincerely, Rick Grimes.'}">
+                        
+                            <li class="space-y-3">
+                              <label for="name"><h1 class=" text-gray-400 font-medium">Surat Pengantar</h1></label>
+                        <textarea name=""  id="" readonly class="max-w-full w-full border-none rounded-lg p-0  min-h-36 text-sm font-medium md:text-base text-gray-700" x-text="deskrpsion"></textarea>
+                            </li>
+                            <li class="space-y-3">
+                              <label for="Resume"><h1 class=" text-gray-400 font-medium">Resume</h1></label>
+                              <div class="relative cursor-pointer group">
+                                <input disabled type="file" id="Resume" class="absolute w-full cursor-pointer h-full opacity-0 " >
+                                <div class="flex items-center space-x-3">
+                                  <div class="bg-teal-100 bg-opacity-80  transition ease-in duration-100 group-hover:shadow-lg  p-3 rounded-full w-fit">
+                                 <svg width="25" height="25" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 21H14C16.8284 21 18.2426 21 19.1213 20.1213C20 19.2426 20 17.8284 20 15V9.0208C20 8.26895 20 7.89303 19.8694 7.54964C19.7389 7.20625 19.4891 6.92528 18.9896 6.36334L17.1934 4.34254C16.6058 3.68154 16.312 3.35104 15.9212 3.17552C15.5303 3 15.0881 3 14.2037 3H10C7.17157 3 5.75736 3 4.87868 3.87868C4 4.75736 4 6.17157 4 9V15C4 17.8284 4 19.2426 4.87868 20.1213C5.75736 21 7.17157 21 10 21Z" stroke="#009987" stroke-width="1.8" class="my-path"></path>
+<path d="M14.5 3V6C14.5 6.46466 14.5 6.69698 14.5384 6.89018C14.6962 7.68356 15.3164 8.30376 16.1098 8.46157C16.303 8.5 16.5353 8.5 17 8.5H20" stroke="#009987" stroke-width="1.8" class="my-path"></path>
+<path d="M7 13H15" stroke="#009987" stroke-width="1.8" stroke-linecap="round" class="my-path"></path>
+<path d="M7 16H12" stroke="#009987" stroke-width="1.8" stroke-linecap="round" class="my-path"></path>
+</svg>
+                                  </div>
+      <div class="block">
+        <h1 class="text-gray-800 font-medium md:text-lg">Yusuf-Resume.doc</h1>
+        <p class="text-slate-500 text-xs font-medium">12MB</p>
+      </div>
+                                </div>
+                              </div>
+                            </li>
+                        
+                          </ul>
+                        
+               
+                       
+  
+                    
+                    </div>
+                  </div>
                 </div>
               </div>
               <!-- End First Content -->
@@ -361,34 +544,56 @@
               <div data-hs-stepper-content-item='{
                 "isFinal": true
               }' style="display: none;">
-                <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl">
-                  <h3 class="text-gray-500">
-                    Final content
-                  </h3>
+                <div class="p-4 h-60  flex justify-center items-center   rounded-xl">
+                  <div class="block text-center space-y-3">
+                    <svg class="bg-teal-400 rounded-full p-1 m-auto" width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4 12.4434L8.14339 16.5868C8.81006 17.2535 9.14339 17.5868 9.5576 17.5868C9.97182 17.5868 10.3051 17.2535 10.9718 16.5868L20.001 7.55762" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" class="my-path"></path>
+                      </svg>  
+                      <div class="">
+
+                        <h1 class="text-xl  font-semibold">Lamaran anda telah terkirim</h1>
+                              <p class=" text-gray-700 font-medium">Tunggu hingga kabar wawancara</p>
+
+                       <div class="mt-4">
+                        <button type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-teal-600 text-white hover:bg-teal-700 focus:outline-none focus:bg-teal-700 disabled:opacity-50 disabled:pointer-events-none">
+                          Status Pekerjaan
+                     
+                        </button>
+                        <button  x-on:click="window.location.href='jobPage.html'" type="button" class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                          Pekerjaan Lain
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
+                       </div>
+                      </div>
+                      
+                            </div>
                 </div>
               </div>
               <!-- End Final Content -->
           
               <!-- Button Group -->
-              <div class="mt-5 flex justify-between items-center gap-x-2">
+              <div class="mt-5 flex justify-between items-center gap-x-2 px-5">
                 <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-back-btn="">
                   <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m15 18-6-6 6-6"></path>
                   </svg>
-                  Back
+                  Kembali
                 </button>
-                <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-next-btn="">
-                  Next
+                <button  type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-next-btn="">
+                  Selanjutnya
                   <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m9 18 6-6-6-6"></path>
                   </svg>
                 </button>
-                <button id="hs-new-toast" type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-finish-btn="" style="display: none;">
-                  Finish
+                <button x-on:click="open = false"  id="hs-new-toast" type="button" class="py-2 hs-run-on-click-run-confetti px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-finish-btn="" style="display: none;">
+                  Kirim
                 </button>
-                <button type="reset" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-reset-btn="" style="display: none;">
+                <!-- <button type="reset" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-reset-btn="" style="display: none;">
                   Reset
-                </button>
+                </button> -->
               </div>
               <!-- End Button Group -->
             </div>
@@ -404,7 +609,22 @@
 <!-- End Stepper -->
 
 <script src="../node_modules/preline/preline.js"></script>
+<script src="../node_modules/canvas-confetti/dist/confetti.browser.js"></script>
 <script>
+
+(function() {
+  const runConfetti = document.querySelector('.hs-run-on-click-run-confetti');
+  runConfetti.addEventListener('click', () => {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: {
+        y: 0.6
+      }
+    });
+  });
+})();
+
     (function () {
 
 
@@ -467,7 +687,7 @@
          <div class="flex p-4">
   <div class="flex items-center space-x-3"><svg class="bg-green-500 rounded-full p-1" width="23px" height="23px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M4 12.4434L8.14339 16.5868C8.81006 17.2535 9.14339 17.5868 9.5576 17.5868C9.97182 17.5868 10.3051 17.2535 10.9718 16.5868L20.001 7.55762" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round" class="my-path"></path>
-    </svg>  <p class="text-sm text-gray-700">Your application has been sent</p></div>
+    </svg>  <p class="text-sm text-gray-700">Lamaran Terkirim</p></div>
           
             <div class="ms-auto">
               <button onclick="tostifyCustomClose(this)" type="button" class="inline-flex shrink-0 justify-center items-center size-5 rounded-lg text-gray-800 opacity-50 hover:opacity-100 focus:outline-none focus:opacity-100" aria-label="Close">
@@ -492,5 +712,7 @@
       })();
     });
   </script>
+ 
+
 </body>
 </html>
