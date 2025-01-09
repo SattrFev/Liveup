@@ -107,7 +107,7 @@
       </div>
       
 
-    <header class="md:border   w-full  bg-white    z-40 relative top-0  " x-data="{open:false}" >
+    <header class="md:border   w-full  bg-white    z-40 relative top-0  " ="{open:false}" >
         <nav class=" px-5  lg:mb-0 items-center lg:border-b lg:pb-4 lg:py-3 my-4 lg:my-0 ">
             <div class="flex items-center justify-between max-w-7xl m-auto">
 
@@ -231,20 +231,25 @@
 
 
 
-      <section class="px-5" >
+      <section class="px-5" x-data="lowongan"
+      x-init="
+        id = new URLSearchParams(window.location.search).get('id');
+        currentLowongan = jobs.find(job => job.id == id);
+      "> 
+      <template x-if="currentLowongan">
         <div class="max-w-7xl pt-3 relative    md:pt-3 pb-24  m-auto">
           <div class="relative pt-36 md:pt-40 pb-10 md:pb-4">
             <img src="https://pagedone.io/asset/uploads/1705473908.png" alt="cover-image" class="w-full absolute top-0 left-0 z-0 h-48 md:h-52 object-cover rounded-xl">
             <div class="w-full max-w-7xl mx-auto px-6 md:px-9">
                 <div class="  flex items-center justify-center sm:justify-start relative z-10 mb-2 md:mb-2">
-                    <img src="https://i.pinimg.com/736x/32/af/d2/32afd2431d845f90668bcea60379b7a9.jpg" alt="user-avatar-image"
-                        class="border-8 md:border-4 border-white rounded-full object-cover md:w-20 w-24">
+                    <img :src="currentLowongan.img" alt="user-avatar-image"
+                        class="border rounded-full object-cover md:w-20 w-24 shadow-md">
                 </div>
                 <div class="flex items-center md:items-end justify-center flex-col sm:flex-row max-sm:gap-5 sm:justify-between mb-8">
                     <div class="block">
-                        <h3 class="font-manrope font-bold text-3xl  text-gray-900 mb-1  max-sm:text-center ">Fullstack Developer</h3>
-                        <p class="font-normal  space-x-1 md:font-medium md:mb-2 leading-7  text-gray-800  max-sm:text-center md:text-base   "><span >Google</span><i class="ri-verified-badge-fill text-blue-500  "></i></p>
-                        <p class="font-normal md:text-xs leading-7 text-gray-500  max-sm:text-center">Mountain View • USA • Full Time</p>
+                        <h3 class="font-manrope font-bold text-3xl  text-gray-900 mb-1  max-sm:text-center " x-text="currentLowongan.title"></h3>
+                        <p class="font-normal  space-x-1 md:font-medium md:mb-2 leading-7  text-gray-800  max-sm:text-center md:text-base   "><span  x-text="currentLowongan.name">Google</span><i class="ri-verified-badge-fill text-blue-500  "></i></p>
+                        <p class="font-normal md:text-xs leading-7 text-gray-500  max-sm:text-center"><span  x-text="currentLowongan.locasion">Mountain View</span> • <span x-text="currentLowongan.location"></span> • <span x-text="currentLowongan.jobType"></span></p>
                     </div>
                     <div class="flex gap-x-4 md:gap-x-8">
 
@@ -254,15 +259,15 @@
                           <span class="px-2 font-semibold  text-sm md:text-base leading-7 text-black ">Simpan</span>
                       </button>
                       
-                      <a href="apply.html">
+                    
 
                         <button
-                          
+                        x-on:click="window.location.href=`apply.html?id=${currentLowongan.id}`"
                             class=" py-2 px-8 flex rounded-full bg-teal-600 items-center shadow-sm shadow-transparent transition-all duration-500 hover:bg-indigo-700">
                        
                             <span class="px-2 font-semibold text-sm md:text-base leading-7 text-white "  >Lamar</span>
                         </button>
-                      </a>
+                   
                     </div>
                 </div>
                 <!-- <div class="flex max-sm:flex-wrap max-sm:justify-center items-center gap-4">
@@ -280,7 +285,7 @@
                 <h1 class="font-bold text-lg text-gray-800">Ringkasan</h1>
                 <div class="text-gray-700 md:text-black block space-y-4 ">
       
-                  <p x-on:click="open = !open" x-transition.origin.top.right.duration.100ms  class="cursor-pointer  text-sm    " x-bind:class="open ? 'line-clamp-3'  : ''">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate deleniti totam ducimus labore vitae, facilis iure et esse animi nemo, rem aliquam. Qui facilis id sequi veritatis. Voluptatem, tenetur velit. <span class="block md:inline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo excepturi facilis amet nisi ullam iste expedita nulla, eum ad magnam inventore placeat saepe cupiditate quisquam illum animi doloremque temporibus. Impedit!</span> </p>
+                  <p x-transition.origin.top.right.duration.100ms  class="cursor-pointer  text-sm    "  x-text="currentLowongan.desk"></span> </p>
                 
                 </div>
               </div>
@@ -288,36 +293,14 @@
                 <h1 class="  font-bold base text-gray-900 text-lg">Tanggung jawab</h1>
    
       
-                  <ul class="text-gray-700 text-sm  lg:space-y-2 space-y-3 pl-5 marker:text-sm marker:text-gray-600 md:text-black   block    list-disc   cursor-pointer" x-data="{ open : false} " x-on:click="open = !open"  >
-                    <li class="  before:font-bold before:text-gray-900">
-                      Merancang, membangun, dan menyempurnakan model pembelajaran mesin.
-                    </li>
-                    <li class="  before:font-bold before:text-gray-900">
-                      Menganalisis dataset yang kompleks untuk mendapatkan wawasan yang berguna.
-                    </li>
-                    <li class="  before:font-bold before:text-gray-900">
-                      Mengembangkan algoritma yang inovatif untuk menyelesaikan masalah yang unik.
-                    </li>
-                    <li class="  before:font-bold before:text-gray-900">
-                      Berkoordinasi dengan tim teknik untuk mengintegrasikan model ke dalam produk.
-                    </li>
-                    <div class="lg:space-y-2 " x-show="open" x-collapse>
-                      <li class="  before:font-bold before:text-gray-900">
-                        Menyelidiki dan menerapkan teknik pembelajaran mendalam terbaru.
+                  <ul class="text-gray-700 text-sm  lg:space-y-2 space-y-3 pl-5 marker:text-sm marker:text-gray-600 md:text-black   block    list-disc   cursor-pointer"   >
+                    <template x-for="respon in currentLowongan.responsibility">
+
+                      <li class="  before:font-bold before:text-gray-900" x-text="respon">
+                        
                       </li>
-                      <li class=" before:font-bold before:text-gray-900">
-                        Mengoptimalkan model untuk kinerja tinggi pada skala produksi.
-                      </li>
-                      <li class=" before:font-bold before:text-gray-900">
-                        Menulis dokumentasi teknis yang terperinci untuk solusi yang dikembangkan.
-                      </li>
-                      <li class="before:font-bold before:text-gray-900">
-                        Memastikan keamanan data selama proses pelatihan model.
-                      </li>
-                      <li class="before:font-bold before:text-gray-900">
-                        Bekerja dengan tim lintas fungsi untuk mendukung kebutuhan pembelajaran mesin.
-                      </li>
-                    </div>
+                    </template>
+              
                   </ul>
                   
                
@@ -327,35 +310,13 @@
    
       
                   <ul class="text-gray-700 text-sm  lg:space-y-2 space-y-3 pl-5 marker:text-sm marker:text-gray-600 md:text-black   block    list-disc   cursor-pointer" x-data="{ open : false} " x-on:click="open = !open"  >
-                    <li class="  before:font-bold before:text-gray-900">
-                      Merancang, membangun, dan menyempurnakan model pembelajaran mesin.
-                    </li>
-                    <li class="  before:font-bold before:text-gray-900">
-                      Menganalisis dataset yang kompleks untuk mendapatkan wawasan yang berguna.
-                    </li>
-                    <li class="  before:font-bold before:text-gray-900">
-                      Mengembangkan algoritma yang inovatif untuk menyelesaikan masalah yang unik.
-                    </li>
-                    <li class="  before:font-bold before:text-gray-900">
-                      Berkoordinasi dengan tim teknik untuk mengintegrasikan model ke dalam produk.
-                    </li>
-                    <div class="lg:space-y-2 " x-show="open" x-collapse>
-                      <li class="  before:font-bold before:text-gray-900">
-                        Menyelidiki dan menerapkan teknik pembelajaran mendalam terbaru.
+                    <template x-for="kual in currentLowongan.qualification">
+                      <li x-text="kual" class="  before:font-bold before:text-gray-900">
+                        
                       </li>
-                      <li class=" before:font-bold before:text-gray-900">
-                        Mengoptimalkan model untuk kinerja tinggi pada skala produksi.
-                      </li>
-                      <li class=" before:font-bold before:text-gray-900">
-                        Menulis dokumentasi teknis yang terperinci untuk solusi yang dikembangkan.
-                      </li>
-                      <li class="before:font-bold before:text-gray-900">
-                        Memastikan keamanan data selama proses pelatihan model.
-                      </li>
-                      <li class="before:font-bold before:text-gray-900">
-                        Bekerja dengan tim lintas fungsi untuk mendukung kebutuhan pembelajaran mesin.
-                      </li>
-                    </div>
+
+                    </template>
+                   
                   </ul>
                   
                
@@ -363,9 +324,11 @@
               <div class=" space-y-2  ">
                 <h1 class="  font-bold base text-gray-900 text-lg">Keterampilan</h1>
    <div class="space-x-1">
-    <span class="inline-flex items-center gap-x-1.5  py-1.5 px-5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600">Tailwind</span>
-    <span class="inline-flex items-center gap-x-1.5  py-1.5 px-5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600">React Js</span>
-    <span class="inline-flex items-center gap-x-1.5  py-1.5 px-5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600">Java</span>
+    <template x-for="skil in currentLowongan.skills ">
+      <span class="inline-flex items-center gap-x-1.5  py-1.5 px-5 rounded-lg text-xs font-medium bg-slate-100 text-slate-600" x-text="skil"></span>
+
+    </template>
+
   
    </div>
       
@@ -379,7 +342,7 @@
   
     <div class=" space-y-8 relative ">
       <div class="space-y-1">
-       <h1 class="font-bold text-xl">$174,900</h1> 
+       <h1 class="font-bold text-xl" x-text="currentLowongan.avgSalary"></h1> 
        <span class="block font-medium text-sm text-gray-800">Avg. salary</span>
       </div>
     
@@ -396,8 +359,8 @@
       </div>
   
       <div class="grow  pb-7">
-        <h3 class=" font-semibold text-black">
-          Mountain View
+        <h3 class=" font-semibold text-black" x-text="currentLowongan.locasion">
+          
         </h3>
         <button type="button" class="  text-xs   text-gray-500  ">
          Location
@@ -416,9 +379,9 @@
       </div>
   
       <div class="grow  pb-7">
-        <h3 class=" font-semibold text-black">
+        <h3 class=" font-semibold text-black" x-text="currentLowongan.jobType">
          
-  Full-Time
+
         </h3>
         <button type="button" class="  text-xs   text-gray-500  ">
          Job Type
@@ -437,7 +400,7 @@
       </div>
   
       <div class="grow  pb-7">
-        <h3 class=" font-semibold text-black">
+        <h3 class=" font-semibold text-black" x-text="currentLowongan.tags2[currentLowongan.tags2.length - 1]">
           Engineering
         </h3>
         <button type="button" class="  text-xs   text-gray-500  ">
@@ -485,15 +448,15 @@
                 <div class="">
                   <div class="flex items-center gap-x-4 mb-4">
                 
-                    <img src="https://i.pinimg.com/736x/32/af/d2/32afd2431d845f90668bcea60379b7a9.jpg" alt="user-avatar-image"
+                    <img :src="currentLowongan.img" alt="user-avatar-image"
                     class="border-8 md:border-4 border-gray-50 shadow  rounded-full object-cover   w-14">
                   <div class="">
-                    <h1 class="font-semibold  text-xl">Google</h1>
+                    <h1 class="font-semibold  text-xl" x-text="currentLowongan.name"></h1>
                     <span class="block text-sm text-gray-500">13.231.233 Followers</span>
                   </div>
                   </div>
                   <div class="mb-4" x-data="{open : true}">
-                    <p x-on:click="open = !open"   class="cursor-pointer  text-sm    " x-bind:class="open ? 'line-clamp-3'  : ''">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate deleniti totam ducimus labore vitae, facilis iure et esse animi nemo, rem aliquam. Qui facilis id sequi veritatis. Voluptatem, tenetur velit.Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo excepturi facilis amet nisi ullam iste expedita nulla, eum ad magnam inventore placeat saepe cupiditate quisquam illum animi doloremque temporibus. Impedit!</p>
+                    <p x-on:click="open = !open"   class="cursor-pointer  text-sm    " x-bind:class="open ? 'line-clamp-3'  : ''" x-text="currentLowongan.companyDescription"></p>
                   </div>
             
                 </div>
@@ -504,10 +467,10 @@
             
                     <div class="flex items-center gap-x-2 mb-3">
                   
-                      <img src="https://i.pinimg.com/736x/32/af/d2/32afd2431d845f90668bcea60379b7a9.jpg" alt="user-avatar-image"
+                      <img :src="currentLowongan.img"  alt="user-avatar-image"
                       class="  rounded-full border-4 border-white  md:w-10 w-8">
                
-                      <h1 class="font-semibold lg:text-sm  text-xs">Google .Inc</h1>
+                      <h1 class="font-semibold lg:text-sm  text-xs"><span x-text="currentLowongan.name"></span>.Inc</h1>
                    
                     </div>
                     <i class="ri-more-2-fill text-sm cursor-pointer"></i>
@@ -577,9 +540,9 @@
                   <div class=" relative  ">
               
                   
-                <ul class="relative block space-y-7 lg:space-y-8 mb-6" x-data="lowongan">
+                <ul class="relative block space-y-7 lg:space-y-8 mb-6" >
                   <template x-for="(job, index) in jobs.slice(0,4)" x-key="index" >
-                    <li class="flex group justify-between cursor-pointer items-center">
+                    <li class="flex group justify-between cursor-pointer items-center" x-on:click="window.location.href=`detail.html?id=${job.id}`">
      
                       <div class="flex items-center space-x-3">
                        <img :src="`${job.img}`" alt="user-avatar-image"
@@ -629,7 +592,7 @@
                 </ul>
               </div>
               
-              <button class="w-full bg-transparent text-black border hover:border-gray-500 border-gray-300 rounded-full transition ease-in duration-100 hover:shadow-md hover:bg-gray-50 py-2 font-medium" >Lihat Semua</button>
+              <button class="w-full bg-transparent text-black border hover:border-gray-500 border-gray-300 rounded-full transition ease-in duration-100 hover:shadow-md hover:bg-gray-50 py-2 font-medium" x-on:click="window.location.href='jobPage.html'" >Lihat Semua</button>
                   <!-- <button class="w-full bg-gray-500 text-white rounded-full transition ease-in duration-100 hover:shadow-xl hover:bg-black py-2 font-medium" >View More</button> -->
                 </div>
                 <div class="space-y-5 w-full     p-8  border rounded-xl">
@@ -710,11 +673,178 @@
 </div>
         </div>
 
+      </template>
+
         </div>
     </section>
 
 
-                                            
+    <footer
+    class="text-white font-poppins lg:h-[30rem] h-[26rem] w-full flex flex-col justify-center items-center bg-[#010505] mt-[8rem]"
+  >
+    <div
+      class="w-[80vw] bg flex flex-col h-[90%] lg:flex-row justify-between"
+    >
+      <div
+        class="py-[3rem] h-full w-full lg:w-[28%] flex flex-col justify-between"
+      >
+        <h1
+          class="text-[1.5rem] lg:text-[2.5rem] font-[500] font-poppins text-teal-700"
+        >
+          Liveup
+        </h1>
+        <p
+          class="text-[1rem] font-poppins font-light lg:w-[80%] w-full text-[#ffffffea]"
+        >
+          Jl. Poras No.07, RT.01/RW.04, Loji, Kec. Bogor Bar., Kota Bogor,
+          Jawa Barat 16117
+        </p>
+        <div class="h-[5rem] flex flex-col gap-[1rem]">
+          <div class="flex items-center justify-center gap-3 w-fit">
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg
+              class="size-7"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            0823229911872
+          </div>
+          <div class="flex items-center justify-center gap-3 w-fit">
+            <svg
+              class="size-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"
+                stroke="#ffffff"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            hello@liveup.id
+          </div>
+        </div>
+        <div class="w-[10rem] flex justify-between">
+          <div
+            class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+          >
+            <svg
+              class="size-6"
+              viewBox="0 -0.5 25 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
+                stroke="#ffffff"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
+                stroke="#ffffff"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div
+            class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+          >
+            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg
+              class="size-5"
+              viewBox="0 0 20 20"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <defs></defs>
+              <g
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="Dribbble-Light-Preview"
+                  transform="translate(-340.000000, -7439.000000)"
+                  fill="#ffffff"
+                >
+                  <g id="icons" transform="translate(56.000000, 160.000000)">
+                    <path
+                      d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792"
+                      id="instagram-[#167]"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div
+            class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+          >
+            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+            <svg
+              fill="#ffffff"
+              class="size-6"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        class="py-[3rem] text-right h-full w-full lg:w-[20%]  flex-col gap-[2rem] lg:block hidden"
+      >
+        <p class="w-full">Resources</p>
+        <ul class="w-full space-y-3">
+          <li>Bantuan</li>
+          <li>Riview Liveup</li>
+          <li>Blog</li>
+          <li>Tentang Kami</li>
+          <li>Konsulatasi</li>
+          <li>Daftar Perusahaan</li>
+          <li>Loker Liveup</li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-white"
+    >
+      Copyrights Â© 2025, SMK Informatika Pesat. All rights Reserved
+    </div>
+  </footer>                               
 
     <script src="../node_modules/preline/preline.js"></script>
   
