@@ -19,6 +19,7 @@ module.exports = {
       backgroundPosition: {
         'center-top': 'center 50%', // Horizontal tengah, vertikal 30%
       },
+      
     },
 
   },

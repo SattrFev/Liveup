@@ -146,144 +146,519 @@
 
 
 
-    <header class="w-full  bg-white border-b-2   z-40 relative top-0  " x-data="{open:false}" >
-        <nav class=" px-5  lg:mb-0 items-center lg:border-b lg:pb-4 lg:py-3 my-4 lg:my-0 ">
-            <div class="flex items-center justify-between max-w-7xl m-auto">
+    <!-- Login Handler -->
+    <script>
+      function login() {
+        const em = document.getElementById("emailx").checkValidity();
+        const pw = document.getElementById("passwordx").value.length;
 
-<div class="flex  items-center gap-x-3">
+        if (em && pw > 0) {
+          document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
+          console.log("Logged in successfully");
+          location.reload();
+        }
+      }
+      function loginthird() {
+        document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
+        console.log("Logged in successfully");
+        location.reload();
+      }
+      function logout() {
+        document.cookie = "login=; path=/; max-age=0"; // Hapus cookie
+        console.log("Logged out successfully");
+        location.reload();
+      }
+      function isLogin() {
+        let cookies = document.cookie.split(";");
+        for (let cookie of cookies) {
+          let [key, value] = cookie.trim().split("=");
+          if (key === "login") {
+            return value === "true";
+          }
+        }
+        return false;
+      }
+    </script>
+    <!-- Login Handler End -->
+
+    <header
     
-     
-    <div class="flex items-center space-x-3 relative"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-10 ">
-        <h1 class=" text-2xl  font-semibold text-teal-700 ">Liveup</h1></div>
+      id="header"
+      class="w-full bg-white  z-40 relative top-0"
+      x-data="{ open: false, loginpop: false, register: false, logged: false, loginprop: false }"
+      x-init="logged = isLogin()"
+    >
+      <div
+      x-transition.opacity.duration.500ms
+      
+        x-show="loginpop"
+        class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
+      >
+        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+          <div class="relative bg-white rounded-lg shadow">
+            <button
+              type="button"
+              @click="loginpop = false"
+              class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="#c6c7c7"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  cliprule="evenodd"
+                ></path>
+              </svg>
+              <span class="sr-only">Close popup</span>
+            </button>
 
+            <div class="p-5">
+              <h3 class="text-2xl mb-0.5 font-medium"></h3>
+              <p class="mb-4 text-sm font-normal text-gray-800"></p>
 
-<div class="flex relative items-center lg:hidden ">
-    <button x-on:click="open = !open" id="hamburger" name="hamburger" type="button" class="block border p-1 rounded-lg  ">
-        <i class="ri-more-2-fill"></i>
-<!-- <span class="hamburger-line origin-top-left transition duration-300 ease-in-out "></span>
-<span class="w-[20px]  h-[2px] my-2 block bg-black transition duration-300 ease-in-out"></span>
-<span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span> -->
-    </button>
- </div>
-</div>
-   
+              <div class="text-center">
+                <p
+                  x-show="!register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Login ke Liveup
+                </p>
+                <p
+                  x-show="register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Daftar ke Liveup
+                </p>
+                <p
+                  x-show="!register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  login untuk dapat melakukan beberapa hal
+                </p>
+                <p
+                  x-show="register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  Daftar untuk dapat melakukan beberapa hal
+                </p>
+              </div>
 
+              <div class="mt-7 flex flex-col gap-2">
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with Google
+                </button>
 
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448234/linkedin.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with LinkedIn
+                </button>
+              </div>
 
-<div class="flex items-center  lg:gap-x-44 ">
-    <button type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger" data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"  class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full   cursor-pointer text-gray-400">
-        <div class="lg:flex lg:items-center lg:gap-x-3">
-            <i class="ri-search-line text-lg  lg:text-base      rounded-full  cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"></i>
-     <span class="hidden lg:inline">Pencarian Cepat</span>
-        </div>
-    <span class=" font-medium hidden lg:inline"><i class="ri-command-line"></i> + /</span>
-    </button>
-<div class=" flex items-center ">
+              <div
+                class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
+              >
+                <div class="h-px w-full bg-slate-200"></div>
+                ATAU
+                <div class="h-px w-full bg-slate-200"></div>
+              </div>
 
-    <div class="lg:flex  rounded-xl items-center group   ">
-               
+              <form @submit.prevent="login(); loginpop = false" class="w-full">
+                <label x-show="register" for="username" class="sr-only"
+                  >Nama</label
+                >
+                <input
+                  name="username"
+                  type="text"
+                  id="usernamex"
+                  autocomplete="Username"
+                  required=""
+                  class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Username"
+                  value=""
+                />
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  name="email"
+                  x-show="register"
+                  type="email"
+                  id="emailx"
+                  autocomplete="email"
+                  required=""
+                  class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Email"
+                  value=""
+                />
+                <label for="password" class="sr-only">Password</label>
+                <input
+                  id="passwordx"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required=""
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Password"
+                  value=""
+                />
+                <label x-show="register" for="repeat-password" class="sr-only"
+                  >Repeat Password</label
+                >
+                <input
+                  x-show="register"
+                  id="repeat-passwordx"
+                  name="repeat-password"
+                  type="password"
+                  required=""
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Repeat Password"
+                  value=""
+                />
+                <p class="mb-3 mt-2 text-sm text-gray-500">
+                  <a
+                    class="text-blue-800 hover:text-blue-600"
+                    x-show="!register"
+                    >Lupa password?</a
+                  >
+                </p>
+                <button
+                  type="submit"
+                  class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
+                >
+                  <p x-show="!register">Login</p>
+                  <p x-show="register">Daftar</p>
+                </button>
+              </form>
 
-        <i class="ri-global-line text-gray-400 lg:px-2 lg:py-1 transition ease-in duration-100 group-hover:text-black lg:inline text-lg cursor-pointer group-hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"></i>
-<div class="flex-1 w-36  hidden  lg:inline-block">
+              <div
+                x-show="!register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Belum punya akun?
+                <button
+                  @click="register = true; console.log(register);"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Sign up
+                </button>
+              </div>
 
-<!-- Select -->
-<select data-hs-select='{
-"placeholder": "Select assignee",
-"toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
-"toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border-none border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500",
-"dropdownClasses": "mt-2 max-h-72 p-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
-"optionClasses": "py-2 px-3 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-"optionTemplate": "<div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div><div class=\"hs-selected:font-semibold text-sm text-gray-800 \" data-title></div></div><div class=\"ms-auto\"><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-4 text-blue-600\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div></div>",
-"extraMarkup": "<div class=\" hidden absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-}' class="hidden">
-<option value="">Choose</option>
-<option  value="1" selected="" data-hs-select-option='{
-    "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
-    English
-</option>
-<option value="2"  data-hs-select-option='{
-    "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'>
-  Deutsch
-</option>
-<option value="3" data-hs-select-option='{
-    "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
- Bahasa
-</option>
-</select>
-<!-- End Select -->
-</div>
-</div>
-  
-    <div class="flex items-center lg:space-x-3">
-        <div class="flex items-center lg:gap-x-2">
-           
-            <div class="hidden lg:inline-block">
-    
-                <i class="ri-question-line text-lg text-gray-400  hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"></i>
+              <div
+                x-show="register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Sudah punya akun?
+                <button
+                  @click="register = false;"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Login
+                </button>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="block border-b-2"  data-aos="fade-down"  data-aos-delay="300"      data-aos-anchor-placement="center-center" >
+        <nav
        
-<button type="button" class="m-1 ms-0 relative py-1 px-2 group inline-flex items-center gap-x-2 text-sm font-medium rounded-full  bg-white text-gray-800  hover:bg-slate-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50">
-<i class="ri-notification-3-line text-lg text-gray-400 group-hover:text-black "></i>
-  <span class="flex absolute top-0 end-0 -mt-2 -me-2">
-    <span class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75"></span>
-    <span class="relative inline-flex text-[10px] lg:text-xs bg-red-500 text-white rounded-full  px-[6px]">
-      2
-    </span>
-  </span>
-</button>
-        </div>
-
-        <div class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100">
-            <img class="inline-block  size-[38px] rounded-full" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
-            <!-- <span class="absolute top-0 end-0 block ">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 "></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500 border-2 border-white"></span>
-                  </span>
-            </span> -->
-          </div>
-    </div>
-</div>
-</div>
-
-          
-            </div>
-
-        
-        </nav>
-        <div x-ref="container" class="ccc2 lg:py-4" x-bind:style="open ? 'max-height:' + $refs.container.scrollHeight + 'px' : '' ">
-
-          <div class="w-ful lg:bg-transparent   bg-slate-50 lg:pt-0 px-5 py-6 lg:py-0 border-t-2 lg:border-t-0">
-            <div class="max-w-7xl lg:m-auto">
+          class="px-5 lg:mb-0 items-center lg:border-b lg:pb-4 lg:py-3 my-4 lg:my-0"
+        >
+          <div class="flex items-center justify-between max-w-7xl m-auto">
+            <div class="flex items-center gap-x-3">
+              <div class="flex items-center space-x-3 relative lg:mr-20"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-10 ">
+                <h1 class=" text-2xl  font-semibold text-teal-700 relative ">Liveup</h1></div>
   
-              <ul id="dropdown"  class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10">
-                <li  x-on:click="window.location.href='tentang.html'" class="link2 w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Tentang Kami</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li class="link2    w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Jelajahi Perusahaan</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li x-on:click="window.location.href='jobPage.html'" class="link2    w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Memulai Karir</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-                <li  x-on:click="window.location.href='konsultasi.html'" class="link2   w-full lg:w-fit lg:inline-block flex justify-between   transition-all duration-300 ease-in-out"><span>Konsultasi</span> <i class="ri-arrow-right-s-line lg:hidden"></i></li>
-            </ul>
+              <div class="flex relative items-center lg:hidden">
+                <button
+                  x-on:click="open = !open"
+                  id="hamburger"
+                  name="hamburger"
+                  type="button"
+                  class="block border p-1 rounded-lg"
+                >
+                  <i class="ri-more-2-fill"></i>
+                  <!-- <span class="hamburger-line origin-top-left transition duration-300 ease-in-out "></span>
+    <span class="w-[20px]  h-[2px] my-2 block bg-black transition duration-300 ease-in-out"></span>
+    <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span> -->
+                </button>
+              </div>
+            </div>
+  
+            <div class="flex items-center lg:gap-x-44">
+              <button
+                type="button"
+                aria-haspopup="dialog"
+                aria-expanded="false"
+                aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger"
+                data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"
+                class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full cursor-pointer text-gray-400"
+              >
+                <div class="lg:flex lg:items-center lg:gap-x-3">
+                  <i
+                    class="ri-search-line text-lg lg:text-base rounded-full cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"
+                  ></i>
+                  <span class="hidden lg:inline">Pencarian Cepat...</span>
+                </div>
+                <span class="font-medium hidden lg:inline"
+                  ><i class="ri-command-line"></i> + /</span
+                >
+              </button>
+              <div class="flex items-center">
+                <div class="lg:flex rounded-xl items-center group">
+                  <i
+                    class="ri-global-line text-gray-400 lg:px-2 lg:py-1 transition ease-in duration-100 group-hover:text-black lg:inline text-lg cursor-pointer group-hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"
+                  ></i>
+                  <div class="flex-1 w-36 hidden lg:inline-block">
+                    <!-- Select -->
+                    <select
+                      data-hs-select='{
+    "placeholder": "Select assignee",
+    "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
+    "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border-none border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500",
+    "dropdownClasses": "mt-2 max-h-72 p-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+    "optionClasses": "py-2 px-3 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+    "optionTemplate": "<div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div><div class=\"hs-selected:font-semibold text-sm text-gray-800 \" data-title></div></div><div class=\"ms-auto\"><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-4 text-blue-600\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div></div>",
+    "extraMarkup": "<div class=\" hidden absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
+    }'
+                      class="hidden"
+                    >
+                      <option value="">Choose</option>
+                      <option
+                        value="1"
+                        selected=""
+                        data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'
+                      >
+                        English
+                      </option>
+                      <option
+                        value="2"
+                        data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'
+                      >
+                        Deutsch
+                      </option>
+                      <option
+                        value="3"
+                        data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'
+                      >
+                        Bahasa
+                      </option>
+                    </select>
+                    <!-- End Select -->
+                  </div>
+                </div>
+  
+                <div class="flex items-center lg:space-x-3">
+                  <div class="flex items-center lg:gap-x-2">
+                    <div class="hidden lg:inline-block">
+                      <i
+                        class="ri-question-line text-lg text-gray-400 hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"
+                      ></i>
+                    </div>
+  
+                    <button
+                      type="button"
+                      class="m-1 ms-0 relative py-1 px-2 group inline-flex items-center gap-x-2 text-sm font-medium rounded-full bg-white text-gray-800 hover:bg-slate-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50"
+                    >
+                      <i
+                        class="ri-notification-3-line text-lg text-gray-400 group-hover:text-black"
+                      ></i>
+                      <span class="flex absolute top-0 end-0 -mt-2 -me-2">
+                        <span
+                          class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75"
+                        ></span>
+                        <span
+                          class="relative inline-flex text-[10px] lg:text-xs bg-red-500 text-white rounded-full px-[6px]"
+                        >
+                          2
+                        </span>
+                      </span>
+                    </button>
+                  </div>
+  
+                  <div
+                    class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
+                  >
+  
+  
+  
+  
+  <span  @click="loginpop = true"
+  x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 rounded-full overflow-hidden">
+    <svg class="size-full text-gray-400" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"></rect>
+      <path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"></path>
+      <path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"></path>
+    </svg>
+  </span>
+  
+  
+  
+                    <!-- <img
+                   
+                      class="inline-block size-[38px] rounded-full hover:cursor-pointer"
+                      src="aset/unloged.png"
+                      alt="Avatar"
+                    /> -->
+  
+                  
+  
+                    <div class=" group cursor-pointer"   @click="loginprop = !loginprop"
+                    x-show="logged">
+                    <span class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border">
+                      YS
+                    </span>
+                    </div>
+  
+                    <!-- Dropdown Menu -->
+                    <div
+                    x-transition.origin.top.right.duration.100ms
+  
+                      x-show="loginprop"
+                      @click.away="loginprop = false"
+                      class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
+                      style="display: none"
+                    >
+                      <ul class="py-1">
+                        <!-- Profile Option -->
+                        <li>
+                          <a
+                            href="#"
+                            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                          <span class="inline-flex items-center mr-2 justify-center size-[25px] text-[10px] font-semibold leading-none rounded-full bg-gray-100 text-gray-800 ">
+                            AC
+                          </span>
+                            Profile
+                          </a>
+                        </li>
+                        <!-- Logout Option -->
+                        <li>
+                          <a
+                            href="#"
+                            @click="logout()"
+                            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          >
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              class="w-5 h-5 mr-2"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            >
+                              <path
+                                d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+                              />
+                              <polyline points="10 17 15 12 10 7" />
+                              <line x1="15" y1="12" x2="3" y2="12" />
+                            </svg>
+                            Logout
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+  
+                    <!-- <div
+                      x-show="loginprop"
+                      class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
+                    ></div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div
+          x-ref="container"
+          class="ccc2 lg:py-4"
+          x-bind:style="open ? 'max-height:' + $refs.container.scrollHeight + 'px' : '' "
+        >
+          <div
+            class="w-ful lg:bg-transparent bg-slate-50 lg:pt-0 px-5 py-6 lg:py-0 border-t-2 lg:border-t-0"
+          >
+            <div class="max-w-7xl lg:m-auto">
+              <ul
+                id="dropdown"
+                class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10"
+              >
+                <li
+                  class="link2  w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+                >
+                  <a href="index.html">Home</a>
+                  <i class="ri-arrow-right-s-line lg:hidden"></i>
+                </li>
+                <li
+                  class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+                >
+                  <a href="tentang.html">Tentang Kami</a>
+                  <i class="ri-arrow-right-s-line lg:hidden"></i>
+                </li>
+                <li
+                  class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+                >
+                  <a href="perusahaan.html">Jelajahi Perusahaan</a>
+                  <i class="ri-arrow-right-s-line lg:hidden"></i>
+                </li>
+                <li
+                  class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+                >
+                  <a href="jobPage.html">Memulai Karir</a>
+                  <i class="ri-arrow-right-s-line lg:hidden"></i>
+                </li>
+                <li
+                  class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+                >
+                  <a href="konsultasi.html">Konsultasi</a>
+                  <i class="ri-arrow-right-s-line lg:hidden"></i>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
+
+      </div>
     </header>
+    <!-- end Navbar -->
 
 <section class="min-h-screen relative py-14 ">
   <div class=" text-center px-5 mb-10  relative ">
     <div class="max-w-7xl m-auto ">
       <div class=" ">
-        <div class="mb-3 lg:mb-6 ">
+        <div class="mb-3 lg:mb-6 " data-aos="fade-up" data-aos-duration="10000" data-aos-delay="500">
           <div class="space-x-3 flex px-4 py-[0.30rem] text-center m-auto items-center rounded-full   shadow-[0px_0px_4px_0px_#4fd1c5] w-fit">
             <i class="ri-heart-pulse-line lg:text-lg text-teal-400"></i>
-            <span class="lg:text-[11px] text-[10px]  text-gray-600">LIVE YOUR LIFE</span></div>
+            <span class="lg:text-[11px] text-[10px]  text-teal-800">LIVE YOUR LIFE</span></div>
         </div>
      <div class="space-y-3 inline-block mb-7">
-      <h1 class="font-bold  text-gray-700 text-3xl lg:text-[2.30rem]">Ketika Dunia Belum Sepenuhnya Mengerti, <span class="block text-transparent   bg-gradient-to-r from-black via-teal-800 to-teal-300  bg-clip-text pb-2">Kami Siap Mendampingi.</span></h1>
-    <p class="max-w-xl m-auto text-center lg:text-sm text-slate-600 font-medium block">Kamu tidak harus menghadapi semuanya sendiri. Kami hadir untuk memberikan layanan konseling online dengan psikolog profesional dan berlisensi.</p> 
+      <h1 class="font-bold  text-gray-700 text-3xl lg:text-[2.30rem]" ><span data-aos="fade-up" data-aos-duration="10000" data-aos-delay="600" class="block">Ketika Dunia Belum Sepenuhnya Mengerti,</span> <span data-aos="fade-up" data-aos-duration="10000" data-aos-delay="700" class="block text-transparent   bg-gradient-to-r from-black via-teal-800 to-teal-300  bg-clip-text pb-2">Kami Siap Mendampingi.</span></h1>
+    <p class="max-w-xl m-auto text-center lg:text-sm text-slate-600 font-medium block" data-aos="fade-up" data-aos-duration="10000" data-aos-delay="800" class="block"  >Kamu tidak harus menghadapi semuanya sendiri. Kami hadir untuk memberikan layanan konseling online dengan psikolog profesional dan berlisensi.</p> 
     </div>
-    <div class="space-y-4 md:space-y-0 md:space-x-9 max-w-xl m-auto  md:flex md:items-center justify-center">
-      <button class="w-full md:px-5 md:w-fit bg-teal-400  text-white   space-x-4 rounded-lg py-3 hover:bg-teal-500 transition ease-in duration-100  "><i class="ri-customer-service-2-fill text-lg lg:text-xl"></i><span class="font-semibold">Konsultasi Sekarang</span></button>
-      <button class="w-full  md:px-5 md:w-fit    space-x-4 rounded-lg py-3 hover:bg-transparent transition ease-in duration-100 border-2 hover:bg-slate-100 text-teal-600">
-        <i class="ri-calendar-schedule-fill text-lg lg:text-xl"></i><span class="font-semibold md:text-base">Jadwalkan Sesi</span></button>
+    <div  class="space-y-4 md:space-y-0 md:space-x-9 max-w-xl m-auto  md:flex md:items-center justify-center" data-aos="fade-up" data-aos-duration="10000" data-aos-delay="800" class="block" >
+      <button onclick="window.location.href='konsulform.html'" class="w-full md:px-5 md:w-fit bg-teal-400  text-white   space-x-4 rounded-lg py-3 hover:bg-teal-500 transition ease-in duration-100  "><i class="ri-customer-service-2-fill text-lg lg:text-xl"></i><span class="font-semibold">Konsultasi Sekarang</span></button>
+      <button onclick="window.location.href='jobPage.html'" class="w-full hover:bg-slate-100 md:px-5 md:w-fit bg-transparent   space-x-4 rounded-lg py-3 hover:bg-transparent transition ease-in duration-100 border-2  text-teal-600">
+        <i class="ri-briefcase-2-fill text-lg lg:text-xl"></i><span class="font-semibold md:text-base">Memulai Karir</span></button>
     </div>
       </div>
   
@@ -323,14 +698,14 @@
     <div class="hidden    z-20 relative md:flex md:justify-between w-full">
       <img  data-aos="fade-up"
       data-aos-anchor-placement="top-bottom"
-      data-aos-duration="5000" data-aos-delay="800"
-      src="aset/amico3.svg" class="m-auto w-60 lg:w-80" alt="">
+      data-aos-duration="5000" data-aos-delay="900"
+      src="aset/amico3.svg" class="m-auto w-52  lg:w-60 " alt="">
         <img  data-aos="fade-up"
         data-aos-duration="5000" data-aos-delay="1600"
-        data-aos-anchor-placement="top-bottom" src="aset/amico2.svg " class=" m-auto w-60 lg:w-80"  alt="">
+        data-aos-anchor-placement="top-bottom" src="aset/amico2.svg " class=" m-auto w-52 lg:w-60 "  alt="">
         <img  data-aos="fade-up"
-        data-aos-duration="5000" data-aos-delay="2400"
-        data-aos-anchor-placement="top-bottom" src="aset/amico.svg" class=" lg:w-80 m-auto w-60"  alt="">
+        data-aos-duration="5000" data-aos-delay="2800"
+        data-aos-anchor-placement="top-bottom" src="aset/amico.svg" class=" m-auto w-52 lg:w-60"  alt="">
       </div>
     <div 
     x-data="{ progress: 0 }" 
@@ -346,11 +721,11 @@
   </div>
 </section>
 
-<section class=" content-center min-h-screen px-5 py-5">
+<section class="mb-10 content-center min-h-screen px-5 py-5">
   <div class="max-w-7xl  space-y-6 m-auto">
   <div class="space-y-3">
     <h1 class="font-bold text-3xl text-gray-800">Mentor profesional <span class="block text-teal-600">selalu menemani anda</span></h1>
-  <p class="leading-5 text-xs">Mentor yang Percaya Bahwa Di Balik Setiap Keterbatasan Terdapat Potensi Tanpa Batas untuk Berkembang dan Bersinar</p>
+  <p class="leading-5 text-sm md:text-base">Mentor yang Percaya Bahwa Di Balik Setiap Keterbatasan <span class="md:block">Terdapat Potensi Tanpa Batas untuk Berkembang dan Bersinar</span></p>
   </div>
   <div class="">
 <div class="flex justify-between">
@@ -360,50 +735,122 @@
     <button class="bg-transparent border shadow transition ease-in duration-200 hover:shadow-none hover:bg-slate-50 text-xs text-black rounded-full px-4 py-2 md:px-5 md:py-2">Personal</button>
     <button class="bg-transparent  border shadow transition ease-in duration-200 hover:bg-slate-50 text-xs text-black rounded-full px-4 py-2 md:px-5 md:py-2">Carrer</button>
   </div>
-  <button class="bg-transparent  border shadow transition ease-in duration-200 hover:bg-slate-50 text-xs text-black rounded-full px-4 py-2 md:px-5 md:py-2">View All</button>
+  <button class="bg-transparent  border shadow transition ease-in duration-200 hover:bg-slate-50 text-xs text-black rounded-full px-4 py-2 md:px-5 md:py-2">Lihat Semua</button>
 </div>
   </div>
     
-  <div class="  relative md:flex  overflow-hidden border-2 p-5 md:p-10 shadow-[3px_3px_0px_6px_#319795] rounded-3xl">
-     
-    
-      <div class=" md:order-2  w-72 m-auto md:w-[100em]   relative">
-        <div class="    m-auto  ">
-          <img 
-            src="aset/lovepik-female-business-white-collar-professional-image-png-image_401910102_wh1200-removebg-preview.png" 
-            class="w-full md:absolute  md:-top-28 lg:-top-36" 
-            alt="Professional Image ">
-        
-          <!-- Gradient fade-out -->
-          <div class="absolute bottom-0 left-0 right-0 h-20 md:hidden bg-gradient-to-t  from-white to-transparent"></div>
-        </div>
-        
-      </div>
-      <img src="aset/Mask group.svg" class="w-36 md:w-[60%] hidden md:flex  absolute top-0 md:top-0  right-0" alt="">
-
- 
-    <div class="  z-20">
-
-      <h1 class="font-bold text-gray-800 text-2xl lg:text-3xl mb-4">Slyvia Andinie</h1>
-      <p  class="text-xs text-justify mb-4 line-clamp-3 cursor-pointer">Dr. Sylvia Adhani adalah seorang profesional dengan gelar doktor di bidang Psikologi Konseling dan lebih dari 15 tahun pengalaman mendukung penyandang disabilitas untuk mengatasi hambatan dalam karier dan kehidupan pribadi mereka. Dengan pendekatan berbasis empati dan bukti ilmiah, Dr. Sylvia telah membantu ratusan individu berkembang.</p>
-   <div class=" flex items-center gap-x-2 mb-7">
-     <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">karier</button>
-     <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Inklusi</button>
-     <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Kesehatan Mental</button>
-   </div>
-
-
-   <div class="m-auto flex items-center  gap-x-4 justify-center md:justify-start">
-    <button class="  shadow border  px-2 py-1 items-center content-center bg-white rounded-full"><i class="ri-arrow-left-line"></i></button>
-    
-    
-    
-    <span>1/5</span>
-    <button class="  shadow border  px-2 py-1 items-center content-center bg-white rounded-full"><i class="ri-arrow-right-line"></i></button>
-  </div>
-    </div>
-
+  <div class="  relative overflow-hidden border-2 md:h-72 lg:h-80 p-7  md:p-10 lg:p-0 shadow-[3px_3px_0px_6px_#319795] rounded-3xl">
+    <div class="swiper mySwiper ">
+      <div class="relative  swiper-wrapper">
+        <div class="  swiper-slide bg-white">
+          <div class="md:flex   h-full">
+            
+         
+         <div class=" md:order-2 relative h-full z-30  w-72 m-auto md:w-[100em]  ">
+           <div class="m-auto lg:ml-20 lg:pt-7">
+             <img 
+               src="aset/istockphoto-533445110-612x612-removebg-preview.png" 
+               class="w-full  left-72  mix-blend-multiply    md:-top-28 lg:-top-[10rem] h-72 lg:h-96 md:w-80   object-cover object-top lg:right-96  " 
+               alt="Professional Image ">
+           
+             <!-- Gradient fade-out -->
+             <div class="absolute bottom-0 left-0 right-0 h-20 md:h-80 bg-gradient-to-t  from-white to-transparent"></div>
+           </div>
+           
+         </div>
+         <!-- <img src="aset/Mask group.svg" class="w-36   md:w-full lg:w-[60%] hidden lg:flex md:bottom-0    absolute top-0 md:top-0  right-0" alt=""> -->
+       <div class="  z-20   lg:p-12">
    
+         <h1 class="font-bold text-gray-800 text-2xl lg:text-3xl mb-4">Slyvia Andinie</h1>
+         <p  class="text-xs text-justify mb-4 line-clamp-3 lg:leading-2 cursor-pointer lg:line-clamp-4 lg:text-sm">Dr. Sylvia Adhani adalah seorang profesional dengan gelar doktor di bidang Psikologi Konseling dan lebih dari 15 tahun pengalaman mendukung penyandang disabilitas untuk mengatasi hambatan dalam karier dan kehidupan pribadi mereka. Dengan pendekatan berbasis empati dan bukti ilmiah, Dr. Sylvia telah membantu ratusan individu berkembang.</p>
+      <div class=" flex items-center gap-x-2 mb-7">
+        <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">karier</button>
+        <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Inklusi</button>
+        <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Kesehatan Mental</button>
+      </div>
+   
+   
+     
+       </div>
+      </div>
+        </div>
+        <div class=" swiper-slide bg-white">
+          <div class="md:flex  h-full">
+            <div class=" md:order-2  w-72 m-auto md:w-[100em] md:pl-5   ">
+              <div class=" relative z-40   m-auto  ">
+                <img 
+                  src="aset/istockphoto-174867075-612x612-removebg-preview.png" 
+                  class=" w-full lg:w-full  md:absolute lg:right-5 h-72 md:h-96  md:bottom-0  object-cover object-top    md:-top-28 lg:-top-[10rem] mix-blend-multiply" 
+                  alt="Professional Image ">
+              
+                <!-- Gradient fade-out -->
+                <div class="absolute bottom-0 md:-bottom-44 md:h-40 left-0 right-0 h-20   bg-gradient-to-t  from-white to-transparent"></div>
+              </div>
+<!--               
+              <img src="aset/Mask group.svg" class="w-36   md:w-full lg:w-[60%] hidden lg:flex md:bottom-0    absolute top-0 md:top-0  right-0" alt=""> -->
+            </div>
+          <div class="  z-20  lg:p-12">
+      
+            <h1 class="font-bold text-gray-800 text-2xl lg:text-3xl mb-4">John Doe</h1>
+            <p  class="text-xs text-justify mb-4 line-clamp-3 cursor-pointer lg:line-clamp-4 lg:text-sm">John Doe adalah seorang ahli dalam bidang Manajemen Bisnis dengan lebih dari 10 tahun pengalaman dalam membimbing perusahaan kecil dan menengah untuk mencapai efisiensi operasional yang lebih baik. Dengan pendekatan berbasis data dan teknologi, John telah membantu banyak bisnis meningkatkan produktivitas mereka dan mencapai pertumbuhan yang signifikan.</p>
+         <div class=" flex items-center gap-x-2 mb-7">
+           <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Manajemen</button>
+           <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Bisnis </button>
+           <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Organisasi</button>
+         </div>
+      
+      
+        
+          </div>
+
+          </div>
+        </div>
+        <div class="swiper-slide bg-white">
+          <div class=" md:flex relative h-full">
+
+            <div class=" md:order-2 md:ml-24  w-72 m-auto md:w-[100em]   relative">
+              <div class=" relative z-40   m-auto lg:pl-9   ">
+                <img 
+                  src="aset/istockphoto-175490103-612x612-removebg-preview.png" 
+                  class=" w-full md:w-full lg:w-[85%] md:absolute lg:-top-36  h-72 md:h-96  md:bottom-0  object-cover object-top    md:-top-24 mix-blend-multiply" 
+                  alt="Professional Image ">
+              
+                <!-- Gradient fade-out -->
+                <div class="absolute bottom-0 md:-bottom-44 md:h-40 left-0 right-0 h-20   bg-gradient-to-t  from-white to-transparent"></div>
+              </div>
+              
+            </div>
+            <!-- <img src="aset/Mask group.svg" class="w-36   md:w-full lg:w-[60%] hidden lg:flex md:bottom-0    absolute top-0 md:top-0  right-0" alt=""> -->
+          <div class="  z-20  lg:p-12">
+      
+            <h1 class="font-bold text-gray-800 text-2xl lg:text-3xl mb-4">Maria Andina</h1>
+            <p  class="text-xs text-justify mb-4 line-clamp-3 cursor-pointer lg:line-clamp-4 lg:text-sm">Maria Andina adalah seorang Psikolog Klinis dengan pengalaman lebih dari 12 tahun dalam membantu individu yang mengalami gangguan kecemasan dan depresi. Dengan pendekatan terapi berbasis kognitif dan perilaku, Maria telah bekerja dengan banyak klien untuk mengatasi masalah mental yang menghambat kehidupan mereka sehari-hari.</p>
+         <div class=" flex items-center gap-x-2 mb-7">
+           <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Psikologi</button>
+           <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Mental</button>
+           <button class="border border-gray-400 text-xs rounded-md font-medium text-gray-500 px-3 py-1">Personal</button>
+         </div>
+      
+      
+        
+          </div>
+          </div>
+        </div>
+  
+      </div>
+      
+      <div class="gap-x-3 md:z-40 lg:left-12 md:top-44 lg:top-[15rem] m-auto md:absolute flex justify-center md:justify-start  content-center  items-center ">
+        <button class="balik z-40  shadow border cursor-pointer  px-2 py-1 items-center content-center bg-white rounded-full"><i class="ri-arrow-left-line"></i></button>
+        
+        
+        <div class="z-40  ">
+
+          <span class="paginatio "></span>
+        </div>
+        <button class="z-40  lanjut shadow border cursor-pointer px-2 py-1 items-center content-center bg-white rounded-full"><i class="ri-arrow-right-line"></i></button>
+      </div>
+
+    </div>
   </div>
   </div>
 </section>
@@ -413,8 +860,8 @@
   <div class="">
     <div class=" ">
       <div class="space-y-3 ">
-        <span class="text-xs font-medium lg:text-base text-teal-600">WORKFLOW</span>
-        <h1 class="font-bold text-xl text-gray-800 lg:text-3xl">HOW WE DO IT?</h1>
+        <span class="text-xs font-medium lg:text-base text-teal-600">ALUR KERJA</span>
+        <h1 class="font-bold text-xl text-gray-800 lg:text-3xl">BAGAIMANA PROSESNYA?</h1>
       </div>
       <div class=" mt-10 md:hidden">
         <div class="mb-10 space-y-10 md:flex justify-between">
@@ -429,11 +876,11 @@
           
           
           <div class="relative space-y-4  md:w-96">
-            <h1 class="font-semibold md:text-xl">Pilih Kategori Konsultasi yang Paling Sesuai dengan Kebutuhan Anda</h1>
+            <h1 class="font-semibold md:text-xl">Pilih metode konsultasi yang paling sesuai dengan kebutuhan </h1>
             <ul class="list-disc pl-5 marker:text-black space-y-4 marker:text-lg  ">
-              <li class="text-sm  text-gray-800">Telusuri berbagai kategori yang mencakup kesehatan mental, pengembangan karier, dukungan khusus.</li>
-              <li class="text-sm text-gray-800">Pelajari detail layanan di setiap kategori untuk menentukan mana yang paling relevan.</li>
-              <li class="text-sm text-gray-800">Klik kategori yang Anda pilih untuk melanjutkan ke tahap selanjutnya dan memulai proses konsultasi.</li>
+              <li class="text-sm  text-gray-800">terdapat tiga paket yang telah di sediakan harus anda pilih untuk menentukan metode  mana yang anda inginkan</li>
+              <li class="text-sm text-gray-800">Pelajari detail paket di setiap kategori untuk menentukan mana yang paling relevan dengan kebutuhan Anda.</li>
+              <li class="text-sm text-gray-800">Klik paket yang Anda pilih untuk melanjutkan ke tahap selanjutnya dan memulai pendaftaran.</li>
             </ul>
           </div>
         </div>
@@ -449,11 +896,11 @@
           
           
           <div class="relative space-y-4  md:w-96">
-            <h1 class="font-semibold md:text-xl">Lengkapi Data Diri dan Jadwalkan</h1>
+            <h1 class="font-semibold md:text-xl">Lengkapi Data Diri <span class="block">dan Selesaikan Pembayaran</span> </h1>
             <ul class="list-disc pl-5 marker:text-black space-y-4 marker:text-lg  ">
-              <li class="text-sm  text-gray-800">Isi formulir informasi pribadi yang diperlukan agar kami dapat memahami kebutuhan konsultasi Anda dengan lebih baik.</li>
-              <li class="text-sm text-gray-800">Pilih metode konsultasi yang paling sesuai dengan preferensi Anda, apakah itu video call, percakapan chat, atau pertemuan langsung.</li>
-              <li class="text-sm text-gray-800">Tentukan waktu yang Anda inginkan agar sesi konsultasi berjalan dengan nyaman dan sesuai dengan jadwal Anda.</li>
+              <li class="text-sm  text-gray-800"> Lengkapi formulir data diri dengan informasi yang benar seperti nama, alamat, dan kontak.</li>
+              <li class="text-sm text-gray-800">Periksa ulang data yang sudah Anda isi untuk memastikan tidak ada kesalahan.</li>
+              <li class="text-sm text-gray-800"> Pilih metode pembayaran yang tersedia, lakukan pembayaran, dan pastikan mendapat konfirmasi.</li>
             </ul>
           </div>
         </div>
@@ -509,11 +956,11 @@
             <!-- Right Content -->
              
             <div class="relative lg:pt-10  space-y-4 mb-52 md:pl-6  lg:pl-0 lg:space-y-5  md:w-[27rem] lg:w-[30rem]">
-              <h1 class="font-semibold md:font-bold md:text-gray-800   lg:text-xl">Pilih Kategori Konsultasi yang Paling <span class="md:block">Sesuai dengan Kebutuhan Anda</span></h1>
+              <h1 class="font-semibold md:font-bold md:text-gray-800   lg:text-xl">Pilih metode konsultasi yang paling <span class="block">sesuai dengan kebutuhan </span></h1>
               <ul class="list-disc pl-5 marker:text-black md:marker:text-base space-y-4 marker:text-lg  ">
-                <li class="text-sm    text-gray-800">Telusuri berbagai kategori yang mencakup kesehatan mental, pengembangan karier,  dukungan khusus penyandang disabilitas.</li>
-                <li class="text-sm text-gray-800">Pelajari detail layanan di setiap kategori untuk menentukan mana yang paling relevan dengan kebutuhan Anda.</li>
-                <li class="text-sm text-gray-800">Klik kategori yang Anda pilih untuk melanjutkan ke tahap selanjutnya dan memulai proses konsultasi.</li>
+                <li class="text-sm    text-gray-800">terdapat tiga paket yang telah di sediakan harus anda pilih untuk menentukan metode  mana yang anda inginkan</li>
+                <li class="text-sm text-gray-800">Pelajari detail paket di setiap kategori untuk menentukan mana yang paling relevan dengan kebutuhan Anda.</li>
+                <li class="text-sm text-gray-800">Klik paket yang Anda pilih untuk melanjutkan ke tahap selanjutnya dan memulai pendaftaran.</li>
               </ul>
             </div>
             <!-- End Right Content -->
@@ -540,12 +987,23 @@
             <!-- Right Content -->
              
             <div class="relative lg:pt-10  space-y-4 mb-52 md:pl-6  lg:pl-0 lg:space-y-5  md:w-[27rem] lg:w-[30rem]">
-              <h1 class="font-semibold md:font-bold md:text-gray-800   lg:text-xl">Pilih Kategori Konsultasi yang Paling <span class="md:block">Sesuai dengan Kebutuhan Anda</span></h1>
-              <ul class="list-disc pl-5 marker:text-black md:marker:text-base space-y-4 marker:text-lg  ">
-                <li class="text-sm    text-gray-800">Telusuri berbagai kategori yang mencakup kesehatan mental, pengembangan karier,  dukungan khusus penyandang disabilitas.</li>
-                <li class="text-sm text-gray-800">Pelajari detail layanan di setiap kategori untuk menentukan mana yang paling relevan dengan kebutuhan Anda.</li>
-                <li class="text-sm text-gray-800">Klik kategori yang Anda pilih untuk melanjutkan ke tahap selanjutnya dan memulai proses konsultasi.</li>
+              <h1 class="font-semibold md:font-bold md:text-gray-800 lg:text-xl">
+                Lengkapi Data Diri <span class="block">dan Selesaikan Pembayaran</span>
+              </h1>
+              
+              
+              <ul class="list-disc pl-5 marker:text-black md:marker:text-base space-y-4 marker:text-lg">
+                <li class="text-sm text-gray-800">
+                  Lengkapi formulir data diri dengan informasi yang benar seperti nama, alamat, dan kontak.
+                </li>
+                <li class="text-sm text-gray-800">
+                  Periksa ulang data yang sudah Anda isi untuk memastikan tidak ada kesalahan.
+                </li>
+                <li class="text-sm text-gray-800">
+                  Pilih metode pembayaran yang tersedia, lakukan pembayaran, dan pastikan mendapat konfirmasi.
+                </li>
               </ul>
+              
             </div>
             <!-- End Right Content -->
           </div>
@@ -565,11 +1023,11 @@
             <!-- Right Content -->
              
             <div class="relative lg:pt-10  space-y-4 mb-44 md:pl-6  lg:pl-0 lg:space-y-5  md:w-[27rem] lg:w-[30rem]">
-              <h1 class="font-semibold md:font-bold md:text-gray-800   lg:text-xl">Pilih Kategori Konsultasi yang Paling <span class="md:block">Sesuai dengan Kebutuhan Anda</span></h1>
+              <h1 class="font-semibold md:font-bold md:text-gray-800   lg:text-xl">Mulai Konsultasi dan Temukan Solusi</h1>
               <ul class="list-disc pl-5 marker:text-black md:marker:text-base space-y-4 marker:text-lg  ">
-                <li class="text-sm    text-gray-800">Telusuri berbagai kategori yang mencakup kesehatan mental, pengembangan karier,  dukungan khusus penyandang disabilitas.</li>
-                <li class="text-sm text-gray-800">Pelajari detail layanan di setiap kategori untuk menentukan mana yang paling relevan dengan kebutuhan Anda.</li>
-                <li class="text-sm text-gray-800">Klik kategori yang Anda pilih untuk melanjutkan ke tahap selanjutnya dan memulai proses konsultasi.</li>
+                <li class="text-sm    text-gray-800">Hadiri sesi konsultasi sesuai dengan metode yang telah disepakati dengan konsultan pilihan Anda.</li>
+                <li class="text-sm text-gray-800">Jelaskan secara rinci masalah atau kebutuhan yang Anda hadapi untuk mendapatkan solusi yang paling tepat.</li>
+                <li class="text-sm text-gray-800">Terima panduan langkah demi langkah dan solusi praktis yang dapat langsung diterapkan untuk membantu Anda.</li>
               </ul>
             </div>
             <!-- End Right Content -->
@@ -901,6 +1359,20 @@
     },
   });
 </script> -->
+<script>
+  var swiper = new Swiper(".mySwiper", {
+ autoplay: true,
+    effect: "fade",
+    pagination: {
+      el: ".paginatio",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".lanjut",
+      prevEl: ".balik",
+    },
+  });
+</script>
 </body>
 
 </html>

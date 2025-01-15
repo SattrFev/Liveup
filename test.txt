@@ -92,3 +92,46 @@ md:col-span-3 md:row-span-3 lg:col-span-2 lg:row-span-4
   <!-- End SearchBox Modal -->
 </div>
 <!-- End SearchBox -->
+
+
+
+         <template x-for="(job, index) in jobs" x-key="index">
+
+                            <div x-on:click="window.location.href=`detail.html?id=${job.id}`" class="px-3 py-5 border rounded-xl shadow-md  w-full lg:px-4 cursor-pointer transition ease-linear duration-100 hover:-translate-y-1 ">
+                                <div class="flex justify-between items-center mb-2">
+                                    <div class="flex space-x-2">
+                                     <img :src="`${job.img}`" :alt="job.name" class="rounded-full border border-gray-400 shadow-lg w-12 h-12 lg:w-11 lg:h-11">
+                                    <div class="">
+                                     <h1 class="font-semibold text-xl lg:text-base" x-text="job.name"></h1>
+                                     <h1  class="text-gray-400 flex space-x-1 text-xs lg:text-[10px] "><i class="ri-map-pin-line"></i><span x-text="job.locasion"></span></h1>
+                                    </div>
+                                 </div>
+                               <button x-on:click.stop="job.saved === false ? job.saved = true : job.saved = false,     console.log(job.saved)" class=" rounded-full text-xl flex space-x-2 lg:text-base hover:bg-slate-100   px-2 py-1 w-fit"  x-bind:class="job.saved === true ? 'text-black ' : 'text-gray-500 ' " ><i class="save  "  x-bind:class="job.saved === true ? 'ri-bookmark-fill' : 'ri-bookmark-line' "></i></button>
+                                </div>
+                                <div class="">
+                                    <div class="mb-2">
+                                        <h1 class="font-semibold text-xl mb-1  lg:mb-0  lg:text-base" x-text="job.title"></h1>
+                                        <div class="flex space-x-3">
+                                            <p  class="text-gray-400 flex space-x-1 text-xs lg:text-[10px]"><i class="ri-briefcase-2-line"></i><span x-text="job.jobType"></span></p>
+                                            <p  class="text-gray-400 flex space-x-1 text-xs lg:text-[10px]"><i class="ri-time-line"></i><span>Posted 5 month ago</span></p>
+                                        </div>
+                                    </div>
+                               
+                                    <div class="border-b mb-5 border-black pb-5">
+                                        <p class="text-sm mb-4 lg:text-xs  lg:w-[93%] " x-text="job.desk"></p>
+                                       <div class="flex  gap-x-2">
+        <template x-for="tag1 in job.tags2">
+            <button class="text-xs text-gray-500 border px-3 py-1  w-fit rounded-md lg:text-[10px] " x-text="tag1"></button>
+
+        </template>
+                                           <!-- <button class=" text-xs text-gray-500 border px-3 py-1  w-fit rounded-md lg:text-[10px] ">Computer</button>
+                                           <button class=" text-xs text-gray-500 border px-3 py-1  w-fit rounded-md lg:text-[10px] ">Developer</button> -->
+                                       </div>
+                                    </div>
+                                    <div class="flex justify-between mb-2">
+                                        <h1 class="font-semibold text-lg lg:text-base"><span  class="" x-text="job.salary"></span><span class="font-normal text-xs lg:text-[10px]    ">/hour</span></h1>
+                                        <button class="text-white group text-xs bg-black rounded-lg w-fit px-6 py-2 space-x-2 font-semibold lg:text-[10px] group lg:rounded-full "   x-on:click.stop="window.location.href=`apply.html?id=${job.id}`"><span class="">Lamar</span><i class="ri-arrow-right-fill text-sm lg:text-xs "></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>

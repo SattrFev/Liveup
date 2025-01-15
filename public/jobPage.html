@@ -14,46 +14,359 @@
 
 <script src="https://cdn.userway.org/widget.js" data-account="TtT4SkBcgi"></script>
 </head>
-<body class="">
+<body class="" x-data="{ open: false, loginpop: false, register: false, logged: false, loginprop: false }"
+x-init="logged = isLogin()">
     
     <div id="bg-black" class=" lg:hidden fixed w-full min-h-screen z-50 transition ease-in-out duration-500 bg-black io invisible top-0"></div>
     <div id="bg-black2" class=" lg:hidden fixed w-full min-h-screen z-30 transition ease-in-out duration-500 bg-black io invisible"></div>
     <div id="bg-black3" class=" lg:hidden fixed w-full min-h-screen z-30 transition ease-in-out duration-500 bg-black io invisible"></div>
-    <header id="headers" class="w-full bg-white border-b-2  lg:py-4 z-40 relative top-0 ">
-        <nav class=" px-5  items-center lg:border-b lg:pb-4 my-4 lg:my-0 ">
-            <div class="flex justify-between max-w-7xl m-auto">
+
+
+    <div id="html-example-using-modal-popup-with-shortcut-call-trigger" class="hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden size-full fixed top-0 start-0 z-[80] opacity-0 overflow-x-hidden transition-all overflow-y-auto pointer-events-none" role="dialog" tabindex="-1" aria-labelledby="html-example-using-modal-popup-with-shortcut-call-trigger-label">
+      <div class="hs-overlay-open:opacity-100 hs-overlay-open:duration-500 opacity-0 transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
+        <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto ">
+          <div class="relative" data-hs-combo-box='{
+            "preventVisibility": true,
+            "groupingType": "default",
+            "preventSelection": true,
+            "isOpenOnFocus": true,
+            "groupingTitleTemplate": "<div class=\"block text-xs text-gray-500 m-3 mb-1 \"></div>"
+          }'>
+            <div class="relative p-4 border-b border-gray-200 ">
+              <label id="html-example-using-modal-popup-with-shortcut-call-trigger-label" for="html-example-using-modal-popup-with-shortcut-call-trigger-input" class="sr-only">Search input</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5">
+                  <svg class="shrink-0 size-4 text-gray-400 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                </div>
+                <input id="html-example-using-modal-popup-with-shortcut-call-trigger-input" class="py-3 ps-10 pe-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none " type="text" role="combobox" aria-expanded="false" placeholder="Type a product name" value="" autofocus="" data-hs-combo-box-input="">
+              </div>
+            </div>
+    
+            <!-- SearchBox Modal Body -->
+            <div data-hs-combo-box-output="">
+              <div class="h-80 p-2 overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 " data-hs-combo-box-output-items-wrapper="">
+                <div data-hs-combo-box-output-item='{"group": {"name": "recent", "title": "Recent"}}' tabindex="0">
+                  <a class="py-2 px-3 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg " href="/error.html">
+                    <svg class="shrink-0 size-4 text-gray-600 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+                    <span class="text-sm text-gray-800 " data-hs-combo-box-search-text="Compose an email" data-hs-combo-box-value="">Compose an email</span>
+                    <span class="ms-auto text-xs text-gray-400 " data-hs-combo-box-search-text="Gmail" data-hs-combo-box-value="">Gmail</span>
+                  </a>
+                </div>
+                <div data-hs-combo-box-output-item='{"group": {"name": "recent", "title": "Recent"}}' tabindex="1">
+                  <a class="py-2 px-3 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg " href="/examples.html">
+                    <svg class="shrink-0 size-4 text-gray-600 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path>
+                      <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
+                    </svg>
+                    <span class="text-sm text-gray-800 " data-hs-combo-box-search-text="Start a conversation" data-hs-combo-box-value="">Start a conversation</span>
+                    <span class="ms-auto text-xs text-gray-400 " data-hs-combo-box-search-text="Slack" data-hs-combo-box-value="">Slack</span>
+                  </a>
+                </div>
+                <div data-hs-combo-box-output-item='{"group": {"name": "recent", "title": "Recent"}}' tabindex="2">
+                  <a class="py-2 px-3 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg " href="/figma.html">
+                    <svg class="shrink-0 size-4 text-gray-600 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                    <span class="text-sm text-gray-800 " data-hs-combo-box-search-text="Create a project" data-hs-combo-box-value="">Create a project</span>
+                    <span class="ms-auto text-xs text-gray-400 " data-hs-combo-box-search-text="Notion" data-hs-combo-box-value="">Notion</span>
+                  </a>
+                </div>
+                <div data-hs-combo-box-output-item='{"group": {"name": "people", "title": "People"}}' tabindex="5">
+                  <a class="py-2 px-2.5 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100" href="/license.html">
+                    <img class="shrink-0 size-5 rounded-full" src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                    <span class="text-sm text-gray-800 " data-hs-combo-box-search-text="Kim Ya Sung" data-hs-combo-box-value="">Kim Ya Sung</span>
+                    <span class="ms-auto text-xs text-teal-600" data-hs-combo-box-search-text="Online" data-hs-combo-box-value="">Online</span>
+                  </a>
+                </div>
+                <div data-hs-combo-box-output-item='{"group": {"name": "people", "title": "People"}}' tabindex="6">
+                  <a class="py-2 px-2.5 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 " href="/plugins.html">
+                    <img class="shrink-0 size-5 rounded-full" src="https://images.unsplash.com/photo-1610186593977-82a3e3696e7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                    <span class="text-sm text-gray-800 " data-hs-combo-box-search-text="Chris Peti" data-hs-combo-box-value="">Chris Peti</span>
+                    <span class="ms-auto text-xs text-gray-400 " data-hs-combo-box-search-text="Offline" data-hs-combo-box-value="">Offline</span>
+                  </a>
+                </div>
+                <div data-hs-combo-box-output-item='{"group": {"name": "people", "title": "People"}}' tabindex="7">
+                  <a class="py-2 px-2.5 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 " href="/privacy.html">
+                    <img class="shrink-0 size-5 rounded-full" src="https://images.unsplash.com/photo-1568048689711-5e0325cea8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80" alt="Avatar">
+                    <span class="text-sm text-gray-800 " data-hs-combo-box-search-text="Martin Azara" data-hs-combo-box-value="">Martin Azara</span>
+                    <span class="ms-auto text-xs text-gray-400 " data-hs-combo-box-search-text="Offline" data-hs-combo-box-value="">Offline</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- End SearchBox Modal Body -->
+          </div>
+        </div>
+      </div>
+      <!-- End SearchBox Modal -->
+    </div>
+    <!-- Login Handler -->
+    <script>
+      function login() {
+        const em = document.getElementById("emailx").checkValidity();
+        const pw = document.getElementById("passwordx").value.length;
+
+        if (em && pw > 0) {
+          document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
+          console.log("Logged in successfully");
+          location.reload();
+        }
+      }
+      function loginthird() {
+        document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
+        console.log("Logged in successfully");
+        location.reload();
+      }
+      function logout() {
+        document.cookie = "login=; path=/; max-age=0"; // Hapus cookie
+        console.log("Logged out successfully");
+        location.reload();
+      }
+      function isLogin() {
+        let cookies = document.cookie.split(";");
+        for (let cookie of cookies) {
+          let [key, value] = cookie.trim().split("=");
+          if (key === "login") {
+            return value === "true";
+          }
+        }
+        return false;
+      }
+    </script>
+    <!-- Login Handler End -->
+
+    <header id="headers" class="w-full bg-white border-b-2  lg:py-4 z-40 relative top-0 " 
+    
+    >
+      <div
+      x-transition.opacity.duration.500ms
+      
+        x-show="loginpop"
+        class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
+      >
+        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+          <div class="relative bg-white rounded-lg shadow">
+            <button
+              type="button"
+              @click="loginpop = false"
+              class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="#c6c7c7"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  cliprule="evenodd"
+                ></path>
+              </svg>
+              <span class="sr-only">Close popup</span>
+            </button>
+ 
+            <div class="p-5">
+              <h3 class="text-2xl mb-0.5 font-medium"></h3>
+              <p class="mb-4 text-sm font-normal text-gray-800"></p>
+ 
+              <div class="text-center">
+                <p
+                  x-show="!register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Login ke Liveup
+                </p>
+                <p
+                  x-show="register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Daftar ke Liveup
+                </p>
+                <p
+                  x-show="!register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  login untuk dapat melakukan beberapa hal
+                </p>
+                <p
+                  x-show="register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  Daftar untuk dapat melakukan beberapa hal
+                </p>
+              </div>
+ 
+              <div class="mt-7 flex flex-col gap-2">
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with Google
+                </button>
+ 
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448234/linkedin.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with LinkedIn
+                </button>
+              </div>
+ 
+              <div
+                class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
+              >
+                <div class="h-px w-full bg-slate-200"></div>
+                ATAU
+                <div class="h-px w-full bg-slate-200"></div>
+              </div>
+ 
+              <form @submit.prevent="login(); loginpop = false" class="w-full">
+                <label x-show="register" for="username" class="sr-only"
+                  >Nama</label
+                >
+                <input
+                  name="username"
+                  type="text"
+                  id="usernamex"
+                  autocomplete="Username"
+                  required=""
+                  class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Username"
+                  value=""
+                />
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  name="email"
+                  x-show="register"
+                  type="email"
+                  id="emailx"
+                  autocomplete="email"
+                  required=""
+                  class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Email"
+                  value=""
+                />
+                <label for="password" class="sr-only">Password</label>
+                <input
+                  id="passwordx"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required=""
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Password"
+                  value=""
+                />
+                <label x-show="register" for="repeat-password" class="sr-only"
+                  >Repeat Password</label
+                >
+                <input
+                  x-show="register"
+                  id="repeat-passwordx"
+                  name="repeat-password"
+                  type="password"
+                  required=""
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Repeat Password"
+                  value=""
+                />
+                <p class="mb-3 mt-2 text-sm text-gray-500">
+                  <a
+                    class="text-blue-800 hover:text-blue-600"
+                    x-show="!register"
+                    >Lupa password?</a
+                  >
+                </p>
+                <button
+                  type="submit"
+                  class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
+                >
+                  <p x-show="!register">Login</p>
+                  <p x-show="register">Daftar</p>
+                </button>
+              </form>
+ 
+              <div
+                x-show="!register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Belum punya akun?
+                <button
+                  @click="register = true; console.log(register);"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Sign up
+                </button>
+              </div>
+ 
+              <div
+                x-show="register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Sudah punya akun?
+                <button
+                  @click="register = false;"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+<div class="">
+  <nav class=" px-5  items-center lg:border-b lg:pb-4 my-4 lg:my-0 ">
+      <div class="flex justify-between max-w-7xl m-auto">
 
 <div class="flex items-center gap-x-3">
-    
-     <div class="flex lg:space-x-14">
-    <div class="flex items-center space-x-3 relative"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-12 ">
-        <h1 class="lg:text-3xl text-2xl  font-semibold text-teal-700 ">Liveup</h1></div>
-    <ul id="dropdown"  class="left-0 py-4 px-5 h-80 z-20 lg:space-x-10 absolute w-full lg:w-fit lg:h-fit lg:top-0 lg:relative lg:bg-transparent lg:shadow-none lg:flex lg:scale-y-100 bg-white top-full space-y-6 lg:space-y-0 transition duration-300 ease-in-out shadow-lg origin-top scale-y-0 border-t-2 lg:border-t-0 ">
-      <li class="link   transition-all duration-300 ease-in-out"> <a href="tentang.html">Tentang Kami</a></li>
-       <li class="link   transition-all duration-300 ease-in-out"><a href="#">Jelajahi Perusahaan</a></li> 
-       <li class="link  link-active  transition-all duration-300 ease-in-out"><a href="#">Memulai Karir</a></li> 
-      <li class="link   transition-all duration-300 ease-in-out"> <a href="konsultasi.html">Konsultasi</a></li> 
-    </ul>
+
+<div class="flex lg:space-x-14">
+<div class="flex items-center space-x-3 relative"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-12 ">
+  <h1 class="lg:text-3xl text-2xl  font-semibold text-teal-700 ">Liveup</h1></div>
+<ul id="dropdown"  class="left-0 py-4 px-5 h-80 z-20 lg:space-x-10 absolute w-full lg:w-fit lg:h-fit lg:top-0 lg:relative lg:bg-transparent lg:shadow-none lg:flex lg:scale-y-100 bg-white top-full space-y-6 lg:space-y-0 transition duration-300 ease-in-out shadow-lg origin-top scale-y-0 border-t-2 lg:border-t-0 ">
+<li class="link   transition-all duration-300 ease-in-out"> <a href="tentang.html">Tentang Kami</a></li>
+ <li class="link   transition-all duration-300 ease-in-out"><a href="#">Jelajahi Perusahaan</a></li> 
+ <li class="link  link-active  transition-all duration-300 ease-in-out"><a href="#">Memulai Karir</a></li> 
+<li class="link   transition-all duration-300 ease-in-out"> <a href="konsultasi.html">Konsultasi</a></li> 
+</ul>
 </div>
 <div class="flex relative items-center lg:hidden ">
-    <button id="hamburger" name="hamburger" type="button" class="block border p-1 rounded-lg  ">
-        <i class="ri-more-2-fill"></i>
+<button id="hamburger" name="hamburger" type="button" class="block border p-1 rounded-lg  ">
+  <i class="ri-more-2-fill"></i>
 <!-- <span class="hamburger-line origin-top-left transition duration-300 ease-in-out "></span>
 <span class="w-[20px]  h-[2px] my-2 block bg-black transition duration-300 ease-in-out"></span>
 <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span> -->
-    </button>
- </div>
+</button>
 </div>
-   
+</div>
+
 
 <div class="flex items-center">
-    <div class="lg:hidden ">
-        <i class="ri-search-2-line   text-gray-400 hover:text-black text-[17px]   rounded-full text-lg py-2 px-2 cursor-pointer transition ease-in duration-200 hover:bg-slate-100"></i>
-    </div>
-    <div class="lg:flex  rounded-xl items-center   ">
-               
+<div class="lg:hidden ">
+  <i class="ri-search-2-line   text-gray-400 hover:text-black text-[17px]   rounded-full text-lg py-2 px-2 cursor-pointer transition ease-in duration-200 hover:bg-slate-100"></i>
+</div>
+<div class="lg:flex  rounded-xl items-center   ">
+         
 
-        <i class="ri-global-line text-gray-400 lg:px-2 lg:py-1 hover:text-black lg:inline text-lg cursor-pointer hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"></i>
+  <i class="ri-global-line text-gray-400 lg:px-2 lg:py-1 hover:text-black lg:inline text-lg cursor-pointer hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"></i>
 <div class="flex-1 w-48  hidden  lg:inline-block">
 
 <!-- Select -->
@@ -68,257 +381,321 @@
 }' class="hidden">
 <option value="">Choose</option>
 <option  value="1" selected="" data-hs-select-option='{
-    "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
-    English
+"icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
+English
 </option>
 <option value="2"  data-hs-select-option='{
-    "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'>
-  Deutsch
+"icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'>
+Deutsch
 </option>
 <option value="3" data-hs-select-option='{
-    "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
- Bahasa
+"icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
+Bahasa
 </option>
 </select>
 <!-- End Select -->
 </div>
 </div>
-  
-    <div class="flex items-center lg:space-x-3">
-        <div class="flex lg:gap-x-2">
-           
-            <div class="hidden lg:inline-block">
-    
-                <i class="ri-question-line text-lg text-gray-400  hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"></i>
-            </div>
-            <div class=" relative">
-    
-    
-        <i class="ri-notification-3-line text-lg text-gray-400  hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"></i>
-        <span class="absolute top-0 end-0 block ">
-            <span class="relative flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 "></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500 border-2 border-white"></span>
-              </span>
-        </span>
-    
-            </div>
-        </div>
 
-        <div class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100">
-            <img class="inline-block  size-[38px] rounded-full" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Avatar">
-            <!-- <span class="absolute top-0 end-0 block ">
-                <span class="relative flex h-3 w-3">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75 "></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500 border-2 border-white"></span>
-                  </span>
-            </span> -->
-          </div>
+<div class="flex items-center lg:space-x-3">
+  <div class="flex items-center lg:gap-x-2">
+    <div class="hidden lg:inline-block">
+      <i
+        class="ri-question-line text-lg text-gray-400 hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"
+      ></i>
     </div>
+
+    <button
+      type="button"
+      class="m-1 ms-0 relative py-1 px-2 group inline-flex items-center gap-x-2 text-sm font-medium rounded-full bg-white text-gray-800 hover:bg-slate-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50"
+    >
+      <i
+        class="ri-notification-3-line text-lg text-gray-400 group-hover:text-black"
+      ></i>
+      <span class="flex absolute top-0 end-0 -mt-2 -me-2">
+        <span
+          class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75"
+        ></span>
+        <span
+          class="relative inline-flex text-[10px] lg:text-xs bg-red-500 text-white rounded-full px-[6px]"
+        >
+          2
+        </span>
+      </span>
+    </button>
+  </div>
+
+  <div
+    class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
+  >
+
+
+
+
+<span  @click="loginpop = true"
+x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 rounded-full overflow-hidden">
+<svg class="size-full text-gray-400" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"></rect>
+<path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"></path>
+<path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"></path>
+</svg>
+</span>
+
+
+
+    <!-- <img
+   
+      class="inline-block size-[38px] rounded-full hover:cursor-pointer"
+      src="aset/unloged.png"
+      alt="Avatar"
+    /> -->
+
+  
+
+    <div class=" group cursor-pointer"   @click="loginprop = !loginprop"
+    x-show="logged">
+    <span class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border">
+      YS
+    </span>
+    </div>
+
+    <!-- Dropdown Menu -->
+    <div
+    x-transition.origin.top.right.duration.100ms
+
+      x-show="loginprop"
+      @click.away="loginprop = false"
+      class="absolute z-40 right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
+      style="display: none"
+    >
+      <ul class="py-1">
+        <!-- Profile Option -->
+        <li>
+          <a
+            href="#"
+            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          >
+          <span class="inline-flex items-center mr-2 justify-center size-[25px] text-[10px] font-semibold leading-none rounded-full bg-gray-100 text-gray-800 ">
+            AC
+          </span>
+            Profile
+          </a>
+        </li>
+        <!-- Logout Option -->
+        <li>
+          <a
+            href="#"
+            @click="logout()"
+            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-5 h-5 mr-2"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+              />
+              <polyline points="10 17 15 12 10 7" />
+              <line x1="15" y1="12" x2="3" y2="12" />
+            </svg>
+            Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div
+      x-show="loginprop"
+      class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
+    ></div> -->
+  </div>
+</div>
 </div>
 
-          
-            </div>
+    
+      </div>
 
-        
-        </nav>
-        <div class="ccc2">
-        
-            <div id="search" class="  py-4   transition duration-300 ease-in-out  w-full bg-slate-100 lg:bg-white top-full m-auto  px-5 ">
+  
+  </nav>
+  <div class="ccc2">
+  
+      <div id="search" class="  py-4   transition duration-300 ease-in-out  w-full bg-slate-100 lg:bg-white top-full m-auto  px-5 ">
 
-                <ul class="bg-white rounded-md space-y-3  max-w-7xl lg:space-y-0  m-auto lg:flex lg:space-x-6">
-                    <li class="flex w-full group lg:w-[90%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-2">
-                   
+          <ul class="bg-white rounded-md   max-w-7xl   m-auto lg:flex lg:space-x-6">
+              <li  aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger"
+              data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger" class="flex cursor-pointer  py-3 w-full space-x-5 group lg:space-x-6 lg:w-[90%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-2">
+             
+
+                      <i class="ri-search-line  transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
+<div class="flex-1">
+
+<button class="text-sm  text-black">Kata Kunci Pekerjaan</button>
+</div>
+              </li>
+              <li class="flex w-full group lg:w-[70%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-3">
+             
+
+                      <i class="ri-map-pin-line transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
+<div class="flex-1">
+
+  <select   data-hs-select='{
+      "hasSearch": true,
+      "searchPlaceholder": "Search...",
+      "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
+      "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
+      "placeholder": "Semua lokasi",
+      "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
+      "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
+      "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+      "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+      "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
+      "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
+    }' class="hidden  ">
+      <option value="">Choose</option>
+      <option value="AF" data-hs-select-option='{
+          "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png\" alt=\"Aland Islands\" />"}'>
+        America
+      </option>
+      <option value="AX" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
+        Enggland
+      </option>
+      <option value="AL" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
+        Indonesia
+      </option>
     
-                            <i class="ri-search-line  transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
-    <div class="flex-1">
+    </select>
+</div>
+              </li>
+              <li class="flex w-full group transition ease-in duration-200 group-hover:bg-teal-500  group-hover:text-white lg:w-[70%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-3">
+             
+
+                      <i class="ri-file-copy-line transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
+<div class="flex-1">
+
+  <select   data-hs-select='{
+      "hasSearch": true,
+      "searchPlaceholder": "Search...",
+      "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
+      "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
+      "placeholder": "Semua kategori",
+      "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
+      "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
+      "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+      "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+      "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
+      "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
+    }' class="hidden  ">
+      <option value="">Choose</option>
+      <option value="AF" data-hs-select-option='{
+          "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png\" alt=\"Aland Islands\" />"}'>
+        America
+      </option>
+      <option value="AX" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
+        Enggland
+      </option>
+      <option value="AL" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
+        Indonesia
+      </option>
     
-        <select   data-hs-select='{
-            "hasSearch": true,
-            "searchPlaceholder": "Search...",
-            "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
-            "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
-            "placeholder": "kata kunci",
-            "toggleTag": "  <span class=\"text-gray-800 w-full   \" data-title></span>",
-            "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
-            "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
-            "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-            "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
-            "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
-          }' class="hidden  ">
-            <option value="">Choose</option>
-            <option value="AF" data-hs-select-option='{
-                "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png\" alt=\"Aland Islands\" />"}'>
-              America
-            </option>
-            <option value="AX" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
-              Enggland
-            </option>
-            <option value="AL" data-hs-select-option='{
-                "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
-              Indonesia
-            </option>
-          
-          </select>
-    </div>
-                    </li>
-                    <li class="flex w-full group lg:w-[70%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-3">
-                   
+    </select>
+</div>
+              </li>
+              <li class="flex w-full group lg:w-[70%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-3">
+             
+
+                      <i class="ri-community-line transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
+<div class="flex-1">
+
+  <select   data-hs-select='{
+      "hasSearch": true,
+      "searchPlaceholder": "Search...",
+      "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
+      "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
+      "placeholder": "Perusahaan",
+      "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
+      "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
+      "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+      "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+      "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
+      "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
+    }' class="hidden  ">
+      <option value="">Choose</option>
+      <option value="AF" data-hs-select-option='{
+          "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSTLNyHEp8ERADDJDy5wXQLoV_Lj0YTmv6eA&s\" alt=\"Aland Islands\" />"}'>
+        Google
+      </option>
+      <option value="AX" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://cdn0.iconfinder.com/data/icons/most-usable-logos/120/Amazon-512.png\" alt=\"Aland Islands\" />"}'>
+        Amazon
+      </option>
+      <option value="AT" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0IfOkcWr8-EaVzxrC5Pv7E4moEf10NrvhVw&s\" />"}'>
+        Microsoft
+      </option>
+      <option value="AC" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_960_720.png\" />"}'>
+        Facebook
+      </option>
+      <option value="AO" data-hs-select-option='{
+        "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456\" />"}'>
+        Netflix
+      </option>
     
-                            <i class="ri-map-pin-line transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
-    <div class="flex-1">
-    
-        <select   data-hs-select='{
-            "hasSearch": true,
-            "searchPlaceholder": "Search...",
-            "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
-            "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
-            "placeholder": "Semua lokasi",
-            "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
-            "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
-            "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
-            "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-            "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
-            "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
-          }' class="hidden  ">
-            <option value="">Choose</option>
-            <option value="AF" data-hs-select-option='{
-                "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png\" alt=\"Aland Islands\" />"}'>
-              America
-            </option>
-            <option value="AX" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
-              Enggland
-            </option>
-            <option value="AL" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
-              Indonesia
-            </option>
-          
-          </select>
-    </div>
-                    </li>
-                    <li class="flex w-full group transition ease-in duration-200 group-hover:bg-teal-500  group-hover:text-white lg:w-[70%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-3">
-                   
-    
-                            <i class="ri-file-copy-line transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
-    <div class="flex-1">
-    
-        <select   data-hs-select='{
-            "hasSearch": true,
-            "searchPlaceholder": "Search...",
-            "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
-            "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
-            "placeholder": "Semua kategori",
-            "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
-            "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
-            "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
-            "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-            "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
-            "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
-          }' class="hidden  ">
-            <option value="">Choose</option>
-            <option value="AF" data-hs-select-option='{
-                "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/800px-Flag_of_the_United_States.svg.png\" alt=\"Aland Islands\" />"}'>
-              America
-            </option>
-            <option value="AX" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'>
-              Enggland
-            </option>
-            <option value="AL" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'>
-              Indonesia
-            </option>
-          
-          </select>
-    </div>
-                    </li>
-                    <li class="flex w-full group lg:w-[70%] items-center border-b lg:border-b-0  px-2 lg:px-0 lg:border-r-2 lg:pr-3">
-                   
-    
-                            <i class="ri-community-line transition ease-in duration-200 group-hover:bg-teal-400  group-hover:text-white text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-1"></i>
-    <div class="flex-1">
-    
-        <select   data-hs-select='{
-            "hasSearch": true,
-            "searchPlaceholder": "Search...",
-            "searchClasses": "block w-full text-sm border border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] py-2 px-3 focus:outline-none",
-            "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0",
-            "placeholder": "Perusahaan",
-            "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
-            "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border border-white rounded-lg text-start text-sm focus:outline-none focus:ring-0 focus:ring-white",
-            "dropdownClasses": "mt-2 max-h-72 pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
-            "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-            "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 \" data-title></div></div></div>",
-            "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"shrink-0 size-3.5 text-gray-500\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"2\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19 9l-7 7-7-7\" /></svg></div>"
-          }' class="hidden  ">
-            <option value="">Choose</option>
-            <option value="AF" data-hs-select-option='{
-                "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSTLNyHEp8ERADDJDy5wXQLoV_Lj0YTmv6eA&s\" alt=\"Aland Islands\" />"}'>
-              Google
-            </option>
-            <option value="AX" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://cdn0.iconfinder.com/data/icons/most-usable-logos/120/Amazon-512.png\" alt=\"Aland Islands\" />"}'>
-              Amazon
-            </option>
-            <option value="AT" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0IfOkcWr8-EaVzxrC5Pv7E4moEf10NrvhVw&s\" />"}'>
-              Microsoft
-            </option>
-            <option value="AC" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://cdn.pixabay.com/photo/2021/06/15/12/51/facebook-6338507_960_720.png\" />"}'>
-              Facebook
-            </option>
-            <option value="AO" data-hs-select-option='{
-              "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456\" />"}'>
-              Netflix
-            </option>
-          
-          </select>
-    </div>
-                    </li>
-                    <li class=" w-full items-center border-b lg:border-b-0 pb-6 px-4 lg:pb-0 lg:px-0  lg:pl-4">
-                        <div class="flex justify-between mb-5">
-                            <h1 class="lg:text-sm lg:font-medium lg:text-gray-500">kisaran gaji</h1>
-                            <div class="flex justify-center w-fit ">
-                                <div class="flex items-center text-sm">
-                                  <div id="hs-pass-values-to-html-elements-min-target" class="text-center min-w-16">250</div>
-                                  -
-                                  <div id="hs-pass-values-to-html-elements-max-target" class="text-center min-w-16">750</div>
-                                </div>
-                              </div>
+    </select>
+</div>
+              </li>
+              <li class=" w-full items-center border-b lg:border-b-0 pb-6 px-4 lg:pb-0 lg:px-0  lg:pl-4">
+                  <div class="flex justify-between mb-5">
+                      <h1 class="lg:text-sm lg:font-medium lg:text-gray-500">kisaran gaji</h1>
+                      <div class="flex justify-center w-fit ">
+                          <div class="flex items-center text-sm">
+                            <div id="hs-pass-values-to-html-elements-min-target" class="text-center min-w-16">250</div>
+                            -
+                            <div id="hs-pass-values-to-html-elements-max-target" class="text-center min-w-16">750</div>
+                          </div>
                         </div>
-                          <label class="sr-only">Example range</label>
-                          <div id="hs-pass-values-to-html-elements" class="--prevent-on-load-init w-full block" data-hs-range-slider='{
-                            "start": [250, 750],
-                            "range": {
-                              "min": 0,
-                              "max": 1000
-                            },
-                            "formatter": {
-                              "type": "integer",
-                              "prefix": "$"
-                            },
-                            "connect": true,
-                            "cssClasses": {
-                              "target": "relative h-2 lg:h-[0.45em] rounded-full bg-gray-200",
-                              "base": "w-full h-full relative z-1",
-                              "origin": "absolute top-0 end-0 w-full h-full origin-[0_0] rounded-full",
-                              "handle": "absolute top-1/2 end-0 w-[1.125rem] h-[1.125rem] lg:w-[0.9rem] lg:h-[0.9rem] bg-white  border-4  border-teal-400 rounded-full cursor-pointer translate-x-2/4 -translate-y-2/4",
-                              "connects": "relative z-0 w-full h-full rounded-full overflow-hidden",
-                              "connect": "absolute top-0 end-0 z-1 w-full h-full bg-teal-400 origin-[0_0]",
-                              "touchArea": "absolute -top-1 -bottom-1 -start-1 -end-1"
-                           
-                            }
-                          }'></div>
-                    </li>
-                    
-                 
-                </ul>
-            </div>
-        </div>
+                  </div>
+                    <label class="sr-only">Example range</label>
+                    <div id="hs-pass-values-to-html-elements" class="--prevent-on-load-init w-full block" data-hs-range-slider='{
+                      "start": [250, 750],
+                      "range": {
+                        "min": 0,
+                        "max": 1000
+                      },
+                      "formatter": {
+                        "type": "integer",
+                        "prefix": "$"
+                      },
+                      "connect": true,
+                      "cssClasses": {
+                        "target": "relative h-2 lg:h-[0.45em] rounded-full bg-gray-200",
+                        "base": "w-full h-full relative z-1",
+                        "origin": "absolute top-0 end-0 w-full h-full origin-[0_0] rounded-full",
+                        "handle": "absolute top-1/2 end-0 w-[1.125rem] h-[1.125rem] lg:w-[0.9rem] lg:h-[0.9rem] bg-white  border-4  border-teal-400 rounded-full cursor-pointer translate-x-2/4 -translate-y-2/4",
+                        "connects": "relative z-0 w-full h-full rounded-full overflow-hidden",
+                        "connect": "absolute top-0 end-0 z-1 w-full h-full bg-teal-400 origin-[0_0]",
+                        "touchArea": "absolute -top-1 -bottom-1 -start-1 -end-1"
+                     
+                      }
+                    }'></div>
+              </li>
+              
+           
+          </ul>
+      </div>
+  </div>
+
+</div>
     </header>
     
   
@@ -506,14 +883,30 @@
         </ul>
                 </div>
             </div>
-            <div class="lg:col-span-5 lg:row-span-11 lg:col-start-3 " x-bind:class="tagsList.length > 0 ? 'lg:space-y-4' : 'lg:space-y-7'">
+            <div x-data="{grid : false}" class="lg:col-span-5 lg:row-span-11 lg:col-start-3 " x-bind:class="tagsList.length > 0 ? 'lg:space-y-4' : 'lg:space-y-7'">
                 <div id="" class="border-b-2 pb-7  lg:pb-0  relative  mb-7 lg:mb-0   flex items-center justify-between " x-bind:class="tagsList.length > 0 ? 'lg:border-b-0' : 'border-b-2 lg:pb-7' " x-data="{open : false}">
                     <div class=" flex items-center lg:space-x-5 flex-wrap">
                         <h1 class="font-semibold text-4xl  lg:text-[2.50rem]   lg:mb-0">Pekerjaan <span class="text-teal-400">
                             Tersedia</span></h1>
  <span class=" font-medium border-[1px] border-gray-400 h-8 text-base  content-center rounded-full w-14 text-center hidden lg:inline">329</span>
                     </div>
-                    <div class="  gap-x-4 flex items-center">
+                    <div class="  gap-x-5 flex items-center">
+                    <!-- Popover -->
+                    <div class=" hidden md:inline-flex ">
+                      <div class="col-start-2 text-center">
+                        <div class="hs-tooltip inline-block">
+                          <button x-on:click="grid = !grid" type="button" class="hs-tooltip-toggle  text-gray-400   hover:text-black    transition">
+                            <i class="ri-layout-grid-fill"></i>
+                            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm" role="tooltip">
+                              Toggle Grid
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    
+              
+                    </div>
+<!-- End Popover -->
                         <div x-on:click="open = !open" @click.outside="open = false"   class="cursor-pointer flex gap-x-1 items-center lg:space-x-3">
                              <h1 class="text-base lg:text-gray-400 font-medium lg:font-normal text-gray-600">Sort <span class="hidden lg:inline-block"></span> <span class="text-black hidden lg:inline-block">Popular</span></h1>
                              <i class="ri-filter-3-line text-xl hidden lg:inline-block"></i><i x-bind:class="open ? 'rotate-180' : 'rotate-0'" class="mt-1 text-gray-600 text-xl w-fit transition-all ease-in  duration-100  ri-arrow-down-s-line lg:hidden"></i>
@@ -538,7 +931,7 @@
                        Tags
                    </div>
                </div>
-                 <div id="Tags" class=" flex flex-wrap items-center gap-2">
+                 <div id="Tags" class=" flex flex-wrap items-center gap-2"  ">
                    
  
                      <template  x-for="tag in tagsList">
@@ -566,50 +959,86 @@
             
               </div>
             </div>
-                    <div class="space-y-7   w-full md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-x-4 md:gap-y-7 md:space-y-0 lg:gap-x-6 " x-data="lowongan">
-                        <template x-for="(job, index) in jobs" x-key="index">
+                    <div class="   w-full    " x-data="lowongan" x-bind:class="grid ? 'md:grid md:grid-cols-2 md:gap-5 ' : 'space-y-5' ">
+                      <template x-for="(job, index) in jobs" x-key="index">
 
-                            <div x-on:click="window.location.href=`detail.html?id=${job.id}`" class="px-3 py-5 border rounded-xl shadow-md  w-full lg:px-4 cursor-pointer transition ease-linear duration-100 hover:-translate-y-1 ">
-                                <div class="flex justify-between items-center mb-2">
-                                    <div class="flex space-x-2">
-                                     <img :src="`${job.img}`" :alt="job.name" class="rounded-full border border-gray-400 shadow-lg w-12 h-12 lg:w-11 lg:h-11">
-                                    <div class="">
-                                     <h1 class="font-semibold text-xl lg:text-base" x-text="job.name"></h1>
-                                     <h1  class="text-gray-400 flex space-x-1 text-xs lg:text-[10px] "><i class="ri-map-pin-line"></i><span x-text="job.locasion"></span></h1>
-                                    </div>
-                                 </div>
-                               <button x-on:click.stop="job.saved === false ? job.saved = true : job.saved = false,     console.log(job.saved)" class=" rounded-full text-xl flex space-x-2 lg:text-base hover:bg-slate-100   px-2 py-1 w-fit"  x-bind:class="job.saved === true ? 'text-black ' : 'text-gray-500 ' " ><i class="save  "  x-bind:class="job.saved === true ? 'ri-bookmark-fill' : 'ri-bookmark-line' "></i></button>
-                                </div>
-                                <div class="">
-                                    <div class="mb-2">
-                                        <h1 class="font-semibold text-xl mb-1  lg:mb-0  lg:text-base" x-text="job.title"></h1>
-                                        <div class="flex space-x-3">
-                                            <p  class="text-gray-400 flex space-x-1 text-xs lg:text-[10px]"><i class="ri-briefcase-2-line"></i><span x-text="job.jobType"></span></p>
-                                            <p  class="text-gray-400 flex space-x-1 text-xs lg:text-[10px]"><i class="ri-time-line"></i><span>Posted 5 month ago</span></p>
-                                        </div>
-                                    </div>
-                               
-                                    <div class="border-b mb-5 border-black pb-5">
-                                        <p class="text-sm mb-4 lg:text-xs  lg:w-[93%] " x-text="job.desk"></p>
-                                       <div class="flex  gap-x-2">
-        <template x-for="tag1 in job.tags2">
-            <button class="text-xs text-gray-500 border px-3 py-1  w-fit rounded-md lg:text-[10px] " x-text="tag1"></button>
-
-        </template>
-                                           <!-- <button class=" text-xs text-gray-500 border px-3 py-1  w-fit rounded-md lg:text-[10px] ">Computer</button>
-                                           <button class=" text-xs text-gray-500 border px-3 py-1  w-fit rounded-md lg:text-[10px] ">Developer</button> -->
-                                       </div>
-                                    </div>
-                                    <div class="flex justify-between mb-2">
-                                        <h1 class="font-semibold text-lg lg:text-base"><span  class="" x-text="job.salary"></span><span class="font-normal text-xs lg:text-[10px]    ">/hour</span></h1>
-                                        <button class="text-white group text-xs bg-black rounded-lg w-fit px-6 py-2 space-x-2 font-semibold lg:text-[10px] group lg:rounded-full "   x-on:click.stop="window.location.href=`apply.html?id=${job.id}`"><span class="">Lamar</span><i class="ri-arrow-right-fill text-sm lg:text-xs "></i></button>
-                                    </div>
-                                </div>
+                        <div x-on:click="window.location.href=`detail.html?id=${job.id}`" class="  relative group overflow-hidden cursor-pointer block space-y-1 bg-slate-50 rounded-2xl transition-all duration-100 hover:border-none border border-gray-300 ">
+                          <div class="absolute flex items-center justify-center w-full h-full duration-100 ease-in-out opacity-0 group-hover:opacity-100 z-30 transition-all">
+                            <div class="block relative space-y-2 text-center">
+                              <!-- Tombol 1 -->
+                              <button type="button" class="py-3 translate-y-10 group-hover:translate-y-0 transition-all ease-linear duration-100 px-4 m-auto justify-center w-full inline-flex items-center gap-x-2 font-bold rounded-full border border-transparent bg-teal-600 text-white hover:bg-teal-700 focus:outline-none focus:bg-teal-700 disabled:opacity-50 disabled:pointer-events-none">
+                                Lihat Detail
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <path d="M5 12h14"></path>
+                                  <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                              </button>
+                              <!-- Tombol 2 -->
+                              <button   x-on:click.stop="logged  ? window.location.href=`apply.html?id=${job.id}` : loginpop = true" type="button" class="py-3 border w-full translate-y-10 group-hover:translate-y-0 transition-all ease-linear duration-100 m-auto justify-center px-4 inline-flex items-center gap-x-2 font-bold rounded-full bg-white shadow-xl text-teal-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                                Lamar Cepat
+                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                  <path d="M5 12h14"></path>
+                                  <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                              </button>
                             </div>
+                          </div>
+                          
+                          <div class="p-[0.30rem] relative transition-all ease-in-out duration-100 group-hover:blur-sm">
+                            <div class="bg-white shadow  md:space-y-7 space-y-5 rounded-2xl border border-gray-200 p-3">
+                              <div class="flex items-center justify-between  ">
+                                <div class=" flex items-center gap-x-3">  
+                                  <img :src="job.img" alt="" class="size-10  border p-1 border-gray-200 rounded-full  md:size-12"  >
+                                  <div class="">
+                                    <h1 class="font-semibold text-base " x-bind:class="grid ? '' : 'md:text-lg ' " x-text="job.title"></h1>
+                           <p class="text-gray-500 flex space-x-1 items-center text-sm " x-bind:class="grid ? '' : 'md:text-base' "><span x-text="job.name"></span><span class=" text-gray-300">•</span><span><span x-text="job.locasion"></span>,<span x-text="job.location"></span></span></p>
+                                  </div>   
+                                </div>
+                                <h1 class="font-semibold " x-bind:class="grid ? 'md:text-lg' : 'md:text-xl' "><span x-text="job.salary"></span><span class="text-xs  text-gray-500" x-bind:class="grid ? '' : 'md:text-base' ">/hour</span></h1>
+                              </div>
+                      <div class=" ">
+                       
+                      
+                        <span class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-lg text-xs  border border-gray-200  font-medium bg-white text-black" x-bind:class="grid ? '' : 'md:text-sm'  ">
+                          <span class="size-2 inline-block rounded-full " x-bind:class="job.jobType == 'Full-Time' ?  'bg-teal-500' : job.jobType  == 'Contract' ? 'bg-lime-500' : job.jobType == 'Freelance' ? 'bg-cyan-500' : job.jobType  == 'Part-Time' ? 'bg-violet-500' : ''"></span>
+                          <span x-text="job.jobType"></span>
+                        </span>
+                        
+                    
+                        <template x-for="tag in job.tags2.slice(0, 2)">
+                          <span class="inline-flex items-center gap-x-1.5 mr-1 py-1.5 px-3 rounded-lg text-xs  font-semibold border border-gray-200 bg-white text-black shadow-sm" x-text="tag" x-bind:class="grid ? '' : 'md:text-sm'  "></span>
                         </template>
+                        
+                  
+                      </div>
+                            </div>
+                            <div class="p-3 flex justify-between items-center">
+                              <div class="flex gap-x-3">
+                                <span class="flex items-center gap-x-1 ">
+                                  <svg width="18" height="18" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 7.03491V11.2065C12 11.6152 12 11.8196 12.0761 12.0034C12.1522 12.1872 12.2968 12.3317 12.5858 12.6207L15 15.0349M21 12.0349C21 17.0055 16.9706 21.0349 12 21.0349C7.02944 21.0349 3 17.0055 3 12.0349C3 7.06435 7.02944 3.03491 12 3.03491C16.9706 3.03491 21 7.06435 21 12.0349Z" stroke="#7a7a7a" stroke-width="1.5" stroke-linecap="round" class="my-path"></path>
+                                    </svg>
+                                    <span class="text-gray-600  text-sm">3m lalu</span>
+                                </span>
+                                <span class="flex items-center gap-x-1 ">
+                                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.6998 9.3001C14.6998 10.7913 13.491 12.0001 11.9998 12.0001C10.5086 12.0001 9.2998 10.7913 9.2998 9.3001C9.2998 7.80893 10.5086 6.6001 11.9998 6.6001C13.491 6.6001 14.6998 7.80893 14.6998 9.3001Z" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
+                                    <path d="M6.6001 19.2002C6.6001 16.7149 9.01776 14.7002 12.0001 14.7002C14.9824 14.7002 17.4001 16.7149 17.4001 19.2002" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
+                                    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
+                                    </svg>
+                                    <span class="text-gray-600  text-sm">58 Lamaran</span>
+                                </span>
+                              </div>
+                              <span class="inline-flex items-center gap-x-1 py-1 px-3  rounded-lg text-sm    font-medium "    x-bind:class="  job.status == 'TERSEDIA' ? 'bg-teal-100 text-teal-800' : job.status == 'DIBUTUHKAN SEGERA' ? 'bg-lime-100 text-lime-800' : job.status == 'DIBUTUHKAN' ?'bg-blue-100 text-blue-800' : '' " x-text="job.status"></span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </template>
+              
                        
                     </div>
-<div class="flex mt-7 items-center border-t-2 md:border-t-0 justify-between md:px-4 py-5">
+<!-- <div class="flex mt-7 items-center border-t-2 md:border-t-0 justify-between md:px-4 py-5">
 <button class="text-gray-500 flex items-center hover:text-black gap-x-2 transition ease-in duration-100"><i class="ri-arrow-left-line lg:text-lg text-xl"></i><span class="lg:text-sm text-lg font-medium md:font-normal">Previous</span></button>
 
 <div class="  hidden md:flex gap-x-5 ">
@@ -644,7 +1073,7 @@
 </div>
 
 <button class="flex items-center text-gray-500 hover:text-black gap-x-2 transition ease-in duration-100"><span class="lg:text-sm text-lg font-medium md:font-normal">Next</span><i class="ri-arrow-right-line lg:text-lg text-xl"></i></button>
-</div>
+</div> -->
             </div>
         
         </div>
@@ -817,6 +1246,27 @@
     </footer>
     <script src="../node_modules/nouislider/dist/nouislider.min.js"></script>
     <script src="../node_modules/preline/preline.js"></script>
+    <script>
+      (function () {
+
+
+        window.addEventListener("load", () => {
+          const overlay = HSOverlay.getInstance('#html-example-using-modal-popup-with-shortcut-call-trigger', true);
+          const combobox = HSComboBox.getInstance('#html-example-using-modal-popup-with-shortcut-call-trigger [data-hs-combo-box]', true);
+         
+
+
+          window.addEventListener("keydown", function (evt) {
+            if (evt.code === "Slash" ) {
+              if (overlay.element && overlay.element.el.classList.contains('open')) return false;
+    
+              overlay.element.open();
+              combobox.element.setCurrent();
+            }
+          });
+        });
+      })();
+    </script>
     <script>
         window.addEventListener('load', () => {
           (function () {
