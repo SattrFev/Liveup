@@ -297,8 +297,541 @@ document.addEventListener('alpine:init', () => {
      location:"AU"
     },
     
+    { 
+      id: 10, 
+      img: 'https://i.pinimg.com/736x/13/6c/c6/136cc6856f5666bbe48a32197c19b098.jpg', 
+      name: 'Tesla', 
+      locasion: 'Austin', 
+      title: 'Automotive Engineer', 
+      desk: 'Tesla mencari Automotive Engineer untuk mengembangkan sistem inovatif pada kendaraan listrik. Dalam peran ini, Anda akan bertanggung jawab untuk merancang dan mengoptimalkan komponen kendaraan listrik, serta berkolaborasi dengan tim multidisiplin untuk menciptakan teknologi otomotif masa depan.', 
+      tags2: ['On-Site', 'Permanent', 'Engineering'], 
+      salary: '$95',
+      avgSalary: '$180,000',
+      jobType: 'Full-Time',
+      status: 'TERSEDIA',
+      saved: false,
+      responsibility: [
+        'Merancang dan mengembangkan komponen kendaraan listrik',
+        'Melakukan simulasi dan pengujian sistem',
+        'Mengoptimalkan performa kendaraan',
+        'Berkolaborasi dengan tim desain dan produksi',
+        'Memastikan standar keamanan dan kualitas'
+      ],
+      qualification: [
+        'Gelar dalam Teknik Otomotif atau bidang terkait',
+        'Pengalaman dalam pengembangan kendaraan listrik',
+        'Kemampuan analitis yang kuat',
+        'Pemahaman mendalam tentang sistem otomotif'
+      ],
+      skills: [
+        'CAD Software',
+        'Sistem Elektrik',
+        'Simulasi Kendaraan'
+      ],
+      companyDescription: 'Tesla adalah pemimpin dalam teknologi kendaraan listrik dan energi berkelanjutan, berfokus pada mempercepat transisi dunia menuju energi berkelanjutan.',
+      location: 'USA'
+    },
+    {
+      id: 11,
+      img: 'https://i.pinimg.com/736x/72/5e/15/725e1559f573b6559e058e3dda03692c.jpg',
+      name: 'SpaceX',
+      locasion: 'Cape Canaveral',
+      title: 'Aerospace Engineer',
+      desk: 'SpaceX mencari Aerospace Engineer untuk bergabung dalam tim pengembangan roket luar angkasa. Anda akan terlibat dalam desain, analisis, dan pengujian sistem propulsi roket yang inovatif.',
+      tags2: ['On-Site', 'Permanent', 'Engineering'],
+      salary: '$100',
+      avgSalary: '$195,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN SEGERA',
+      saved: false,
+      responsibility: [
+        'Merancang sistem propulsi roket',
+        'Melakukan analisis aerodinamika',
+        'Mengembangkan simulasi komputer',
+        'Mengawasi pengujian komponen',
+        'Optimalisasi performa roket'
+      ],
+      qualification: [
+        'Ph.D dalam Teknik Aerospace',
+        'Pengalaman dalam desain roket',
+        'Keahlian dalam analisis struktural',
+        'Kemampuan problem-solving yang kuat'
+      ],
+      skills: [
+        'Fluid Dynamics',
+        'Thermal Analysis',
+        'MATLAB'
+      ],
+      companyDescription: 'SpaceX merancang, memproduksi dan meluncurkan roket dan pesawat ruang angkasa canggih. Misi kami adalah menjadikan manusia sebagai spesies multi-planet.',
+      location: 'USA'
+    },
+    {
+      id: 12,
+      img: 'https://i.pinimg.com/736x/62/3c/b6/623cb67a352ad783bfa394952dc56af2.jpg',
+      name: 'Adobe',
+      locasion: 'San Jose',
+      title: 'UX/UI Designer',
+      desk: 'Adobe mencari UX/UI Designer yang kreatif untuk mengembangkan pengalaman pengguna yang inovatif dalam produk-produk Adobe Creative Cloud. Fokus pada desain yang intuitif dan user-friendly.',
+      tags2: ['Hybrid', 'Permanent', 'Design'],
+      salary: '$85',
+      avgSalary: '$145,000',
+      jobType: 'Full-Time',
+      status: 'TERSEDIA',
+      saved: false,
+      responsibility: [
+        'Merancang antarmuka pengguna yang intuitif',
+        'Melakukan riset pengguna',
+        'Membuat prototype interaktif',
+        'Berkolaborasi dengan tim produk',
+        'Mengembangkan design system'
+      ],
+      qualification: [
+        'Gelar dalam Desain atau bidang terkait',
+        'Portfolio yang kuat',
+        'Pengalaman dengan tools desain modern',
+        'Pemahaman tentang prinsip UX'
+      ],
+      skills: [
+        'Figma',
+        'Adobe XD',
+        'Prototyping'
+      ],
+      companyDescription: 'Adobe adalah pemimpin global dalam perangkat lunak kreatif, menyediakan tools dan platform untuk para kreator di seluruh dunia.',
+      location: 'USA'
+    },
+    {
+      id: 13,
+      img: 'https://i.pinimg.com/736x/f6/68/90/f66890653a1275aa5b742387233f4243.jpg',
+      name: 'Twitter',
+      locasion: 'San Francisco',
+      title: 'Backend Developer',
+      desk: 'Twitter mencari Backend Developer untuk mengembangkan infrastruktur yang scalable dan reliable. Fokus pada pengembangan API dan microservices untuk mendukung platform Twitter.',
+      tags2: ['Remote', 'Permanent', 'Engineering'],
+      salary: '$90',
+      avgSalary: '$160,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN',
+      saved: false,
+      responsibility: [
+        'Mengembangkan backend services',
+        'Mengelola database skala besar',
+        'Optimalisasi performa sistem',
+        'Implementasi fitur keamanan',
+        'Maintenance sistem'
+      ],
+      qualification: [
+        'Gelar dalam Computer Science',
+        'Pengalaman dengan distributed systems',
+        'Keahlian dalam Golang atau Java',
+        'Pemahaman tentang microservices'
+      ],
+      skills: [
+        'Golang',
+        'Kubernetes',
+        'PostgreSQL'
+      ],
+      companyDescription: 'Twitter adalah platform media sosial global yang menghubungkan orang dengan informasi real-time dari seluruh dunia.',
+      location: 'USA'
+    },
+    {
+      id: 14,
+      img: 'https://i.pinimg.com/736x/60/71/03/60710323784a8804e7e73324c8312fd4.jpg',
+      name: 'Intel',
+      locasion: 'Santa Clara',
+      title: 'Hardware Engineer',
+      desk: 'Intel mencari Hardware Engineer untuk mengembangkan prosesor generasi berikutnya. Fokus pada desain dan optimalisasi arsitektur chip.',
+      tags2: ['On-Site', 'Permanent', 'Engineering'],
+      salary: '$95',
+      avgSalary: '$175,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN SEGERA',
+      saved: false,
+      responsibility: [
+        'Merancang arsitektur chip',
+        'Optimalisasi performa prosesor',
+        'Verifikasi desain hardware',
+        'Pengembangan prototype',
+        'Analisis thermal dan power'
+      ],
+      qualification: [
+        'Ph.D dalam Electrical Engineering',
+        'Pengalaman dalam chip design',
+        'Keahlian dalam VLSI',
+        'Pemahaman arsitektur komputer'
+      ],
+      skills: [
+        'Verilog',
+        'ASIC Design',
+        'Circuit Analysis'
+      ],
+      companyDescription: 'Intel adalah pemimpin global dalam pengembangan teknologi semiconductor dan computing innovation.',
+      location: 'USA'
+    },
+    {
+      id: 15,
+      img: 'https://i.pinimg.com/236x/31/f6/d3/31f6d3fddbc3b87a6ffc705e556562f4.jpg',
+      name: 'Spotify',
+      locasion: 'Stockholm',
+      title: 'Audio Engineer',
+      desk: 'Spotify mencari Audio Engineer untuk mengembangkan dan mengoptimalkan teknologi streaming audio. Anda akan bekerja pada algoritma pemrosesan sinyal dan codec audio untuk meningkatkan kualitas streaming.',
+      tags2: ['Hybrid', 'Permanent', 'Engineering'],
+      salary: '$88',
+      avgSalary: '$140,000',
+      jobType: 'Full-Time',
+      status: 'TERSEDIA',
+      saved: false,
+      responsibility: [
+        'Pengembangan algoritma audio processing',
+        'Optimalisasi codec streaming',
+        'Analisis kualitas audio',
+        'Implementasi fitur audio baru',
+        'Penelitian teknologi audio'
+      ],
+      qualification: [
+        'Gelar dalam Audio Engineering',
+        'Pengalaman DSP',
+        'Keahlian dalam pengembangan codec',
+        'Pemahaman mendalam tentang teknologi streaming'
+      ],
+      skills: [
+        'DSP',
+        'C++',
+        'Audio Analysis'
+      ],
+      companyDescription: 'Spotify adalah layanan streaming musik terkemuka yang menghubungkan jutaan pendengar dengan konten audio dari seluruh dunia.',
+      location: 'SE'
+    },
+    {
+      id: 16,
+      img: 'https://i.pinimg.com/736x/94/4c/60/944c602e21fe46846396f97917a98951.jpg',
+      name: 'NVIDIA',
+      locasion: 'Santa Clara',
+      title: 'GPU Architect',
+      desk: 'NVIDIA mencari GPU Architect untuk merancang arsitektur GPU generasi berikutnya. Fokus pada inovasi dalam komputasi paralel dan akselerasi AI.',
+      tags2: ['On-Site', 'Permanent', 'Engineering'],
+      salary: '$110',
+      avgSalary: '$200,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN',
+      saved: false,
+      responsibility: [
+        'Desain arsitektur GPU',
+        'Optimalisasi performa grafis',
+        'Pengembangan teknologi ray tracing',
+        'Integrasi AI acceleration',
+        'Validasi arsitektur'
+      ],
+      qualification: [
+        'Ph.D dalam Computer Architecture',
+        'Pengalaman dalam GPU design',
+        'Keahlian dalam parallel computing',
+        'Background kuat dalam computer graphics'
+      ],
+      skills: [
+        'CUDA',
+        'Hardware Architecture',
+        'RTL Design'
+      ],
+      companyDescription: 'NVIDIA adalah pionir dalam teknologi GPU dan AI, mendorong inovasi dalam gaming, komputasi, dan kecerdasan buatan.',
+      location: 'USA'
+    },
+    {
+      id: 17,
+      img: 'https://i.pinimg.com/736x/56/5c/2a/565c2a824c7c184e326c751a0fb7e73e.jpg',
+      name: 'Airbnb',
+      locasion: 'San Francisco',
+      title: 'Product Analytics Manager',
+      desk: 'Airbnb mencari Product Analytics Manager untuk memimpin analisis data produk dan memberikan wawasan strategis untuk pengembangan platform.',
+      tags2: ['Remote', 'Permanent', 'Analytics'],
+      salary: '$92',
+      avgSalary: '$165,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN SEGERA',
+      saved: false,
+      responsibility: [
+        'Memimpin analisis data produk',
+        'Mengembangkan metrics framework',
+        'Membuat dashboard analytics',
+        'Memberikan rekomendasi berbasis data',
+        'Kolaborasi dengan tim produk'
+      ],
+      qualification: [
+        'Gelar dalam Statistics atau Analytics',
+        'Pengalaman product analytics',
+        'Keahlian SQL dan Python',
+        'Background dalam A/B testing'
+      ],
+      skills: [
+        'SQL',
+        'Python',
+        'Tableau'
+      ],
+      companyDescription: 'Airbnb adalah marketplace global untuk akomodasi dan pengalaman perjalanan, menghubungkan jutaan host dan traveler di seluruh dunia.',
+      location: 'USA'
+    },
+    {
+      id: 18,
+      img: 'https://i.pinimg.com/736x/fd/fa/dd/fdfadd56cb3ea0ae5ad45cb3fabc0e18.jpg',
+      name: 'LinkedIn',
+      locasion: 'Sunnyvale',
+      title: 'Machine Learning Engineer',
+      desk: 'LinkedIn mencari Machine Learning Engineer untuk mengembangkan algoritma rekomendasi dan personalisasi untuk platform professional networking.',
+      tags2: ['Hybrid', 'Permanent', 'Engineering'],
+      salary: '$98',
+      avgSalary: '$180,000',
+      jobType: 'Full-Time',
+      status: 'TERSEDIA',
+      saved: false,
+      responsibility: [
+        'Pengembangan sistem rekomendasi',
+        'Implementasi algoritma ML',
+        'Optimalisasi model pembelajaran',
+        'Analisis data user behavior',
+        'A/B testing'
+      ],
+      qualification: [
+        'Ph.D dalam Machine Learning',
+        'Pengalaman recommendation systems',
+        'Keahlian dalam deep learning',
+        'Background dalam NLP'
+      ],
+      skills: [
+        'PyTorch',
+        'TensorFlow',
+        'Python'
+      ],
+      companyDescription: 'LinkedIn adalah platform profesional terbesar di dunia, menghubungkan profesional global untuk meningkatkan produktivitas dan kesuksesan.',
+      location: 'USA'
+    },
+    {
+      id: 19,
+      img: 'https://i.pinimg.com/736x/24/f4/07/24f407f787fa533ef3abd4fc668d4a53.jpg',
+      name: 'Unity',
+      locasion: 'Copenhagen',
+      title: 'Game Engine Developer',
+      desk: 'Unity mencari Game Engine Developer untuk mengembangkan fitur-fitur baru dan optimalisasi performa engine. Fokus pada grafis real-time dan physics simulation.',
+      tags2: ['On-Site', 'Permanent', 'Engineering'],
+      salary: '$95',
+      avgSalary: '$170,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN',
+      saved: false,
+      responsibility: [
+        'Pengembangan game engine features',
+        'Optimalisasi performa grafis',
+        'Implementasi physics system',
+        'Debug dan profiling',
+        'Dokumentasi teknis'
+      ],
+      qualification: [
+        'Gelar dalam Computer Science',
+        'Pengalaman game engine development',
+        'Keahlian dalam graphics programming',
+        'Background dalam game development'
+      ],
+      skills: [
+        'C++',
+        'DirectX/OpenGL',
+        'Physics Engine'
+      ],
+      companyDescription: 'Unity adalah platform pengembangan real-time terkemuka, digunakan oleh jutaan creator untuk membuat game dan pengalaman interaktif.',
+      location: 'DK'
+    },
+    {
+      id: 20,
+      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYApeDMvQICpTm1f5elcDd5basS2kffEt9Rg&s',
+      name: 'AMD',
+      locasion: 'Austin',
+      title: 'CPU Architect',
+      desk: 'AMD mencari CPU Architect untuk mengembangkan arsitektur prosesor generasi berikutnya. Fokus pada inovasi dalam desain mikroarsitektur dan peningkatan performa.',
+      tags2: ['On-Site', 'Permanent', 'Engineering'],
+      salary: '$105',
+      avgSalary: '$190,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN SEGERA',
+      saved: false,
+      responsibility: [
+        'Desain mikroarsitektur CPU',
+        'Optimalisasi performa prosesor',
+        'Pengembangan fitur baru',
+        'Validasi arsitektur',
+        'Kolaborasi dengan tim silicon'
+      ],
+      qualification: [
+        'Ph.D dalam Computer Engineering',
+        'Pengalaman dalam CPU design',
+        'Keahlian dalam mikroarsitektur',
+        'Background dalam computer architecture'
+      ],
+      skills: [
+        'RTL Design',
+        'Verilog',
+        'Performance Analysis'
+      ],
+      companyDescription: 'AMD adalah pemimpin global dalam high-performance computing, graphics, dan teknologi visualisasi.',
+      location: 'USA'
+    },
+    {
+      id: 21,
+      img: 'https://i.pinimg.com/736x/75/2b/26/752b26e033e8f6158eeb4d565b86e8c6.jpg',
+      name: 'Twitch',
+      locasion: 'San Francisco',
+      title: 'Streaming Infrastructure Engineer',
+      desk: 'Twitch mencari Streaming Infrastructure Engineer untuk mengoptimalkan platform streaming real-time. Fokus pada skalabilitas dan reliabilitas sistem streaming.',
+      tags2: ['Hybrid', 'Permanent', 'Engineering'],
+      salary: '$95',
+      avgSalary: '$160,000',
+      jobType: 'Full-Time',
+      status: 'TERSEDIA',
+      saved: false,
+      responsibility: [
+        'Optimalisasi infrastruktur streaming',
+        'Pengembangan sistem real-time',
+        'Manajemen latency',
+        'Skalabilitas platform',
+        'Monitoring performa'
+      ],
+      qualification: [
+        'Gelar dalam Computer Science',
+        'Pengalaman streaming technology',
+        'Keahlian dalam distributed systems',
+        'Background dalam video delivery'
+      ],
+      skills: [
+        'WebRTC',
+        'FFmpeg',
+        'Cloud Infrastructure'
+      ],
+      companyDescription: 'Twitch adalah platform streaming langsung terkemuka yang menghubungkan jutaan creator dengan komunitas mereka.',
+      location: 'USA'
+    },
+    {
+      id: 22,
+      img: 'https://i.pinimg.com/736x/b7/45/04/b74504d48060a4c64af55b552b441897.jpg',
+      name: 'Slack',
+      locasion: 'Vancouver',
+      title: 'Real-Time Communication Engineer',
+      desk: 'Slack mencari Real-Time Communication Engineer untuk mengembangkan sistem messaging yang handal dan scalable. Fokus pada pengiriman pesan real-time dan sinkronisasi.',
+      tags2: ['Remote', 'Permanent', 'Engineering'],
+      salary: '$90',
+      avgSalary: '$155,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN',
+      saved: false,
+      responsibility: [
+        'Pengembangan sistem messaging',
+        'Optimalisasi real-time delivery',
+        'Implementasi protokol komunikasi',
+        'Manajemen state dan sinkronisasi',
+        'Pemeliharaan infrastruktur'
+      ],
+      qualification: [
+        'Gelar dalam Software Engineering',
+        'Pengalaman WebSocket',
+        'Keahlian dalam distributed systems',
+        'Background dalam real-time systems'
+      ],
+      skills: [
+        'WebSocket',
+        'Node.js',
+        'Redis'
+      ],
+      companyDescription: 'Slack adalah platform kolaborasi yang mengubah cara tim bekerja dengan komunikasi yang lebih efisien dan terorganisir.',
+      location: 'CA'
+    },
+    {
+      id: 23,
+      img: 'https://i.pinimg.com/736x/bf/54/a7/bf54a70f234c9bfa60c6040618ac9079.jpg',
+      name: 'Zoom',
+      locasion: 'San Jose',
+      title: 'Video Conferencing Engineer',
+      desk: 'Zoom mencari Video Conferencing Engineer untuk mengembangkan teknologi video conference berkualitas tinggi. Fokus pada kualitas video dan audio dalam kondisi jaringan berbeda.',
+      tags2: ['Hybrid', 'Permanent', 'Engineering'],
+      salary: '$98',
+      avgSalary: '$165,000',
+      jobType: 'Full-Time',
+      status: 'TERSEDIA',
+      saved: false,
+      responsibility: [
+        'Pengembangan teknologi video conference',
+        'Optimalisasi kualitas media',
+        'Implementasi protokol streaming',
+        'Manajemen bandwidth',
+        'Testing dan validasi'
+      ],
+      qualification: [
+        'Gelar dalam Multimedia Engineering',
+        'Pengalaman video streaming',
+        'Keahlian dalam network protocols',
+        'Background dalam video processing'
+      ],
+      skills: [
+        'WebRTC',
+        'H.264',
+        'Network Programming'
+      ],
+      companyDescription: 'Zoom adalah pemimpin dalam komunikasi video modern, menyediakan platform yang handal untuk meeting dan kolaborasi.',
+      location: 'USA'
+    },
+    {
+      id: 24,
+      img: 'https://i.pinimg.com/736x/5c/bb/a7/5cbba74b40ec0c0ce77b3db3ec1a5e05.jpg',
+      name: 'Docker',
+      locasion: 'Seattle',
+      title: 'Container Platform Engineer',
+      desk: 'Docker mencari Container Platform Engineer untuk mengembangkan teknologi containerization. Fokus pada keamanan, performa, dan portabilitas container.',
+      tags2: ['Remote', 'Permanent', 'Engineering'],
+      salary: '$92',
+      avgSalary: '$170,000',
+      jobType: 'Full-Time',
+      status: 'DIBUTUHKAN SEGERA',
+      saved: false,
+      responsibility: [
+        'Pengembangan platform container',
+        'Optimalisasi runtime container',
+        'Implementasi fitur keamanan',
+        'Manajemen orchestration',
+        'Pengembangan tooling'
+      ],
+      qualification: [
+        'Gelar dalam Computer Science',
+        'Pengalaman container technology',
+        'Keahlian dalam Linux kernel',
+        'Background dalam distributed systems'
+      ],
+      skills: [
+        'Docker',
+        'Kubernetes',
+        'Go'
+      ],
+      companyDescription: 'Docker adalah platform standar industri untuk membuat dan menjalankan container, memungkinkan developer untuk build, share, dan run aplikasi di mana saja.',
+      location: 'USA'
+    }
 
     ],
     selectedJob: null, 
+         currentPage: 1,
+        itemsPerPage: 8, // Jumlah item per halaman
+        get totalPages() {
+            return Math.ceil(this.jobs.length / this.itemsPerPage);
+        },
+
+        get paginatedJobs() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            return this.jobs.slice(start, start + this.itemsPerPage);
+        },
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+            }
+        },
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+            }
+        },
+        setPage(page) {
+            this.currentPage = page;
+        }
   }))
 })

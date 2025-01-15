@@ -699,7 +699,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
     </header>
     
   
-     <div class="py-10 px-5 min-h-screen content-center ">
+     <div class="py-10 px-5 min-h-screen content-center " x-data="lowongan">
         <div class=" max-w-7xl m-auto   lg:grid lg:grid-cols-7 lg:grid-rows-11 lg:gap-6  " x-data="{ tagsList: ['Full-Times',  'Part-Times',  'Freelance']}">
             <div class="lg:col-span-2 lg:row-span-11 lg:space-y-4 overflow-auto">
 <div class="w-full relative px-8 pt-20 h-[24em] bg-center-top bg-[length:130%]  bg-no-repeat rounded-2xl hidden lg:inline-block" style="background-image: url('aset/simone-hutsch-TpcAurk1ePU-unsplash.jpg');">
@@ -888,7 +888,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
                     <div class=" flex items-center lg:space-x-5 flex-wrap">
                         <h1 class="font-semibold text-4xl  lg:text-[2.50rem]   lg:mb-0">Pekerjaan <span class="text-teal-400">
                             Tersedia</span></h1>
- <span class=" font-medium border-[1px] border-gray-400 h-8 text-base  content-center rounded-full w-14 text-center hidden lg:inline">329</span>
+ <span class=" font-medium border-[1px] border-gray-400 h-8 text-base  content-center rounded-full w-14 text-center hidden lg:inline" x-text="jobs.length"></span>
                     </div>
                     <div class="  gap-x-5 flex items-center">
                     <!-- Popover -->
@@ -959,121 +959,128 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
             
               </div>
             </div>
-                    <div class="   w-full    " x-data="lowongan" x-bind:class="grid ? 'md:grid md:grid-cols-2 md:gap-5 ' : 'space-y-5' ">
-                      <template x-for="(job, index) in jobs" x-key="index">
+            
+            <div class="" >
 
-                        <div x-on:click="window.location.href=`detail.html?id=${job.id}`" class="  relative group overflow-hidden cursor-pointer block space-y-1 bg-slate-50 rounded-2xl transition-all duration-100 hover:border-none border border-gray-300 ">
-                          <div class="absolute flex items-center justify-center w-full h-full duration-100 ease-in-out opacity-0 group-hover:opacity-100 z-30 transition-all">
-                            <div class="block relative space-y-2 text-center">
-                              <!-- Tombol 1 -->
-                              <button type="button" class="py-3 translate-y-10 group-hover:translate-y-0 transition-all ease-linear duration-100 px-4 m-auto justify-center w-full inline-flex items-center gap-x-2 font-bold rounded-full border border-transparent bg-teal-600 text-white hover:bg-teal-700 focus:outline-none focus:bg-teal-700 disabled:opacity-50 disabled:pointer-events-none">
-                                Lihat Detail
-                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M5 12h14"></path>
-                                  <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                              </button>
-                              <!-- Tombol 2 -->
-                              <button   x-on:click.stop="logged  ? window.location.href=`apply.html?id=${job.id}` : loginpop = true" type="button" class="py-3 border w-full translate-y-10 group-hover:translate-y-0 transition-all ease-linear duration-100 m-auto justify-center px-4 inline-flex items-center gap-x-2 font-bold rounded-full bg-white shadow-xl text-teal-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
-                                Lamar Cepat
-                                <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                  <path d="M5 12h14"></path>
-                                  <path d="m12 5 7 7-7 7"></path>
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
-                          
-                          <div class="p-[0.30rem] relative transition-all ease-in-out duration-100 group-hover:blur-sm">
-                            <div class="bg-white shadow  md:space-y-7 space-y-5 rounded-2xl border border-gray-200 p-3">
-                              <div class="flex items-center justify-between  ">
-                                <div class=" flex items-center gap-x-3">  
-                                  <img :src="job.img" alt="" class="size-10  border p-1 border-gray-200 rounded-full  md:size-12"  >
-                                  <div class="">
-                                    <h1 class="font-semibold text-base " x-bind:class="grid ? '' : 'md:text-lg ' " x-text="job.title"></h1>
-                           <p class="text-gray-500 flex space-x-1 items-center text-sm " x-bind:class="grid ? '' : 'md:text-base' "><span x-text="job.name"></span><span class=" text-gray-300">•</span><span><span x-text="job.locasion"></span>,<span x-text="job.location"></span></span></p>
-                                  </div>   
-                                </div>
-                                <h1 class="font-semibold " x-bind:class="grid ? 'md:text-lg' : 'md:text-xl' "><span x-text="job.salary"></span><span class="text-xs  text-gray-500" x-bind:class="grid ? '' : 'md:text-base' ">/hour</span></h1>
-                              </div>
-                      <div class=" ">
-                       
-                      
-                        <span class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-lg text-xs  border border-gray-200  font-medium bg-white text-black" x-bind:class="grid ? '' : 'md:text-sm'  ">
-                          <span class="size-2 inline-block rounded-full " x-bind:class="job.jobType == 'Full-Time' ?  'bg-teal-500' : job.jobType  == 'Contract' ? 'bg-lime-500' : job.jobType == 'Freelance' ? 'bg-cyan-500' : job.jobType  == 'Part-Time' ? 'bg-violet-500' : ''"></span>
-                          <span x-text="job.jobType"></span>
-                        </span>
-                        
-                    
-                        <template x-for="tag in job.tags2.slice(0, 2)">
-                          <span class="inline-flex items-center gap-x-1.5 mr-1 py-1.5 px-3 rounded-lg text-xs  font-semibold border border-gray-200 bg-white text-black shadow-sm" x-text="tag" x-bind:class="grid ? '' : 'md:text-sm'  "></span>
-                        </template>
-                        
-                  
+              <div class="   w-full    "  x-bind:class="grid ? 'md:grid md:grid-cols-2 md:gap-5 ' : 'space-y-5' ">
+                <template x-for="(job, index) in  paginatedJobs" x-key="index">
+
+                  <div x-on:click="window.location.href=`detail.html?id=${job.id}`" class="  relative group overflow-hidden cursor-pointer block space-y-1 bg-slate-50 rounded-2xl transition-all duration-100 hover:border-none border border-gray-300 ">
+                    <div class="absolute flex items-center justify-center w-full h-full duration-100 ease-in-out opacity-0 group-hover:opacity-100 z-30 transition-all">
+                      <div class="block relative space-y-2 text-center">
+                        <!-- Tombol 1 -->
+                        <button type="button" class="py-3 translate-y-10 group-hover:translate-y-0 transition-all ease-linear duration-100 px-4 m-auto justify-center w-full inline-flex items-center gap-x-2 font-bold rounded-full border border-transparent bg-teal-600 text-white hover:bg-teal-700 focus:outline-none focus:bg-teal-700 disabled:opacity-50 disabled:pointer-events-none">
+                          Lihat Detail
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
+                        <!-- Tombol 2 -->
+                        <button   x-on:click.stop="logged  ? window.location.href=`apply.html?id=${job.id}` : loginpop = true" type="button" class="py-3 border w-full translate-y-10 group-hover:translate-y-0 transition-all ease-linear duration-100 m-auto justify-center px-4 inline-flex items-center gap-x-2 font-bold rounded-full bg-white shadow-xl text-teal-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                          Lamar Cepat
+                          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
                       </div>
-                            </div>
-                            <div class="p-3 flex justify-between items-center">
-                              <div class="flex gap-x-3">
-                                <span class="flex items-center gap-x-1 ">
-                                  <svg width="18" height="18" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 7.03491V11.2065C12 11.6152 12 11.8196 12.0761 12.0034C12.1522 12.1872 12.2968 12.3317 12.5858 12.6207L15 15.0349M21 12.0349C21 17.0055 16.9706 21.0349 12 21.0349C7.02944 21.0349 3 17.0055 3 12.0349C3 7.06435 7.02944 3.03491 12 3.03491C16.9706 3.03491 21 7.06435 21 12.0349Z" stroke="#7a7a7a" stroke-width="1.5" stroke-linecap="round" class="my-path"></path>
-                                    </svg>
-                                    <span class="text-gray-600  text-sm">3m lalu</span>
-                                </span>
-                                <span class="flex items-center gap-x-1 ">
-                                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.6998 9.3001C14.6998 10.7913 13.491 12.0001 11.9998 12.0001C10.5086 12.0001 9.2998 10.7913 9.2998 9.3001C9.2998 7.80893 10.5086 6.6001 11.9998 6.6001C13.491 6.6001 14.6998 7.80893 14.6998 9.3001Z" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
-                                    <path d="M6.6001 19.2002C6.6001 16.7149 9.01776 14.7002 12.0001 14.7002C14.9824 14.7002 17.4001 16.7149 17.4001 19.2002" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
-                                    <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
-                                    </svg>
-                                    <span class="text-gray-600  text-sm">58 Lamaran</span>
-                                </span>
-                              </div>
-                              <span class="inline-flex items-center gap-x-1 py-1 px-3  rounded-lg text-sm    font-medium "    x-bind:class="  job.status == 'TERSEDIA' ? 'bg-teal-100 text-teal-800' : job.status == 'DIBUTUHKAN SEGERA' ? 'bg-lime-100 text-lime-800' : job.status == 'DIBUTUHKAN' ?'bg-blue-100 text-blue-800' : '' " x-text="job.status"></span>
-                            </div>
-
-                          </div>
-                        </div>
-                      </template>
-              
-                       
                     </div>
-<!-- <div class="flex mt-7 items-center border-t-2 md:border-t-0 justify-between md:px-4 py-5">
-<button class="text-gray-500 flex items-center hover:text-black gap-x-2 transition ease-in duration-100"><i class="ri-arrow-left-line lg:text-lg text-xl"></i><span class="lg:text-sm text-lg font-medium md:font-normal">Previous</span></button>
+                    
+                    <div class="p-[0.30rem] relative transition-all ease-in-out duration-100 group-hover:blur-sm">
+                      <div class="bg-white shadow  md:space-y-7 space-y-5 rounded-2xl border border-gray-200 p-3">
+                        <div class="flex items-center justify-between  ">
+                          <div class=" flex items-center gap-x-3">  
+                            <img :src="job.img" alt="" class="size-10  border p-1 border-gray-200 rounded-full  md:size-12"  >
+                            <div class="">
+                              <h1 class="font-semibold text-base " x-bind:class="grid ? '' : 'md:text-lg ' " x-text="job.title"></h1>
+                     <p class="text-gray-500 flex space-x-1 items-center text-sm " x-bind:class="grid ? '' : 'md:text-base' "><span x-text="job.name"></span><span class=" text-gray-300">•</span><span><span x-text="job.locasion"></span>,<span x-text="job.location"></span></span></p>
+                            </div>   
+                          </div>
+                          <h1 class="font-semibold " x-bind:class="grid ? 'md:text-lg' : 'md:text-xl' "><span x-text="job.salary"></span><span class="text-xs  text-gray-500" x-bind:class="grid ? '' : 'md:text-base' ">/hour</span></h1>
+                        </div>
+                <div class=" ">
+                 
+                
+                  <span class="inline-flex items-center gap-x-2 py-1.5 px-3 rounded-lg text-xs  border border-gray-200  font-medium bg-white text-black" x-bind:class="grid ? '' : 'md:text-sm'  ">
+                    <span class="size-2 inline-block rounded-full " x-bind:class="job.jobType == 'Full-Time' ?  'bg-teal-500' : job.jobType  == 'Contract' ? 'bg-lime-500' : job.jobType == 'Freelance' ? 'bg-cyan-500' : job.jobType  == 'Part-Time' ? 'bg-violet-500' : ''"></span>
+                    <span x-text="job.jobType"></span>
+                  </span>
+                  
+              
+                  <template x-for="tag in job.tags2.slice(0, 2)">
+                    <span class="inline-flex items-center gap-x-1.5 mr-1 py-1.5 px-3 rounded-lg text-xs  font-semibold border border-gray-200 bg-white text-black shadow-sm" x-text="tag" x-bind:class="grid ? '' : 'md:text-sm'  "></span>
+                  </template>
+                  
+            
+                </div>
+                      </div>
+                      <div class="p-3 flex justify-between items-center">
+                        <div class="flex gap-x-3">
+                          <span class="flex items-center gap-x-1 ">
+                            <svg width="18" height="18" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 7.03491V11.2065C12 11.6152 12 11.8196 12.0761 12.0034C12.1522 12.1872 12.2968 12.3317 12.5858 12.6207L15 15.0349M21 12.0349C21 17.0055 16.9706 21.0349 12 21.0349C7.02944 21.0349 3 17.0055 3 12.0349C3 7.06435 7.02944 3.03491 12 3.03491C16.9706 3.03491 21 7.06435 21 12.0349Z" stroke="#7a7a7a" stroke-width="1.5" stroke-linecap="round" class="my-path"></path>
+                              </svg>
+                              <span class="text-gray-600  text-sm">3m lalu</span>
+                          </span>
+                          <span class="flex items-center gap-x-1 ">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M14.6998 9.3001C14.6998 10.7913 13.491 12.0001 11.9998 12.0001C10.5086 12.0001 9.2998 10.7913 9.2998 9.3001C9.2998 7.80893 10.5086 6.6001 11.9998 6.6001C13.491 6.6001 14.6998 7.80893 14.6998 9.3001Z" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
+                              <path d="M6.6001 19.2002C6.6001 16.7149 9.01776 14.7002 12.0001 14.7002C14.9824 14.7002 17.4001 16.7149 17.4001 19.2002" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
+                              <path d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#7a7a7a" stroke-width="1.5" class="my-path"></path>
+                              </svg>
+                              <span class="text-gray-600  text-sm">58 Lamaran</span>
+                          </span>
+                        </div>
+                        <span class="inline-flex items-center gap-x-1 py-1 px-3  rounded-lg text-sm    font-medium "    x-bind:class="  job.status == 'TERSEDIA' ? 'bg-teal-100 text-teal-800' : job.status == 'DIBUTUHKAN SEGERA' ? 'bg-lime-100 text-lime-800' : job.status == 'DIBUTUHKAN' ?'bg-blue-100 text-blue-800' : '' " x-text="job.status"></span>
+                      </div>
+
+                    </div>
+                  </div>
+                </template>
+        
+                 
+              </div>
+<div class="flex mt-7 items-center border-t-2 md:border-t-0 justify-between md:px-4 py-5">
+<button  @click="prevPage()" :disabled="currentPage === 1" class="text-gray-500 flex items-center hover:text-black gap-x-2 transition ease-in duration-100"><i class="ri-arrow-left-line lg:text-lg text-xl"></i><span class="lg:text-sm text-lg font-medium md:font-normal">Previous</span></button>
 
 <div class="  hidden md:flex gap-x-5 ">
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">01</span>
+  <template x-for="page in totalPages" :key="page">
 
+    <div class="paggination font-medium cursor-pointer   px-2" @click="setPage(page)" :class="{'paggination-active text-black': currentPage === page}">
+      <span class=" " x-text="page"  :class="{' text-black': currentPage === page}"></span>
+    
     </div>
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">02</span>
+  </template>
+<!-- <div class="paggination font-medium cursor-pointer   px-2">
+  <span class=" ">02</span>
 
-    </div>
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">03</span>
+</div>
+<div class="paggination font-medium cursor-pointer   px-2">
+  <span class=" ">03</span>
 
-    </div>
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">...</span>
+</div>
+<div class="paggination font-medium cursor-pointer   px-2">
+  <span class=" ">...</span>
 
-    </div>
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">10</span>
+</div>
+<div class="paggination font-medium cursor-pointer   px-2">
+  <span class=" ">10</span>
 
-    </div>
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">11</span>
+</div>
+<div class="paggination font-medium cursor-pointer   px-2">
+  <span class=" ">11</span>
 
-    </div>
-    <div class="paggination font-medium cursor-pointer   px-2">
-        <span class=" ">12</span>
+</div>
+<div class="paggination font-medium cursor-pointer   px-2">
+  <span class=" ">12</span>
 
-    </div>
+</div> -->
 </div>
 
-<button class="flex items-center text-gray-500 hover:text-black gap-x-2 transition ease-in duration-100"><span class="lg:text-sm text-lg font-medium md:font-normal">Next</span><i class="ri-arrow-right-line lg:text-lg text-xl"></i></button>
-</div> -->
+<button @click="nextPage()" :disabled="currentPage === totalPages" class="flex items-center text-gray-500 hover:text-black gap-x-2 transition ease-in duration-100"><span class="lg:text-sm text-lg font-medium md:font-normal">Next</span><i class="ri-arrow-right-line lg:text-lg text-xl"></i></button>
+</div>
+            </div>
             </div>
         
         </div>
