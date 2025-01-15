@@ -832,6 +832,7 @@ document.addEventListener('alpine:init', () => {
         },
         setPage(page) {
             this.currentPage = page;
-        }
+        },
+   
   }))
 })

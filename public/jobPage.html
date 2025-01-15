@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liveup - Memulai Karir</title>
     <link rel="stylesheet" href="/public/css/style.css">
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
 />
+<link rel="icon" href=
+"aset/logo - svg.svg"
+        type="image/x-icon" />
 <link href="https://cdn.jsdelivr.net/npm/preline@1.0.0/dist/preline.min.css" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -107,8 +110,13 @@ x-init="logged = isLogin()">
       </div>
       <!-- End SearchBox Modal -->
     </div>
-    <!-- Login Handler -->
-    <script>
+
+
+
+
+    
+     <!-- Login Handler -->
+     <script>
       function login() {
         const em = document.getElementById("emailx").checkValidity();
         const pw = document.getElementById("passwordx").value.length;
@@ -145,193 +153,193 @@ x-init="logged = isLogin()">
     <header id="headers" class="w-full bg-white border-b-2  lg:py-4 z-40 relative top-0 " 
     
     >
-      <div
-      x-transition.opacity.duration.500ms
-      
-        x-show="loginpop"
-        class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
-      >
-        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-          <div class="relative bg-white rounded-lg shadow">
-            <button
-              type="button"
-              @click="loginpop = false"
-              class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
+    <div
+    x-transition.opacity.duration.500ms
+    
+      x-show="loginpop"
+      class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
+    >
+      <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+        <div class="relative bg-white rounded-lg shadow">
+          <button
+            type="button"
+            @click="loginpop = false"
+            class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
+          >
+            <svg
+              aria-hidden="true"
+              class="w-5 h-5"
+              fill="#c6c7c7"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                aria-hidden="true"
-                class="w-5 h-5"
-                fill="#c6c7c7"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  cliprule="evenodd"
-                ></path>
-              </svg>
-              <span class="sr-only">Close popup</span>
-            </button>
- 
-            <div class="p-5">
-              <h3 class="text-2xl mb-0.5 font-medium"></h3>
-              <p class="mb-4 text-sm font-normal text-gray-800"></p>
- 
-              <div class="text-center">
-                <p
-                  x-show="!register"
-                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
-                >
-                  Login ke Liveup
-                </p>
-                <p
-                  x-show="register"
-                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
-                >
-                  Daftar ke Liveup
-                </p>
-                <p
-                  x-show="!register"
-                  class="mt-2 text-sm leading-4 text-slate-600"
-                >
-                  login untuk dapat melakukan beberapa hal
-                </p>
-                <p
-                  x-show="register"
-                  class="mt-2 text-sm leading-4 text-slate-600"
-                >
-                  Daftar untuk dapat melakukan beberapa hal
-                </p>
-              </div>
- 
-              <div class="mt-7 flex flex-col gap-2">
-                <button
-                  @click="loginthird(); loginpop = false"
-                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  <img
-                    src="https://www.svgrepo.com/show/475656/google-color.svg"
-                    alt="Google"
-                    class="h-[18px] w-[18px]"
-                  />Continue with Google
-                </button>
- 
-                <button
-                  @click="loginthird(); loginpop = false"
-                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  <img
-                    src="https://www.svgrepo.com/show/448234/linkedin.svg"
-                    alt="Google"
-                    class="h-[18px] w-[18px]"
-                  />Continue with LinkedIn
-                </button>
-              </div>
- 
-              <div
-                class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
-              >
-                <div class="h-px w-full bg-slate-200"></div>
-                ATAU
-                <div class="h-px w-full bg-slate-200"></div>
-              </div>
- 
-              <form @submit.prevent="login(); loginpop = false" class="w-full">
-                <label x-show="register" for="username" class="sr-only"
-                  >Nama</label
-                >
-                <input
-                  name="username"
-                  type="text"
-                  id="usernamex"
-                  autocomplete="Username"
-                  required=""
-                  class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                  placeholder="Username"
-                  value=""
-                />
-                <label for="email" class="sr-only">Email</label>
-                <input
-                  name="email"
-                  x-show="register"
-                  type="email"
-                  id="emailx"
-                  autocomplete="email"
-                  required=""
-                  class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                  placeholder="Email"
-                  value=""
-                />
-                <label for="password" class="sr-only">Password</label>
-                <input
-                  id="passwordx"
-                  name="password"
-                  type="password"
-                  autocomplete="current-password"
-                  required=""
-                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                  placeholder="Password"
-                  value=""
-                />
-                <label x-show="register" for="repeat-password" class="sr-only"
-                  >Repeat Password</label
-                >
-                <input
-                  x-show="register"
-                  id="repeat-passwordx"
-                  name="repeat-password"
-                  type="password"
-                  required=""
-                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                  placeholder="Repeat Password"
-                  value=""
-                />
-                <p class="mb-3 mt-2 text-sm text-gray-500">
-                  <a
-                    class="text-blue-800 hover:text-blue-600"
-                    x-show="!register"
-                    >Lupa password?</a
-                  >
-                </p>
-                <button
-                  type="submit"
-                  class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
-                >
-                  <p x-show="!register">Login</p>
-                  <p x-show="register">Daftar</p>
-                </button>
-              </form>
- 
-              <div
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                cliprule="evenodd"
+              ></path>
+            </svg>
+            <span class="sr-only">Close popup</span>
+          </button>
+
+          <div class="p-5">
+            <h3 class="text-2xl mb-0.5 font-medium"></h3>
+            <p class="mb-4 text-sm font-normal text-gray-800"></p>
+
+            <div class="text-center">
+              <p
                 x-show="!register"
-                class="mt-6 text-center text-sm text-slate-600"
+                class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
               >
-                Belum punya akun?
-                <button
-                  @click="register = true; console.log(register);"
-                  class="font-medium text-[#4285f4]"
-                >
-                  Sign up
-                </button>
-              </div>
- 
-              <div
+                Login ke Liveup
+              </p>
+              <p
                 x-show="register"
-                class="mt-6 text-center text-sm text-slate-600"
+                class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
               >
-                Sudah punya akun?
-                <button
-                  @click="register = false;"
-                  class="font-medium text-[#4285f4]"
+                Daftar ke Liveup
+              </p>
+              <p
+                x-show="!register"
+                class="mt-2 text-sm leading-4 text-slate-600"
+              >
+                login untuk dapat melakukan beberapa hal
+              </p>
+              <p
+                x-show="register"
+                class="mt-2 text-sm leading-4 text-slate-600"
+              >
+                Daftar untuk dapat melakukan beberapa hal
+              </p>
+            </div>
+
+            <div class="mt-7 flex flex-col gap-2">
+              <button
+                @click="loginthird(); loginpop = false"
+                class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/475656/google-color.svg"
+                  alt="Google"
+                  class="h-[18px] w-[18px]"
+                />Continue with Google
+              </button>
+
+              <button
+                @click="loginthird(); loginpop = false"
+                class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                <img
+                  src="https://www.svgrepo.com/show/448234/linkedin.svg"
+                  alt="Google"
+                  class="h-[18px] w-[18px]"
+                />Continue with LinkedIn
+              </button>
+            </div>
+
+            <div
+              class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
+            >
+              <div class="h-px w-full bg-slate-200"></div>
+              ATAU
+              <div class="h-px w-full bg-slate-200"></div>
+            </div>
+
+            <form @submit.prevent="login(); loginpop = false" class="w-full">
+              <label x-show="register" for="username" class="sr-only"
+                >Nama</label
+              >
+              <input
+                name="username"
+                type="text"
+                id="usernamex"
+                autocomplete="Username"
+                required=""
+                class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                placeholder="Username"
+                value=""
+              />
+              <label for="email" class="sr-only">Email</label>
+              <input
+                name="email"
+                x-show="register"
+                type="email"
+                id="emailx"
+                autocomplete="email"
+                required=""
+                class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                placeholder="Email"
+                value=""
+              />
+              <label for="password" class="sr-only">Password</label>
+              <input
+                id="passwordx"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                required=""
+                class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                placeholder="Password"
+                value=""
+              />
+              <label x-show="register" for="repeat-password" class="sr-only"
+                >Repeat Password</label
+              >
+              <input
+                x-show="register"
+                id="repeat-passwordx"
+                name="repeat-password"
+                type="password"
+                required=""
+                class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                placeholder="Repeat Password"
+                value=""
+              />
+              <p class="mb-3 mt-2 text-sm text-gray-500">
+                <a
+                  class="text-blue-800 hover:text-blue-600"
+                  x-show="!register"
+                  >Lupa password?</a
                 >
-                  Login
-                </button>
-              </div>
+              </p>
+              <button
+                type="submit"
+                class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
+              >
+                <p x-show="!register">Login</p>
+                <p x-show="register">Daftar</p>
+              </button>
+            </form>
+
+            <div
+              x-show="!register"
+              class="mt-6 text-center text-sm text-slate-600"
+            >
+              Belum punya akun?
+              <button
+                @click="register = true; console.log(register);"
+                class="font-medium text-[#4285f4]"
+              >
+                Sign up
+              </button>
+            </div>
+
+            <div
+              x-show="register"
+              class="mt-6 text-center text-sm text-slate-600"
+            >
+              Sudah punya akun?
+              <button
+                @click="register = false;"
+                class="font-medium text-[#4285f4]"
+              >
+                Login
+              </button>
             </div>
           </div>
         </div>
       </div>
+    </div>
 <div class="">
   <nav class=" px-5  items-center lg:border-b lg:pb-4 my-4 lg:my-0 ">
       <div class="flex justify-between max-w-7xl m-auto">
@@ -426,8 +434,8 @@ Bahasa
   </div>
 
   <div
-    class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
-  >
+  class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
+>
 
 
 
@@ -443,78 +451,78 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
 
 
 
-    <!-- <img
-   
-      class="inline-block size-[38px] rounded-full hover:cursor-pointer"
-      src="aset/unloged.png"
-      alt="Avatar"
-    /> -->
+  <!-- <img
+ 
+    class="inline-block size-[38px] rounded-full hover:cursor-pointer"
+    src="aset/unloged.png"
+    alt="Avatar"
+  /> -->
 
-  
 
-    <div class=" group cursor-pointer"   @click="loginprop = !loginprop"
-    x-show="logged">
-    <span class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border">
-      YS
-    </span>
-    </div>
 
-    <!-- Dropdown Menu -->
-    <div
-    x-transition.origin.top.right.duration.100ms
-
-      x-show="loginprop"
-      @click.away="loginprop = false"
-      class="absolute z-40 right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
-      style="display: none"
-    >
-      <ul class="py-1">
-        <!-- Profile Option -->
-        <li>
-          <a
-            href="#"
-            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-          <span class="inline-flex items-center mr-2 justify-center size-[25px] text-[10px] font-semibold leading-none rounded-full bg-gray-100 text-gray-800 ">
-            AC
-          </span>
-            Profile
-          </a>
-        </li>
-        <!-- Logout Option -->
-        <li>
-          <a
-            href="#"
-            @click="logout()"
-            class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-5 h-5 mr-2"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
-              />
-              <polyline points="10 17 15 12 10 7" />
-              <line x1="15" y1="12" x2="3" y2="12" />
-            </svg>
-            Logout
-          </a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- <div
-      x-show="loginprop"
-      class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
-    ></div> -->
+  <div class=" group cursor-pointer"   @click="loginprop = !loginprop"
+  x-show="logged">
+  <span class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border">
+    YS
+  </span>
   </div>
+
+  <!-- Dropdown Menu -->
+  <div
+  x-transition.origin.top.right.duration.100ms
+
+    x-show="loginprop"
+    @click.away="loginprop = false"
+    class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
+    style="display: none"
+  >
+    <ul class="py-1">
+      <!-- Profile Option -->
+      <li>
+        <a
+          href="#"
+          class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        >
+        <span class="inline-flex items-center mr-2 justify-center size-[25px] text-[10px] font-semibold leading-none rounded-full bg-gray-100 text-gray-800 ">
+          AC
+        </span>
+          Profile
+        </a>
+      </li>
+      <!-- Logout Option -->
+      <li>
+        <a
+          href="#"
+          @click="logout()"
+          class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5 mr-2"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+            />
+            <polyline points="10 17 15 12 10 7" />
+            <line x1="15" y1="12" x2="3" y2="12" />
+          </svg>
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div
+    x-show="loginprop"
+    class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
+  ></div> -->
+</div>
 </div>
 </div>
 
@@ -1086,22 +1094,18 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
         </div>
     </div>
     <footer
-      class="text-white font-poppins lg:h-[30rem] h-[26rem] w-full flex flex-col justify-center items-center bg-[#010505] mt-[8rem]"
+      class="text-black border-t-2 border-gray-200 lg:min-h-[30rem] min-h-[26rem] w-full flex flex-col justify-center items-center mt-[8rem]"
     >
       <div
-        class="w-[80vw] bg flex flex-col h-[90%] lg:flex-row justify-between"
+        class="w-[80vw] flex flex-col h-[95%] lg:flex-row justify-center items-center"
       >
         <div
           class="py-[3rem] h-full w-full lg:w-[28%] flex flex-col justify-between"
         >
-          <h1
-            class="text-[1.5rem] lg:text-[2.5rem] font-[500] font-poppins text-teal-700"
-          >
+          <h1 class="text-[1.5rem] lg:text-[2.5rem] font-[500] text-teal-700">
             Liveup
           </h1>
-          <p
-            class="text-[1rem] font-poppins font-light lg:w-[80%] w-full text-[#ffffffea]"
-          >
+          <p class="text-[1rem] font-light lg:w-[80%] w-ful">
             Jl. Poras No.07, RT.01/RW.04, Loji, Kec. Bogor Bar., Kota Bogor,
             Jawa Barat 16117
           </p>
@@ -1116,8 +1120,8 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
               >
                 <path
                   d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
-                  stroke="#ffffff"
-                  stroke-width="2"
+                  stroke="#000000"
+                  stroke-width="1"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
@@ -1133,14 +1137,14 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
               >
                 <path
                   d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="2"
                   stroke-linecap="round"
                 />
@@ -1150,7 +1154,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
           </div>
           <div class="w-[10rem] flex justify-between">
             <div
-              class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+              class="size-10 rounded-full hover:border-2 border border-black flex justify-center items-center"
             >
               <svg
                 class="size-6"
@@ -1162,7 +1166,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1171,7 +1175,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1179,7 +1183,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
               </svg>
             </div>
             <div
-              class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
             >
               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
               <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -1201,7 +1205,7 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
                   <g
                     id="Dribbble-Light-Preview"
                     transform="translate(-340.000000, -7439.000000)"
-                    fill="#ffffff"
+                    fill="#000000"
                   >
                     <g id="icons" transform="translate(56.000000, 160.000000)">
                       <path
@@ -1214,11 +1218,11 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
               </svg>
             </div>
             <div
-              class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
             >
               <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
               <svg
-                fill="#ffffff"
+                fill="#000000"
                 class="size-6"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1230,25 +1234,53 @@ x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 ro
             </div>
           </div>
         </div>
+
+        <!-- 4 ul di tengah -->
         <div
-          class="py-[3rem] text-right h-full w-full lg:w-[20%]  flex-col gap-[2rem] lg:block hidden"
+          class="py-[3rem] w-full flex-wrap lg:w-[60%] justify-between flex gap-[1rem]"
         >
-          <p class="w-full">Resources</p>
-          <ul class="w-full space-y-3">
-            <li>Bantuan</li>
-            <li>Riview Liveup</li>
-            <li>Blog</li>
-            <li>Tentang Kami</li>
-            <li>Konsulatasi</li>
-            <li>Daftar Perusahaan</li>
-            <li>Loker Liveup</li>
+          <!-- Informasi Perusahaan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Perusahaan</p>
+            <li class="cursor-pointer hover:underline">Tentang Kami</li>
+            <li class="cursor-pointer hover:underline">Kontak</li>
+            <li class="cursor-pointer hover:underline">Karir</li>
+            <li class="cursor-pointer hover:underline">Blog</li>
+          </ul>
+
+          <!-- Sumber Daya -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Sumber Daya</p>
+            <li class="cursor-pointer hover:underline">Pusat Bantuan</li>
+            <li class="cursor-pointer hover:underline">Kebijakan Privasi</li>
+            <li class="cursor-pointer hover:underline">Ketentuan Layanan</li>
+            <li class="cursor-pointer hover:underline">FAQ</li>
+          </ul>
+
+          <!-- Layanan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Layanan</p>
+            <li class="cursor-pointer hover:underline">Konsultasi</li>
+            <li class="cursor-pointer hover:underline">Pengembangan Web</li>
+            <li class="cursor-pointer hover:underline">Aplikasi Mobile</li>
+            <li class="cursor-pointer hover:underline">Desain UI/UX</li>
+          </ul>
+
+          <!-- Tautan Cepat -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Tautan Cepat</p>
+            <li class="cursor-pointer hover:underline">Layanan Liveup</li>
+            <li class="cursor-pointer hover:underline">Daftar Pekerjaan</li>
+            <li class="cursor-pointer hover:underline">Syarat & Ketentuan</li>
+            <li class="cursor-pointer hover:underline">Kontak Dukungan</li>
           </ul>
         </div>
       </div>
+
       <div
-        class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-white"
+        class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-gray-400"
       >
-        Copyrights Â© 2025, SMK Informatika Pesat. All rights Reserved
+        Copyrights © 2025, SMK Informatika Pesat. All rights Reserved
       </div>
     </footer>
     <script src="../node_modules/nouislider/dist/nouislider.min.js"></script>

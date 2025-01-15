@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Liveup - Detail</title>
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
@@ -11,7 +11,9 @@
 <link rel="stylesheet" href="/public/css/style.css">
 <!-- Alpine Plugins -->
 <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
- 
+<link rel="icon" href=
+"aset/logo - svg.svg"
+        type="image/x-icon" />
 <script src="jobPage.js" defer></script>
 
 <!-- Alpine Core -->
@@ -377,500 +379,499 @@ x-init="logged = isLogin()">
    </div>
    <!-- End SearchBox -->
 
-   <!-- Login Handler -->
-   <script>
-     function login() {
-       const em = document.getElementById("emailx").checkValidity();
-       const pw = document.getElementById("passwordx").value.length;
+    <!-- Login Handler -->
+    <script>
+      function login() {
+        const em = document.getElementById("emailx").checkValidity();
+        const pw = document.getElementById("passwordx").value.length;
 
-       if (em && pw > 0) {
-         document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
-         console.log("Logged in successfully");
-         location.reload();
-       }
-     }
-     function loginthird() {
-       document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
-       console.log("Logged in successfully");
-       location.reload();
-     }
-     function logout() {
-       document.cookie = "login=; path=/; max-age=0"; // Hapus cookie
-       console.log("Logged out successfully");
-       location.reload();
-     }
-     function isLogin() {
-       let cookies = document.cookie.split(";");
-       for (let cookie of cookies) {
-         let [key, value] = cookie.trim().split("=");
-         if (key === "login") {
-           return value === "true";
-         }
-       }
-       return false;
-     }
-   </script>
-   <!-- Login Handler End -->
+        if (em && pw > 0) {
+          const axx = document.getElementById("emailx").value.split("@")[0];
+          document.cookie = "login=true; path=/; max-age=3600";
+          document.cookie = `username=${axx}; path=/; max-age=3600`;
 
-   <header
-   
-     id="header"
-     class="w-full bg-white  z-40 relative top-0"
-    
-   >
-     <div
-     x-transition.opacity.duration.500ms
-     
-       x-show="loginpop"
-       class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
-     >
-       <div class="relative p-4 w-full max-w-md h-full md:h-auto">
-         <div class="relative bg-white rounded-lg shadow">
-           <button
-             type="button"
-             @click="loginpop = false"
-             class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
-           >
-             <svg
-               aria-hidden="true"
-               class="w-5 h-5"
-               fill="#c6c7c7"
-               viewBox="0 0 20 20"
-               xmlns="http://www.w3.org/2000/svg"
-             >
-               <path
-                 fill-rule="evenodd"
-                 d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                 cliprule="evenodd"
-               ></path>
-             </svg>
-             <span class="sr-only">Close popup</span>
-           </button>
+          console.log("Logged in successfully");
+          location.reload();
+        }
+      }
+      function loginthird() {
+        document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
+        document.cookie = `username=yusuf; path=/; max-age=3600`;
+        console.log("Logged in successfully");
+        location.reload();
+      }
+      function logout() {
+        document.cookie = "login=; path=/; max-age=0"; // Hapus cookie
+        document.cookie = `username=; path=/; max-age=0`;
+        console.log("Logged out successfully");
+        location.reload();
+      }
 
-           <div class="p-5">
-             <h3 class="text-2xl mb-0.5 font-medium"></h3>
-             <p class="mb-4 text-sm font-normal text-gray-800"></p>
+      function getUsername() {
+        const value = `; ${document.cookie}`;
+        const parts = value.split("; username=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+        return null;
+      }
 
-             <div class="text-center">
-               <p
-                 x-show="!register"
-                 class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
-               >
-                 Login ke Liveup
-               </p>
-               <p
-                 x-show="register"
-                 class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
-               >
-                 Daftar ke Liveup
-               </p>
-               <p
-                 x-show="!register"
-                 class="mt-2 text-sm leading-4 text-slate-600"
-               >
-                 login untuk dapat melakukan beberapa hal
-               </p>
-               <p
-                 x-show="register"
-                 class="mt-2 text-sm leading-4 text-slate-600"
-               >
-                 Daftar untuk dapat melakukan beberapa hal
-               </p>
-             </div>
+      function isLogin() {
+        let cookies = document.cookie.split(";");
+        for (let cookie of cookies) {
+          let [key, value] = cookie.trim().split("=");
+          if (key === "login") {
+            return value === "true";
+          }
+        }
+        return false;
+      }
+    </script>
+    <!-- Login Handler End -->
+    <!-- x-data="{ open: false, loginpop: false, register: false, logged: false, loginprop: false }" -->
+    <header
+      id="header"
+      class="w-full bg-white border-b-2 z-40 relative top-0"
+      x-data="{ open: false, logged: false, loginprop: false }"
+      x-init="logged = isLogin()"
+    >
+      <div
+      x-transition.opacity.duration.500ms
+        x-show="loginpop"
+        class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
+      >
+        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+          <div class="relative bg-white rounded-lg shadow">
+            <button
+              type="button"
+              @click="loginpop = false"
+              class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="#c6c7c7"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  cliprule="evenodd"
+                ></path>
+              </svg>
+              <span class="sr-only">Close popup</span>
+            </button>
 
-             <div class="mt-7 flex flex-col gap-2">
-               <button
-                 @click="loginthird(); loginpop = false"
-                 class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
-               >
-                 <img
-                   src="https://www.svgrepo.com/show/475656/google-color.svg"
-                   alt="Google"
-                   class="h-[18px] w-[18px]"
-                 />Continue with Google
-               </button>
+            <div class="p-5">
+              <h3 class="text-2xl mb-0.5 font-medium"></h3>
+              <p class="mb-4 text-sm font-normal text-gray-800"></p>
 
-               <button
-                 @click="loginthird(); loginpop = false"
-                 class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
-               >
-                 <img
-                   src="https://www.svgrepo.com/show/448234/linkedin.svg"
-                   alt="Google"
-                   class="h-[18px] w-[18px]"
-                 />Continue with LinkedIn
-               </button>
-             </div>
+              <div class="text-center">
+                <p
+                  x-show="!register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Login ke Liveup
+                </p>
+                <p
+                  x-show="register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Daftar ke Liveup
+                </p>
+                <p
+                  x-show="!register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  login untuk dapat melakukan beberapa hal
+                </p>
+                <p
+                  x-show="register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  Daftar untuk dapat melakukan beberapa hal
+                </p>
+              </div>
 
-             <div
-               class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
-             >
-               <div class="h-px w-full bg-slate-200"></div>
-               ATAU
-               <div class="h-px w-full bg-slate-200"></div>
-             </div>
+              <div class="mt-7 flex flex-col gap-2">
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with Google
+                </button>
 
-             <form @submit.prevent="login(); loginpop = false" class="w-full">
-               <label x-show="register" for="username" class="sr-only"
-                 >Nama</label
-               >
-               <input
-                 name="username"
-                 type="text"
-                 id="usernamex"
-                 autocomplete="Username"
-                 required=""
-                 class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                 placeholder="Username"
-                 value=""
-               />
-               <label for="email" class="sr-only">Email</label>
-               <input
-                 name="email"
-                 x-show="register"
-                 type="email"
-                 id="emailx"
-                 autocomplete="email"
-                 required=""
-                 class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                 placeholder="Email"
-                 value=""
-               />
-               <label for="password" class="sr-only">Password</label>
-               <input
-                 id="passwordx"
-                 name="password"
-                 type="password"
-                 autocomplete="current-password"
-                 required=""
-                 class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                 placeholder="Password"
-                 value=""
-               />
-               <label x-show="register" for="repeat-password" class="sr-only"
-                 >Repeat Password</label
-               >
-               <input
-                 x-show="register"
-                 id="repeat-passwordx"
-                 name="repeat-password"
-                 type="password"
-                 required=""
-                 class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                 placeholder="Repeat Password"
-                 value=""
-               />
-               <p class="mb-3 mt-2 text-sm text-gray-500">
-                 <a
-                   class="text-blue-800 hover:text-blue-600"
-                   x-show="!register"
-                   >Lupa password?</a
-                 >
-               </p>
-               <button
-                 type="submit"
-                 class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
-               >
-                 <p x-show="!register">Login</p>
-                 <p x-show="register">Daftar</p>
-               </button>
-             </form>
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448234/linkedin.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with LinkedIn
+                </button>
+              </div>
 
-             <div
-               x-show="!register"
-               class="mt-6 text-center text-sm text-slate-600"
-             >
-               Belum punya akun?
-               <button
-                 @click="register = true; console.log(register);"
-                 class="font-medium text-[#4285f4]"
-               >
-                 Sign up
-               </button>
-             </div>
+              <div
+                class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
+              >
+                <div class="h-px w-full bg-slate-200"></div>
+                ATAU
+                <div class="h-px w-full bg-slate-200"></div>
+              </div>
 
-             <div
-               x-show="register"
-               class="mt-6 text-center text-sm text-slate-600"
-             >
-               Sudah punya akun?
-               <button
-                 @click="register = false;"
-                 class="font-medium text-[#4285f4]"
-               >
-                 Login
-               </button>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-     <div class="block border-b-2"  data-aos="fade-down"  data-aos-delay="300"      data-aos-anchor-placement="center-center" >
-       <nav
-      
-         class="px-5 lg:mb-0 items-center lg:border-b lg:pb-4 lg:py-3 my-4 lg:my-0"
-       >
-         <div class="flex items-center justify-between max-w-7xl m-auto">
-           <div class="flex items-center gap-x-3">
-             <div class="flex items-center space-x-3 relative lg:mr-20"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-10 ">
-               <h1 class=" text-2xl  font-semibold text-teal-700 relative ">Liveup</h1></div>
- 
-             <div class="flex relative items-center lg:hidden">
-               <button
-                 x-on:click="open = !open"
-                 id="hamburger"
-                 name="hamburger"
-                 type="button"
-                 class="block border p-1 rounded-lg"
-               >
-                 <i class="ri-more-2-fill"></i>
-                 <!-- <span class="hamburger-line origin-top-left transition duration-300 ease-in-out "></span>
-   <span class="w-[20px]  h-[2px] my-2 block bg-black transition duration-300 ease-in-out"></span>
-   <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span> -->
-               </button>
-             </div>
-           </div>
- 
-           <div class="flex items-center lg:gap-x-44">
-             <button
-               type="button"
-               aria-haspopup="dialog"
-               aria-expanded="false"
-               aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger"
-               data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"
-               class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full cursor-pointer text-gray-400"
-             >
-               <div class="lg:flex lg:items-center lg:gap-x-3">
-                 <i
-                   class="ri-search-line text-lg lg:text-base rounded-full cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"
-                 ></i>
-                 <span class="hidden lg:inline">Pencarian Cepat...</span>
-               </div>
-               <span class="font-medium hidden lg:inline"
-                 ><i class="ri-command-line"></i> + /</span
-               >
-             </button>
-             <div class="flex items-center">
-               <div class="lg:flex rounded-xl items-center group">
-                 <i
-                   class="ri-global-line text-gray-400 lg:px-2 lg:py-1 transition ease-in duration-100 group-hover:text-black lg:inline text-lg cursor-pointer group-hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"
-                 ></i>
-                 <div class="flex-1 w-36 hidden lg:inline-block">
-                   <!-- Select -->
-                   <select
-                     data-hs-select='{
-   "placeholder": "Select assignee",
-   "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
-   "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border-none border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500",
-   "dropdownClasses": "mt-2 max-h-72 p-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
-   "optionClasses": "py-2 px-3 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
-   "optionTemplate": "<div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div><div class=\"hs-selected:font-semibold text-sm text-gray-800 \" data-title></div></div><div class=\"ms-auto\"><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-4 text-blue-600\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div></div>",
-   "extraMarkup": "<div class=\" hidden absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
-   }'
-                     class="hidden"
-                   >
-                     <option value="">Choose</option>
-                     <option
-                       value="1"
-                       selected=""
-                       data-hs-select-option='{
-       "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'
-                     >
-                       English
-                     </option>
-                     <option
-                       value="2"
-                       data-hs-select-option='{
-       "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'
-                     >
-                       Deutsch
-                     </option>
-                     <option
-                       value="3"
-                       data-hs-select-option='{
-       "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'
-                     >
-                       Bahasa
-                     </option>
-                   </select>
-                   <!-- End Select -->
-                 </div>
-               </div>
- 
-               <div class="flex items-center lg:space-x-3">
-                 <div class="flex items-center lg:gap-x-2">
-                   <div class="hidden lg:inline-block">
-                     <i
-                       class="ri-question-line text-lg text-gray-400 hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"
-                     ></i>
-                   </div>
- 
-                   <button
-                     type="button"
-                     class="m-1 ms-0 relative py-1 px-2 group inline-flex items-center gap-x-2 text-sm font-medium rounded-full bg-white text-gray-800 hover:bg-slate-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50"
-                   >
-                     <i
-                       class="ri-notification-3-line text-lg text-gray-400 group-hover:text-black"
-                     ></i>
-                     <span class="flex absolute top-0 end-0 -mt-2 -me-2">
-                       <span
-                         class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75"
-                       ></span>
-                       <span
-                         class="relative inline-flex text-[10px] lg:text-xs bg-red-500 text-white rounded-full px-[6px]"
-                       >
-                         2
-                       </span>
-                     </span>
-                   </button>
-                 </div>
- 
-                 <div
-                   class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
-                 >
- 
- 
- 
- 
- <span  @click="loginpop = true"
- x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 rounded-full overflow-hidden">
-   <svg class="size-full text-gray-400" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-     <rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"></rect>
-     <path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"></path>
-     <path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"></path>
-   </svg>
- </span>
- 
- 
- 
-                   <!-- <img
-                  
-                     class="inline-block size-[38px] rounded-full hover:cursor-pointer"
-                     src="aset/unloged.png"
-                     alt="Avatar"
-                   /> -->
- 
-                 
- 
-                   <div class=" group cursor-pointer"   @click="loginprop = !loginprop"
-                   x-show="logged">
-                   <span class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border">
-                     YS
-                   </span>
-                   </div>
- 
-                   <!-- Dropdown Menu -->
-                   <div
-                   x-transition.origin.top.right.duration.100ms
- 
-                     x-show="loginprop"
-                     @click.away="loginprop = false"
-                     class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
-                     style="display: none"
-                   >
-                     <ul class="py-1">
-                       <!-- Profile Option -->
-                       <li>
-                         <a
-                           href="#"
-                           class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                         >
-                         <span class="inline-flex items-center mr-2 justify-center size-[25px] text-[10px] font-semibold leading-none rounded-full bg-gray-100 text-gray-800 ">
-                           AC
-                         </span>
-                           Profile
-                         </a>
-                       </li>
-                       <!-- Logout Option -->
-                       <li>
-                         <a
-                           href="#"
-                           @click="logout()"
-                           class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                         >
-                           <svg
-                             xmlns="http://www.w3.org/2000/svg"
-                             class="w-5 h-5 mr-2"
-                             viewBox="0 0 24 24"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2"
-                             stroke-linecap="round"
-                             stroke-linejoin="round"
-                           >
-                             <path
-                               d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
-                             />
-                             <polyline points="10 17 15 12 10 7" />
-                             <line x1="15" y1="12" x2="3" y2="12" />
-                           </svg>
-                           Logout
-                         </a>
-                       </li>
-                     </ul>
-                   </div>
- 
-                   <!-- <div
-                     x-show="loginprop"
-                     class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
-                   ></div> -->
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
-       </nav>
-       <div
-         x-ref="container"
-         class="ccc2 lg:py-4"
-         x-bind:style="open ? 'max-height:' + $refs.container.scrollHeight + 'px' : '' "
-       >
-         <div
-           class="w-ful lg:bg-transparent bg-slate-50 lg:pt-0 px-5 py-6 lg:py-0 border-t-2 lg:border-t-0"
-         >
-           <div class="max-w-7xl lg:m-auto">
-             <ul
-               id="dropdown"
-               class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10"
-             >
-               <li
-                 class="link2  w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
-               >
-                 <a href="index.html">Home</a>
-                 <i class="ri-arrow-right-s-line lg:hidden"></i>
-               </li>
-               <li
-                 class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
-               >
-                 <a href="tentang.html">Tentang Kami</a>
-                 <i class="ri-arrow-right-s-line lg:hidden"></i>
-               </li>
-               <li
-                 class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
-               >
-                 <a href="perusahaan.html">Jelajahi Perusahaan</a>
-                 <i class="ri-arrow-right-s-line lg:hidden"></i>
-               </li>
-               <li
-                 class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
-               >
-                 <a href="jobPage.html">Memulai Karir</a>
-                 <i class="ri-arrow-right-s-line lg:hidden"></i>
-               </li>
-               <li
-                 class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
-               >
-                 <a href="konsultasi.html">Konsultasi</a>
-                 <i class="ri-arrow-right-s-line lg:hidden"></i>
-               </li>
-             </ul>
-           </div>
-         </div>
-       </div>
+              <form @submit.prevent="login(); loginpop = false" class="w-full">
+                <label x-show="register" for="username" class="sr-only"
+                  >Nama</label
+                >
+                <input
+                  name="username"
+                  type="text"
+                  id="usernamex"
+                  autocomplete="Username"
+                  x-show="register"
+                  class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Username"
+                  value=""
+                />
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  id="emailx"
+                  autocomplete="email"
+                  required=""
+                  class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Email"
+                  value=""
+                />
+                <label for="password" class="sr-only">Password</label>
+                <input
+                  id="passwordx"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required=""
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Password"
+                  value=""
+                />
+                <label x-show="register" for="repeat-password" class="sr-only"
+                  >Repeat Password</label
+                >
+                <input
+                  x-show="register"
+                  id="repeat-passwordx"
+                  name="repeat-password"
+                  type="password"
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Repeat Password"
+                  value=""
+                />
+                <p class="mb-3 mt-2 text-sm text-gray-500">
+                  <a
+                    class="text-blue-800 hover:text-blue-600"
+                    x-show="!register"
+                    >Lupa password?</a
+                  >
+                </p>
+                <button
+                  type="submit"
+                  class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
+                >
+                  <p x-show="!register">Login</p>
+                  <p x-show="register">Daftar</p>
+                </button>
+              </form>
 
-     </div>
-   </header>
-   <!-- end Navbar -->
+              <div
+                x-show="!register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Belum punya akun?
+                <button
+                  @click="register = true; console.log(register);"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Sign up
+                </button>
+              </div>
+
+              <div
+                x-show="register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Sudah punya akun?
+                <button
+                  @click="register = false;"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="px-5 lg:mb-0 items-center lg:border-b lg:pb-4 lg:py-3 my-4 lg:my-0"
+      >
+        <div class="flex items-center justify-between max-w-7xl m-auto">
+          <div class="flex items-center gap-x-3">
+            <div class="flex items-center gap-x-3">
+              <div class="flex items-center space-x-3 relative lg:mr-20"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-10 ">
+                <h1 class=" text-2xl  font-semibold text-teal-700 relative ">Liveup</h1></div>
+  
+              <div class="flex relative items-center lg:hidden">
+                <button
+                  x-on:click="open = !open"
+                  id="hamburger"
+                  name="hamburger"
+                  type="button"
+                  class="block border p-1 rounded-lg"
+                >
+                  <i class="ri-more-2-fill"></i>
+                  <!-- <span class="hamburger-line origin-top-left transition duration-300 ease-in-out "></span>
+    <span class="w-[20px]  h-[2px] my-2 block bg-black transition duration-300 ease-in-out"></span>
+    <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span> -->
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex items-center lg:gap-x-44">
+            <button
+              type="button"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger"
+              data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"
+              class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full cursor-pointer text-gray-400"
+            >
+              <div class="lg:flex lg:items-center lg:gap-x-3">
+                <i
+                  class="ri-search-line text-lg lg:text-base rounded-full cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"
+                ></i>
+                <span class="hidden lg:inline">Pencarian Cepat...</span>
+              </div>
+              <span class="font-medium hidden lg:inline"
+                ><i class="ri-command-line"></i> + /</span
+              >
+            </button>
+            <div class="flex items-center">
+              <div class="lg:flex rounded-xl items-center group">
+                <i
+                  class="ri-global-line text-gray-400 lg:px-2 lg:py-1 transition ease-in duration-100 group-hover:text-black lg:inline text-lg cursor-pointer group-hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"
+                ></i>
+                <div class="flex-1 w-36 hidden lg:inline-block">
+                  <!-- Select -->
+                  <select
+                    data-hs-select='{
+  "placeholder": "Select assignee",
+  "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
+  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border-none border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500",
+  "dropdownClasses": "mt-2 max-h-72 p-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+  "optionClasses": "py-2 px-3 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+  "optionTemplate": "<div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div><div class=\"hs-selected:font-semibold text-sm text-gray-800 \" data-title></div></div><div class=\"ms-auto\"><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-4 text-blue-600\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div></div>",
+  "extraMarkup": "<div class=\" hidden absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
+  }'
+                    class="hidden"
+                  >
+                    <option value="">Choose</option>
+                    <option
+                      value="1"
+                      selected=""
+                      data-hs-select-option='{
+      "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'
+                    >
+                      English
+                    </option>
+                    <option
+                      value="2"
+                      data-hs-select-option='{
+      "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'
+                    >
+                      Deutsch
+                    </option>
+                    <option
+                      value="3"
+                      data-hs-select-option='{
+      "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'
+                    >
+                      Bahasa
+                    </option>
+                  </select>
+                  <!-- End Select -->
+                </div>
+              </div>
+
+              <div class="flex items-center lg:space-x-3">
+                <div class="flex items-center lg:gap-x-2">
+                  <div class="hidden lg:inline-block">
+                    <i
+                      class="ri-question-line text-lg text-gray-400 hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"
+                    ></i>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="m-1 ms-0 relative py-1 px-2 group inline-flex items-center gap-x-2 text-sm font-medium rounded-full bg-white text-gray-800 hover:bg-slate-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50"
+                  >
+                    <i
+                      class="ri-notification-3-line text-lg text-gray-400 group-hover:text-black"
+                    ></i>
+                    <span class="flex absolute top-0 end-0 -mt-2 -me-2">
+                      <span
+                        class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75"
+                      ></span>
+                      <span
+                        class="relative inline-flex text-[10px] lg:text-xs bg-red-500 text-white rounded-full px-[6px]"
+                      >
+                        2
+                      </span>
+                    </span>
+                  </button>
+                </div>
+
+                <div
+                  class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
+                >
+                <span  @click="loginpop = true"
+                x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 rounded-full overflow-hidden">
+                  <svg class="size-full text-gray-400" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"></rect>
+                    <path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"></path>
+                    <path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+
+                  <h1
+                    @click="loginprop = !loginprop"
+                    x-show="logged"
+                    x-data="{ uname: (getUsername() || 'YS').slice(0, 2).toUpperCase() }"
+                    x-text="uname"
+                    class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border"
+                  >
+             YS
+                  </h1>
+
+                  <!-- Dropdown Menu -->
+                  <div   x-transition.origin.top.right.duration.100ms
+                    x-show="loginprop"
+                    @click.away="loginprop = false"
+                    class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
+                    style="display: none"
+                  >
+                    <ul class="py-1">
+                      <!-- Profile Option -->
+                      <li>
+                        <a
+                          href="#"
+                          class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <h1
+                            class="text-[0.6rem] mr-2 flex items-center size-6 bg-gray-300 cursor-pointer justify-center rounded-full"
+                            x-data="{ uname: (getUsername() || 'YS').slice(0, 2).toUpperCase() }"
+                            x-text="uname"
+                          >
+                            YS
+                          </h1>
+                          Profile
+                        </a>
+                      </li>
+                      <!-- Logout Option -->
+                      <li>
+                        <a
+                          href="#"
+                          @click="logout()"
+                          class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5 mr-2"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+                            />
+                            <polyline points="10 17 15 12 10 7" />
+                            <line x1="15" y1="12" x2="3" y2="12" />
+                          </svg>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- <div
+                    x-show="loginprop"
+                    class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
+                  ></div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div
+        x-ref="container"
+        class="ccc2 lg:py-4"
+        x-bind:style="open ? 'max-height:' + $refs.container.scrollHeight + 'px' : '' "
+      >
+        <div
+          class="w-ful lg:bg-transparent bg-slate-50 lg:pt-0 px-5 py-6 lg:py-0 border-t-2 lg:border-t-0"
+        >
+          <div class="max-w-7xl lg:m-auto">
+            <ul
+              id="dropdown"
+              class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10"
+            >
+              <li
+                class="link2  w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="index.html">Home</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="tentang.html">Tentang Kami</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="perusahaan.html">Jelajahi Perusahaan</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="jobPage.html">Memulai Karir</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="konsultasi.html">Konsultasi</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end Navbar -->
 
 
 
@@ -1328,173 +1329,196 @@ x-init="logged = isLogin()">
         </div>
     </section>
 
-
     <footer
-    class="text-white font-poppins lg:h-[30rem] h-[26rem] w-full flex flex-col justify-center items-center bg-[#010505] mt-[8rem]"
-  >
-    <div
-      class="w-[80vw] bg flex flex-col h-[90%] lg:flex-row justify-between"
+      class="text-black border-t-2 border-gray-200 lg:min-h-[30rem] min-h-[26rem] w-full flex flex-col justify-center items-center mt-[8rem]"
     >
       <div
-        class="py-[3rem] h-full w-full lg:w-[28%] flex flex-col justify-between"
+        class="w-[80vw] flex flex-col h-[95%] lg:flex-row justify-center items-center"
       >
-        <h1
-          class="text-[1.5rem] lg:text-[2.5rem] font-[500] font-poppins text-teal-700"
+        <div
+          class="py-[3rem] h-full w-full lg:w-[28%] flex flex-col justify-between"
         >
-          Liveup
-        </h1>
-        <p
-          class="text-[1rem] font-poppins font-light lg:w-[80%] w-full text-[#ffffffea]"
-        >
-          Jl. Poras No.07, RT.01/RW.04, Loji, Kec. Bogor Bar., Kota Bogor,
-          Jawa Barat 16117
-        </p>
-        <div class="h-[5rem] flex flex-col gap-[1rem]">
-          <div class="flex items-center justify-center gap-3 w-fit">
-            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg
-              class="size-7"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-            0823229911872
-          </div>
-          <div class="flex items-center justify-center gap-3 w-fit">
-            <svg
-              class="size-6"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"
-                stroke="#ffffff"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-            </svg>
-            hello@liveup.id
-          </div>
-        </div>
-        <div class="w-[10rem] flex justify-between">
-          <div
-            class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
-          >
-            <svg
-              class="size-6"
-              viewBox="0 -0.5 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
-                stroke="#ffffff"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
-                stroke="#ffffff"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-          <div
-            class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
-          >
-            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-            <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg
-              class="size-5"
-              viewBox="0 0 20 20"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-            >
-              <defs></defs>
-              <g
-                id="Page-1"
-                stroke="none"
-                stroke-width="1"
+          <h1 class="text-[1.5rem] lg:text-[2.5rem] font-[500] text-teal-700">
+            Liveup
+          </h1>
+          <p class="text-[1rem] font-light lg:w-[80%] w-ful">
+            Jl. Poras No.07, RT.01/RW.04, Loji, Kec. Bogor Bar., Kota Bogor,
+            Jawa Barat 16117
+          </p>
+          <div class="h-[5rem] flex flex-col gap-[1rem]">
+            <div class="flex items-center justify-center gap-3 w-fit">
+              <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                class="size-7"
+                viewBox="0 0 24 24"
                 fill="none"
-                fill-rule="evenodd"
+                xmlns="http://www.w3.org/2000/svg"
               >
+                <path
+                  d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+                  stroke="#000000"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              0823229911872
+            </div>
+            <div class="flex items-center justify-center gap-3 w-fit">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              hello@liveup.id
+            </div>
+          </div>
+          <div class="w-[10rem] flex justify-between">
+            <div
+              class="size-10 rounded-full hover:border-2 border border-black flex justify-center items-center"
+            >
+              <svg
+                class="size-6"
+                viewBox="0 -0.5 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
+            >
+              <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+              <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <defs></defs>
                 <g
-                  id="Dribbble-Light-Preview"
-                  transform="translate(-340.000000, -7439.000000)"
-                  fill="#ffffff"
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
                 >
-                  <g id="icons" transform="translate(56.000000, 160.000000)">
-                    <path
-                      d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792"
-                      id="instagram-[#167]"
-                    ></path>
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-340.000000, -7439.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792"
+                        id="instagram-[#167]"
+                      ></path>
+                    </g>
                   </g>
                 </g>
-              </g>
-            </svg>
-          </div>
-          <div
-            class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
-          >
-            <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-            <svg
-              fill="#ffffff"
-              class="size-6"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+              </svg>
+            </div>
+            <div
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
             >
-              <path
-                d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"
-              />
-            </svg>
+              <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                fill="#000000"
+                class="size-6"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"
+                />
+              </svg>
+            </div>
           </div>
         </div>
+
+        <!-- 4 ul di tengah -->
+        <div
+          class="py-[3rem] w-full flex-wrap lg:w-[60%] justify-between flex gap-[1rem]"
+        >
+          <!-- Informasi Perusahaan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Perusahaan</p>
+            <li class="cursor-pointer hover:underline">Tentang Kami</li>
+            <li class="cursor-pointer hover:underline">Kontak</li>
+            <li class="cursor-pointer hover:underline">Karir</li>
+            <li class="cursor-pointer hover:underline">Blog</li>
+          </ul>
+
+          <!-- Sumber Daya -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Sumber Daya</p>
+            <li class="cursor-pointer hover:underline">Pusat Bantuan</li>
+            <li class="cursor-pointer hover:underline">Kebijakan Privasi</li>
+            <li class="cursor-pointer hover:underline">Ketentuan Layanan</li>
+            <li class="cursor-pointer hover:underline">FAQ</li>
+          </ul>
+
+          <!-- Layanan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Layanan</p>
+            <li class="cursor-pointer hover:underline">Konsultasi</li>
+            <li class="cursor-pointer hover:underline">Pengembangan Web</li>
+            <li class="cursor-pointer hover:underline">Aplikasi Mobile</li>
+            <li class="cursor-pointer hover:underline">Desain UI/UX</li>
+          </ul>
+
+          <!-- Tautan Cepat -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Tautan Cepat</p>
+            <li class="cursor-pointer hover:underline">Layanan Liveup</li>
+            <li class="cursor-pointer hover:underline">Daftar Pekerjaan</li>
+            <li class="cursor-pointer hover:underline">Syarat & Ketentuan</li>
+            <li class="cursor-pointer hover:underline">Kontak Dukungan</li>
+          </ul>
+        </div>
       </div>
+
       <div
-        class="py-[3rem] text-right h-full w-full lg:w-[20%]  flex-col gap-[2rem] lg:block hidden"
+        class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-gray-400"
       >
-        <p class="w-full">Resources</p>
-        <ul class="w-full space-y-3">
-          <li>Bantuan</li>
-          <li>Riview Liveup</li>
-          <li>Blog</li>
-          <li>Tentang Kami</li>
-          <li>Konsulatasi</li>
-          <li>Daftar Perusahaan</li>
-          <li>Loker Liveup</li>
-        </ul>
+        Copyrights © 2025, SMK Informatika Pesat. All rights Reserved
       </div>
-    </div>
-    <div
-      class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-white"
-    >
-      Copyrights Â© 2025, SMK Informatika Pesat. All rights Reserved
-    </div>
-  </footer>                               
+    </footer>                         
 
     <script src="../node_modules/preline/preline.js"></script>
   

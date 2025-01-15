@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liveup - Memulai Karir</title>
+    <link rel="stylesheet" href="/public/css/style.css" />
+    <link rel="icon" href=
+"aset/logo - svg.svg"
+        type="image/x-icon" />
+    <!-- <link rel="stylesheet" href="/public/css/index.css" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/preline@1.0.0/dist/preline.min.css"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="index.js"></script>
+
+    <script
+      src="https://cdn.userway.org/widget.js"
+      data-account="TtT4SkBcgi"
+    ></script>
+  </head>
+  <body x-data="{loginpop: false, register: false }" class="bg-white">
+    <!-- start Navbar -->
+    <!-- SearchBox Modal -->
+    <div
+      id="html-example-using-modal-popup-with-shortcut-call-trigger"
+      class="hs-overlay hs-overlay-open:opacity-100 hs-overlay-open:duration-500 hidden size-full fixed top-0 start-0 z-[80] opacity-0 overflow-x-hidden transition-all overflow-y-auto pointer-events-none"
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="html-example-using-modal-popup-with-shortcut-call-trigger-label"
+    >
+      <div
+        class="hs-overlay-open:opacity-100 hs-overlay-open:duration-500 opacity-0 transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto"
+      >
+        <div
+          class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto"
+        >
+          <div
+            class="relative"
+            data-hs-combo-box='{
+          "preventVisibility": true,
+          "groupingType": "default",
+          "preventSelection": true,
+          "isOpenOnFocus": true,
+          "groupingTitleTemplate": "<div class=\"block text-xs text-gray-500 m-3 mb-1 \"></div>"
+        }'
+          >
+            <div class="relative p-4 border-b border-gray-200">
+              <label
+                id="html-example-using-modal-popup-with-shortcut-call-trigger-label"
+                for="html-example-using-modal-popup-with-shortcut-call-trigger-input"
+                class="sr-only"
+                >Search input</label
+              >
+              <div class="relative">
+                <div
+                  class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-3.5"
+                >
+                  <svg
+                    class="shrink-0 size-4 text-gray-400"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.3-4.3"></path>
+                  </svg>
+                </div>
+                <input
+                  id="html-example-using-modal-popup-with-shortcut-call-trigger-input"
+                  class="py-3 ps-10 pe-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                  type="text"
+                  role="combobox"
+                  aria-expanded="false"
+                  placeholder="Type a product name"
+                  value=""
+                  autofocus=""
+                  data-hs-combo-box-input=""
+                />
+              </div>
+            </div>
+
+            <div data-hs-combo-box-output="">
+              <div
+                class="h-80 p-2 overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300"
+                data-hs-combo-box-output-items-wrapper=""
+              >
+                <div
+                  data-hs-combo-box-output-item='{"group": {"name": "recent", "title": "Recent"}}'
+                  tabindex="0"
+                >
+                  <a
+                    class="py-2 px-3 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg"
+                    href="/error.html"
+                  >
+                    <svg
+                      class="shrink-0 size-4 text-gray-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                      <path
+                        d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"
+                      ></path>
+                    </svg>
+                    <span
+                      class="text-sm text-gray-800"
+                      data-hs-combo-box-search-text="Compose an email"
+                      data-hs-combo-box-value=""
+                      >Compose an email</span
+                    >
+                    <span
+                      class="ms-auto text-xs text-gray-400"
+                      data-hs-combo-box-search-text="Gmail"
+                      data-hs-combo-box-value=""
+                      >Gmail</span
+                    >
+                  </a>
+                </div>
+                <div
+                  data-hs-combo-box-output-item='{"group": {"name": "recent", "title": "Recent"}}'
+                  tabindex="1"
+                >
+                  <a
+                    class="py-2 px-3 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg"
+                    href="/examples.html"
+                  >
+                    <svg
+                      class="shrink-0 size-4 text-gray-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path
+                        d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"
+                      ></path>
+                      <path
+                        d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"
+                      ></path>
+                    </svg>
+                    <span
+                      class="text-sm text-gray-800"
+                      data-hs-combo-box-search-text="Start a conversation"
+                      data-hs-combo-box-value=""
+                      >Start a conversation</span
+                    >
+                    <span
+                      class="ms-auto text-xs text-gray-400"
+                      data-hs-combo-box-search-text="Slack"
+                      data-hs-combo-box-value=""
+                      >Slack</span
+                    >
+                  </a>
+                </div>
+                <div
+                  data-hs-combo-box-output-item='{"group": {"name": "recent", "title": "Recent"}}'
+                  tabindex="2"
+                >
+                  <a
+                    class="py-2 px-3 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg"
+                    href="/figma.html"
+                  >
+                    <svg
+                      class="shrink-0 size-4 text-gray-600"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                    <span
+                      class="text-sm text-gray-800"
+                      data-hs-combo-box-search-text="Create a project"
+                      data-hs-combo-box-value=""
+                      >Create a project</span
+                    >
+                    <span
+                      class="ms-auto text-xs text-gray-400"
+                      data-hs-combo-box-search-text="Notion"
+                      data-hs-combo-box-value=""
+                      >Notion</span
+                    >
+                  </a>
+                </div>
+                <div
+                  data-hs-combo-box-output-item='{"group": {"name": "people", "title": "People"}}'
+                  tabindex="5"
+                >
+                  <a
+                    class="py-2 px-2.5 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100"
+                    href="/license.html"
+                  >
+                    <img
+                      class="shrink-0 size-5 rounded-full"
+                      src="https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
+                      alt="Avatar"
+                    />
+                    <span
+                      class="text-sm text-gray-800"
+                      data-hs-combo-box-search-text="Kim Ya Sung"
+                      data-hs-combo-box-value=""
+                      >Kim Ya Sung</span
+                    >
+                    <span
+                      class="ms-auto text-xs text-teal-600"
+                      data-hs-combo-box-search-text="Online"
+                      data-hs-combo-box-value=""
+                      >Online</span
+                    >
+                  </a>
+                </div>
+                <div
+                  data-hs-combo-box-output-item='{"group": {"name": "people", "title": "People"}}'
+                  tabindex="6"
+                >
+                  <a
+                    class="py-2 px-2.5 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100"
+                    href="/plugins.html"
+                  >
+                    <img
+                      class="shrink-0 size-5 rounded-full"
+                      src="https://images.unsplash.com/photo-1610186593977-82a3e3696e7f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
+                      alt="Avatar"
+                    />
+                    <span
+                      class="text-sm text-gray-800"
+                      data-hs-combo-box-search-text="Chris Peti"
+                      data-hs-combo-box-value=""
+                      >Chris Peti</span
+                    >
+                    <span
+                      class="ms-auto text-xs text-gray-400"
+                      data-hs-combo-box-search-text="Offline"
+                      data-hs-combo-box-value=""
+                      >Offline</span
+                    >
+                  </a>
+                </div>
+                <div
+                  data-hs-combo-box-output-item='{"group": {"name": "people", "title": "People"}}'
+                  tabindex="7"
+                >
+                  <a
+                    class="py-2 px-2.5 flex items-center gap-x-3 hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100"
+                    href="/privacy.html"
+                  >
+                    <img
+                      class="shrink-0 size-5 rounded-full"
+                      src="https://images.unsplash.com/photo-1568048689711-5e0325cea8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=3&w=320&h=320&q=80"
+                      alt="Avatar"
+                    />
+                    <span
+                      class="text-sm text-gray-800"
+                      data-hs-combo-box-search-text="Martin Azara"
+                      data-hs-combo-box-value=""
+                      >Martin Azara</span
+                    >
+                    <span
+                      class="ms-auto text-xs text-gray-400"
+                      data-hs-combo-box-search-text="Offline"
+                      data-hs-combo-box-value=""
+                      >Offline</span
+                    >
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End SearchBox -->
+
+    <!-- Login Handler -->
+    <script>
+      function login() {
+        const em = document.getElementById("emailx").checkValidity();
+        const pw = document.getElementById("passwordx").value.length;
+
+        if (em && pw > 0) {
+          const axx = document.getElementById("emailx").value.split("@")[0];
+          document.cookie = "login=true; path=/; max-age=3600";
+          document.cookie = `username=${axx}; path=/; max-age=3600`;
+
+          console.log("Logged in successfully");
+          location.reload();
+        }
+      }
+      function loginthird() {
+        document.cookie = "login=true; path=/; max-age=3600"; // Buat cookie
+        document.cookie = `username=yusuf; path=/; max-age=3600`;
+        console.log("Logged in successfully");
+        location.reload();
+      }
+      function logout() {
+        document.cookie = "login=; path=/; max-age=0"; // Hapus cookie
+        document.cookie = `username=; path=/; max-age=0`;
+        console.log("Logged out successfully");
+        location.reload();
+      }
+
+      function getUsername() {
+        const value = `; ${document.cookie}`;
+        const parts = value.split("; username=");
+        if (parts.length === 2) return parts.pop().split(";").shift();
+        return null;
+      }
+
+      function isLogin() {
+        let cookies = document.cookie.split(";");
+        for (let cookie of cookies) {
+          let [key, value] = cookie.trim().split("=");
+          if (key === "login") {
+            return value === "true";
+          }
+        }
+        return false;
+      }
+    </script>
+    <!-- Login Handler End -->
+    <!-- x-data="{ open: false, loginpop: false, register: false, logged: false, loginprop: false }" -->
+    <header
+      id="header"
+      class="w-full bg-white border-b-2 z-40 relative top-0"
+      x-data="{ open: false, logged: false, loginprop: false }"
+      x-init="logged = isLogin()"
+    >
+      <div
+      x-transition.opacity.duration.500ms
+        x-show="loginpop"
+        class="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex"
+      >
+        <div class="relative p-4 w-full max-w-md h-full md:h-auto">
+          <div class="relative bg-white rounded-lg shadow">
+            <button
+              type="button"
+              @click="loginpop = false"
+              class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"
+            >
+              <svg
+                aria-hidden="true"
+                class="w-5 h-5"
+                fill="#c6c7c7"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  cliprule="evenodd"
+                ></path>
+              </svg>
+              <span class="sr-only">Close popup</span>
+            </button>
+
+            <div class="p-5">
+              <h3 class="text-2xl mb-0.5 font-medium"></h3>
+              <p class="mb-4 text-sm font-normal text-gray-800"></p>
+
+              <div class="text-center">
+                <p
+                  x-show="!register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Login ke Liveup
+                </p>
+                <p
+                  x-show="register"
+                  class="mb-3 text-2xl font-semibold leading-5 text-slate-900"
+                >
+                  Daftar ke Liveup
+                </p>
+                <p
+                  x-show="!register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  login untuk dapat melakukan beberapa hal
+                </p>
+                <p
+                  x-show="register"
+                  class="mt-2 text-sm leading-4 text-slate-600"
+                >
+                  Daftar untuk dapat melakukan beberapa hal
+                </p>
+              </div>
+
+              <div class="mt-7 flex flex-col gap-2">
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/475656/google-color.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with Google
+                </button>
+
+                <button
+                  @click="loginthird(); loginpop = false"
+                  class="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448234/linkedin.svg"
+                    alt="Google"
+                    class="h-[18px] w-[18px]"
+                  />Continue with LinkedIn
+                </button>
+              </div>
+
+              <div
+                class="flex w-full items-center gap-2 py-6 text-sm text-slate-600"
+              >
+                <div class="h-px w-full bg-slate-200"></div>
+                ATAU
+                <div class="h-px w-full bg-slate-200"></div>
+              </div>
+
+              <form @submit.prevent="login(); loginpop = false" class="w-full">
+                <label x-show="register" for="username" class="sr-only"
+                  >Nama</label
+                >
+                <input
+                  name="username"
+                  type="text"
+                  id="usernamex"
+                  autocomplete="Username"
+                  x-show="register"
+                  class="mb-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Username"
+                  value=""
+                />
+                <label for="email" class="sr-only">Email</label>
+                <input
+                  name="email"
+                  type="email"
+                  id="emailx"
+                  autocomplete="email"
+                  required=""
+                  class="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Email"
+                  value=""
+                />
+                <label for="password" class="sr-only">Password</label>
+                <input
+                  id="passwordx"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required=""
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Password"
+                  value=""
+                />
+                <label x-show="register" for="repeat-password" class="sr-only"
+                  >Repeat Password</label
+                >
+                <input
+                  x-show="register"
+                  id="repeat-passwordx"
+                  name="repeat-password"
+                  type="password"
+                  class="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
+                  placeholder="Repeat Password"
+                  value=""
+                />
+                <p class="mb-3 mt-2 text-sm text-gray-500">
+                  <a
+                    class="text-blue-800 hover:text-blue-600"
+                    x-show="!register"
+                    >Lupa password?</a
+                  >
+                </p>
+                <button
+                  type="submit"
+                  class="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400"
+                >
+                  <p x-show="!register">Login</p>
+                  <p x-show="register">Daftar</p>
+                </button>
+              </form>
+
+              <div
+                x-show="!register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Belum punya akun?
+                <button
+                  @click="register = true; console.log(register);"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Sign up
+                </button>
+              </div>
+
+              <div
+                x-show="register"
+                class="mt-6 text-center text-sm text-slate-600"
+              >
+                Sudah punya akun?
+                <button
+                  @click="register = false;"
+                  class="font-medium text-[#4285f4]"
+                >
+                  Login
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <nav
+        class="px-5 lg:mb-0 items-center lg:border-b lg:pb-4 lg:py-3 my-4 lg:my-0"
+      >
+        <div class="flex items-center justify-between max-w-7xl m-auto">
+          <div class="flex items-center gap-x-3">
+            <div class="flex items-center gap-x-3">
+              <div class="flex items-center space-x-3 relative lg:mr-20"><img src="aset/logo - svg.svg" alt="" class="w-9  lg:w-10 ">
+                <h1 class=" text-2xl  font-semibold text-teal-700 relative ">Liveup</h1></div>
+  
+              <div class="flex relative items-center lg:hidden">
+                <button
+                  x-on:click="open = !open"
+                  id="hamburger"
+                  name="hamburger"
+                  type="button"
+                  class="block border p-1 rounded-lg"
+                >
+                  <i class="ri-more-2-fill"></i>
+                  <!-- <span class="hamburger-line origin-top-left transition duration-300 ease-in-out "></span>
+    <span class="w-[20px]  h-[2px] my-2 block bg-black transition duration-300 ease-in-out"></span>
+    <span class="hamburger-line origin-bottom-left transition duration-300 ease-in-out"></span> -->
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="flex items-center lg:gap-x-44">
+            <button
+              type="button"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-controls="html-example-using-modal-popup-with-shortcut-call-trigger"
+              data-hs-overlay="#html-example-using-modal-popup-with-shortcut-call-trigger"
+              class="flex items-center justify-between lg:px-4 lg:py-2 lg:w-[30em] lg:text-sm group lg:border lg:hover:bg-transparent hover:bg-slate-100 px-2 py-1 rounded-full cursor-pointer text-gray-400"
+            >
+              <div class="lg:flex lg:items-center lg:gap-x-3">
+                <i
+                  class="ri-search-line text-lg lg:text-base rounded-full cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"
+                ></i>
+                <span class="hidden lg:inline">Pencarian Cepat...</span>
+              </div>
+              <span class="font-medium hidden lg:inline"
+                ><i class="ri-command-line"></i> + /</span
+              >
+            </button>
+            <div class="flex items-center">
+              <div class="lg:flex rounded-xl items-center group">
+                <i
+                  class="ri-global-line text-gray-400 lg:px-2 lg:py-1 transition ease-in duration-100 group-hover:text-black lg:inline text-lg cursor-pointer group-hover:bg-slate-100 lg:text-teal-500 lg:border rounded-full w-fit h-fit px-2 py-2"
+                ></i>
+                <div class="flex-1 w-36 hidden lg:inline-block">
+                  <!-- Select -->
+                  <select
+                    data-hs-select='{
+  "placeholder": "Select assignee",
+  "toggleTag": "  <span class=\"text-gray-800 w-full \" data-title></span>",
+  "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 ps-4 pe-9 flex gap-x-2 text-nowrap w-full cursor-pointer bg-white border-none border-gray-200 rounded-lg text-start text-sm focus:outline-none focus:ring-2 focus:ring-blue-500",
+  "dropdownClasses": "mt-2 max-h-72 p-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+  "optionClasses": "py-2 px-3 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+  "optionTemplate": "<div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div><div class=\"hs-selected:font-semibold text-sm text-gray-800 \" data-title></div></div><div class=\"ms-auto\"><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-4 text-blue-600\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" viewBox=\"0 0 16 16\"><path d=\"M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z\"/></svg></span></div></div>",
+  "extraMarkup": "<div class=\" hidden absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
+  }'
+                    class="hidden"
+                  >
+                    <option value="">Choose</option>
+                    <option
+                      value="1"
+                      selected=""
+                      data-hs-select-option='{
+      "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png\" alt=\"Aland Islands\" />"}'
+                    >
+                      English
+                    </option>
+                    <option
+                      value="2"
+                      data-hs-select-option='{
+      "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/en/thumb/b/ba/Flag_of_Germany.svg/1200px-Flag_of_Germany.svg.png\" alt=\"Aland Islands\" />"}'
+                    >
+                      Deutsch
+                    </option>
+                    <option
+                      value="3"
+                      data-hs-select-option='{
+      "icon": "<img class=\"inline-block size-4 rounded-full\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/2560px-Flag_of_Indonesia.svg.png\" />"}'
+                    >
+                      Bahasa
+                    </option>
+                  </select>
+                  <!-- End Select -->
+                </div>
+              </div>
+
+              <div class="flex items-center lg:space-x-3">
+                <div class="flex items-center lg:gap-x-2">
+                  <div class="hidden lg:inline-block">
+                    <i
+                      class="ri-question-line text-lg text-gray-400 hover:bg-slate-100 p-2 transition ease-in duration-100 rounded-full cursor-pointer hover:text-black"
+                    ></i>
+                  </div>
+
+                  <button
+                    type="button"
+                    class="m-1 ms-0 relative py-1 px-2 group inline-flex items-center gap-x-2 text-sm font-medium rounded-full bg-white text-gray-800 hover:bg-slate-100 focus:outline-none focus:bg-gray-50 disabled:opacity-50"
+                  >
+                    <i
+                      class="ri-notification-3-line text-lg text-gray-400 group-hover:text-black"
+                    ></i>
+                    <span class="flex absolute top-0 end-0 -mt-2 -me-2">
+                      <span
+                        class="animate-ping absolute inline-flex size-full rounded-full bg-red-400 opacity-75"
+                      ></span>
+                      <span
+                        class="relative inline-flex text-[10px] lg:text-xs bg-red-500 text-white rounded-full px-[6px]"
+                      >
+                        2
+                      </span>
+                    </span>
+                  </button>
+                </div>
+
+                <div
+                  class="relative inline-block border-l-2 pl-4 ml-2 lg:ml-0 border-gray-100"
+                >
+                <span  @click="loginpop = true"
+                x-show="!logged"   class="inline-block size-[40px] cursor-pointer bg-gray-200 rounded-full overflow-hidden">
+                  <svg class="size-full text-gray-400" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.62854" y="0.359985" width="15" height="15" rx="7.5" fill="white"></rect>
+                    <path d="M8.12421 7.20374C9.21151 7.20374 10.093 6.32229 10.093 5.23499C10.093 4.14767 9.21151 3.26624 8.12421 3.26624C7.0369 3.26624 6.15546 4.14767 6.15546 5.23499C6.15546 6.32229 7.0369 7.20374 8.12421 7.20374Z" fill="currentColor"></path>
+                    <path d="M11.818 10.5975C10.2992 12.6412 7.42106 13.0631 5.37731 11.5537C5.01171 11.2818 4.69296 10.9631 4.42107 10.5975C4.28982 10.4006 4.27107 10.1475 4.37419 9.94123L4.51482 9.65059C4.84296 8.95684 5.53671 8.51624 6.30546 8.51624H9.95231C10.7023 8.51624 11.3867 8.94749 11.7242 9.62249L11.8742 9.93184C11.968 10.1475 11.9586 10.4006 11.818 10.5975Z" fill="currentColor"></path>
+                  </svg>
+                </span>
+
+                  <h1
+                    @click="loginprop = !loginprop"
+                    x-show="logged"
+                    x-data="{ uname: (getUsername() || 'YS').slice(0, 2).toUpperCase() }"
+                    x-text="uname"
+                    class="inline-flex items-center justify-center size-[40px] text-xs font-semibold leading-none rounded-full bg-gray-100 text-gray-800 shadow-inner border"
+                  >
+             YS
+                  </h1>
+
+                  <!-- Dropdown Menu -->
+                  <div   x-transition.origin.top.right.duration.100ms
+                    x-show="loginprop"
+                    @click.away="loginprop = false"
+                    class="absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg"
+                    style="display: none"
+                  >
+                    <ul class="py-1">
+                      <!-- Profile Option -->
+                      <li>
+                        <a
+                          href="#"
+                          class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <h1
+                            class="text-[0.6rem] mr-2 flex items-center size-6 bg-gray-300 cursor-pointer justify-center rounded-full"
+                            x-data="{ uname: (getUsername() || 'YS').slice(0, 2).toUpperCase() }"
+                            x-text="uname"
+                          >
+                            YS
+                          </h1>
+                          Profile
+                        </a>
+                      </li>
+                      <!-- Logout Option -->
+                      <li>
+                        <a
+                          href="#"
+                          @click="logout()"
+                          class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5 mr-2"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          >
+                            <path
+                              d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"
+                            />
+                            <polyline points="10 17 15 12 10 7" />
+                            <line x1="15" y1="12" x2="3" y2="12" />
+                          </svg>
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- <div
+                    x-show="loginprop"
+                    class="absolute -bottom-28 left-0 bg-white w-[6rem] h-[6rem] rounded-lg border border-gray-300"
+                  ></div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div
+        x-ref="container"
+        class="ccc2 lg:py-4"
+        x-bind:style="open ? 'max-height:' + $refs.container.scrollHeight + 'px' : '' "
+      >
+        <div
+          class="w-ful lg:bg-transparent bg-slate-50 lg:pt-0 px-5 py-6 lg:py-0 border-t-2 lg:border-t-0"
+        >
+          <div class="max-w-7xl lg:m-auto">
+            <ul
+              id="dropdown"
+              class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10"
+            >
+              <li
+                class="link2 link2-active w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="index.html">Home</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="tentang.html">Tentang Kami</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="perusahaan.html">Jelajahi Perusahaan</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="jobPage.html">Memulai Karir</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+              <li
+                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+              >
+                <a href="konsultasi.html">Konsultasi</a>
+                <i class="ri-arrow-right-s-line lg:hidden"></i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- end Navbar -->
+
+    <div class="w-[85%] m-auto">
+      <section
+        class="mt-[3rem] m-auto max-w-[1280px] lg:h-[58vh] lg:h-[63vh] flex flex-col gap-4 lg:gap-0 lg:flex-row justify-between items-center"
+      >
+        <!-- start cta -->
+        <div
+          class="flex flex-col gap-3 px-5 py-5 h-[95%] lg:h-[85%] w-full lg:w-[68%] bg-gradient-to-b from-white to-gray-100 border border-gray-300 rounded-2xl relative justify-between"
+        >
+          <svg
+            class="z-10 w-full h-full absolute top-0 left-0"
+            viewBox="0 0 245 367"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.34188e-05 147.153L1.78008 151.962L3.61934 156.771L5.54023 161.575L7.54236 166.376L9.62534 171.171L11.7886 175.96L14.0315 180.739L16.3537 185.509L18.7546 190.267L21.2335 195.013L23.7899 199.744L26.423 204.46L29.1323 209.159L31.9169 213.84L34.7762 218.5L37.7095 223.14L40.7159 227.757L43.7948 232.35L46.9452 236.919L50.1664 241.461L53.4574 245.975L56.8174 250.46L60.2454 254.914L63.7407 259.337L67.3023 263.727L70.9289 268.082L74.6198 272.402L78.3739 276.685L82.1902 280.93L86.0677 285.135L90.005 289.301L94.0015 293.425L98.0558 297.506L102.167 301.543L106.333 305.534L110.554 309.479L114.829 313.378L119.154 317.227L123.531 321.027L127.957 324.776L132.432 328.474L136.954 332.119L141.521 335.71L146.132 339.247L150.787 342.727L155.482 346.151L160.22 349.516L164.995 352.824L169.808 356.072L174.658 359.26L179.542 362.387L186.995 367M98.0558 2.8462e-05L94.3025 0.737157L88.8846 1.79745L83.5091 2.9225L78.1777 4.11198L72.8916 5.3654L67.6524 6.68219L62.4619 8.06195L57.3211 9.50409L52.232 11.0081L47.1958 12.5734L42.2139 14.1993L37.2878 15.8852L32.4189 17.6307L27.6087 19.4348L22.8583 21.2971L18.1695 23.2168L13.5433 25.1933L8.98122 27.2257L4.48452 29.3133L2.16751e-05 31.6625M0 334.859L4.4845 337L8.98119 339.088L13.5433 341.12L18.1695 343.097L22.8583 345.017L27.6085 346.879L32.4188 348.683L37.2878 350.429L42.2139 352.115L47.1957 353.74L52.232 355.306L57.3211 356.81L62.4619 358.252L67.6524 359.632L72.8915 360.948L78.1776 362.202L83.5091 363.392L88.8846 364.517L94.3025 365.577L100.851 367M185.396 1.47346e-06L179.542 3.9273L174.658 7.05377L169.808 10.2415L164.995 13.4897L160.22 16.7972L155.482 20.1634L150.787 23.5872L146.132 27.0678L141.521 30.6041L136.954 34.1952L132.432 37.84L127.957 41.5376L123.531 45.2868L119.154 49.0868L114.829 52.9363L110.554 56.8343L106.333 60.7797L102.167 64.7715L98.0558 68.8085L94.0015 72.889L90.005 77.0131L86.0677 81.178L82.1902 85.3837L78.3739 89.629L74.6198 93.9118L70.9289 98.2321L67.3023 102.587L63.7407 106.977L60.2454 111.4L56.8174 115.854L53.4574 120.339L50.1664 124.853L46.9452 129.395L43.7948 133.963L40.7159 138.557L37.7095 143.174L34.7762 147.814L31.9169 152.474L29.1323 157.155L26.423 161.854L23.7899 166.57L21.2335 171.301L18.7546 176.047L16.3537 180.805L14.0315 185.575L11.7886 190.354L9.62534 195.143L7.54236 199.938L5.54023 204.738L3.61934 209.544L1.78008 214.351L8.27116e-06 219.161M64.1907 0.000105751L62.9322 4.38675L61.3509 9.07515L59.8381 13.809L58.3943 18.5872L57.0199 23.4082L55.7157 28.2706L54.4821 33.1732L53.3196 38.1143L52.2286 43.0928L51.2096 48.1069L50.263 53.1555L49.3893 58.237L48.5886 63.3499L47.8616 68.493L47.2085 73.6645L46.6294 78.8628L46.1247 84.0865L45.6948 89.335L45.3397 94.6056L45.0596 99.897L44.855 105.208L44.7257 110.537L44.6719 115.883L44.6937 121.243L44.7914 126.618L44.9647 132.003L45.2137 137.399L45.5386 142.804L45.9393 148.216L46.4156 153.634L46.9674 159.057L47.5949 164.482L48.2978 169.908L49.0759 175.333L49.9289 180.756L50.857 186.176L51.8595 191.591L52.9365 196.999L54.0875 202.398L55.3124 207.789L56.6106 213.168L57.982 218.534L59.4262 223.886L60.9426 229.222L62.5309 234.541L64.1907 239.841L65.9214 245.121L67.7225 250.379L69.5938 255.613L71.5345 260.824L73.5438 266.007L75.6214 271.163L77.7667 276.29L79.9789 281.386L82.2575 286.451L84.6019 291.482L87.011 296.478L89.4842 301.438L92.0211 306.359L94.6207 311.243L97.282 316.085L100.004 320.887L102.787 325.644L105.629 330.358L108.53 335.026L111.488 339.647L114.503 344.219L117.574 348.742L120.699 353.215L123.878 357.635L127.11 362.002L131.316 367M5.63656e-06 256.013L4.79952 259.498L8.78922 262.947L12.8519 266.361L16.9865 269.737L21.1917 273.075L25.4667 276.374L29.8101 279.633L34.2207 282.849L38.6972 286.024L43.2388 289.155L47.8438 292.242L52.5113 295.283L57.2397 298.278L62.0278 301.226L66.8745 304.125L71.7781 306.976L76.7374 309.776L81.751 312.526L86.8177 315.224L91.9358 317.869L97.1041 320.461L102.321 322.999L107.585 325.482L112.896 327.909L118.249 330.28L123.647 332.594L129.085 334.849L134.563 337.047L140.078 339.185L145.631 341.263L151.22 343.28L156.841 345.237L162.494 347.132L168.178 348.965L173.891 350.734L179.63 352.441L185.396 354.084L191.184 355.662L196.996 357.176L202.828 358.625L208.678 360.007L214.547 361.325L220.431 362.575L226.329 363.759L232.239 364.876L238.16 365.926L244.249 367M240.572 2.94816e-06L232.239 1.43756L226.329 2.55466L220.431 3.73873L214.547 4.98945L208.679 6.3065L202.828 7.68952L196.996 9.1381L191.184 10.6518L185.396 12.2303L179.63 13.8731L173.891 15.5796L168.178 17.3495L162.494 19.1821L156.841 21.077L151.22 23.0335L145.631 25.0511L140.078 27.1292L134.563 29.2672L129.085 31.4644L123.647 33.7201L118.249 36.0338L112.896 38.4046L107.585 40.8318L102.321 43.3148L97.1041 45.8527L91.9358 48.4447L86.8177 51.0901L81.7511 53.7881L76.7374 56.5377L71.7781 59.3382L66.8745 62.1887L62.0278 65.0883L57.2397 68.0363L52.5113 71.0312L47.844 74.0724L43.2388 77.1591L38.6972 80.2906L34.2207 83.465L29.8101 86.6816L25.4667 89.9404L21.1917 93.2387L16.9865 96.5766L12.8519 99.9532L8.78923 103.367L4.79953 106.816L1.60248e-05 110.701M130.266 0L127.11 4.31238L123.878 8.67928L120.699 13.0995L117.574 17.5717L114.503 22.0947L111.488 26.6673L108.53 31.2882L105.629 35.9559L102.787 40.6696L100.005 45.4276L97.2821 50.2286L94.6207 55.0714L92.0211 59.9545L89.4842 64.8766L87.011 69.8365L84.6019 74.8325L82.2575 79.8633L79.979 84.9277L77.7667 90.0241L75.6214 95.1508L73.5438 100.307L71.5345 105.49L69.5938 110.701L67.7226 115.935L65.9214 121.193L64.1907 126.473L62.5309 131.773L60.9426 137.092L59.4262 142.428L57.982 147.78L56.6106 153.146L55.3124 158.525L54.0875 163.916L52.9365 169.316L51.8595 174.723L50.857 180.138L49.9289 185.558L49.0759 190.981L48.2978 196.407L47.5949 201.833L46.9674 207.257L46.4156 212.679L45.9393 218.097L45.5386 223.51L45.2137 228.915L44.9647 234.311L44.7914 239.696L44.6937 245.071L44.6719 250.431L44.7257 255.777L44.8549 261.106L45.0596 266.417L45.3397 271.709L45.6948 276.979L46.1247 282.227L46.6294 287.451L47.2084 292.65L47.8616 297.821L48.5886 302.964L49.3892 308.077L50.263 313.159L51.2096 318.207L52.2286 323.221L53.3195 328.2L54.4821 333.141L55.7157 338.043L57.0199 342.906L58.3942 347.727L59.8381 352.505L61.3509 357.239L62.9322 361.928L64.5812 366.569"
+              stroke="#E9E9E9"
+              class="transform translate-x-[-214px]"
+              stroke-width="1"
+            />
+          </svg>
+          <div class="flex flex-col gap-3">
+            <h1
+              class="z-10 font-medium text-[2.1rem] lg:text-[3rem] leading-[2.5rem] md:leading-[3.1rem] lg:leading-[4.1rem]"
+            >
+              Memberdayakan <span class="text-teal-400">Bakat</span
+              ><br />Membuka Peluang
+            </h1>
+            <p class="z-10 w-[100%] md:w-[70%] font-normal text-[1rem]">
+              Workia, platform inklusif yang menghubungkan bakatmu dengan
+              perusahaan peduli keberagaman
+            </p>
+          </div>
+          <!-- start form-cta -->
+          <div
+            class="z-[11] w-full h-full lg:h-[3.4rem] flex flex-col lg:flex-row lg:items-center gap-2"
+          >
+            <input
+              type="text"
+              placeholder="Kata kunci. Restoran, IT"
+              class="h-[3rem] lg:h-full w-full lg:w-[27%] rounded-[4px] border-[1px] border-black box-border font-normal focus:outline-none"
+            />
+
+            <!-- Select -->
+            <!-- Select -->
+
+            <select
+              multiple=""
+              class="visi"
+              data-hs-select='{
+    "placeholder": "Klasifikasi",
+    "toggleTag": "<button type=\"button\" aria-expanded=\"false\"></button>",
+    "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative lg:py-[0.9rem] py-[0.6rem] ps-4 pe-9 flex gap-x-2 text-wrap w-full lg:w-[11rem] cursor-pointer bg-white border border-black rounded-[4px] text-start text-[1rem] focus:outline-none",
+    "toggleCountText": "Dipilih",
+    "dropdownClasses": "mt-2 z-50 w-full max-h-72 p-1 space-y-0.5 bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300",
+    "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100",
+    "optionTemplate": "<div class=\"flex justify-between items-center w-full\"><span data-title></span><span class=\"hidden hs-selected:block\"><svg class=\"shrink-0 size-3.5 text-blue-600 \" xmlns=\"http:.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"20 6 9 17 4 12\"/></svg></span></div>",
+    "extraMarkup": "<div class=\"absolute top-1/2 end-3 -translate-y-1/2\"><svg class=\"shrink-0 size-3.5 text-gray-500 \" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m7 15 5 5 5-5\"/><path d=\"m7 9 5-5 5 5\"/></svg></div>"
+  }'
+            >
+              <option value="">Akuntansi</option>
+              <option>Desain Grafis</option>
+              <option>Marketing</option>
+              <option>Office</option>
+              <option>Social Media</option>
+              <option>Data Analysis</option>
+              <option>Progamming</option>
+            </select>
+
+            <!-- End Select -->
+            <!-- End Select -->
+
+            <input
+              type="text"
+              placeholder="Lokasi. Provinsi, Kota/Kab"
+              class="h-[3rem] lg:h-full w-full lg:w-[28%] rounded-[4px] border-[1px] border-black box-border font-normal"
+            />
+
+            <a
+              href="jobPage.html"
+              class="cursor-pointer flex gap-2 items-center justify-center w-full lg:w-24 h-14 lg:h-full bg-black lg:rounded-r-full"
+            >
+              <p class="text-teal-400">Cari</p>
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.4301 13.43L17.5001 17.5M8.90672 15.3142C9.74811 15.3142 10.5813 15.1484 11.3586 14.8265C12.1359 14.5045 12.8423 14.0325 13.4372 13.4376C14.0322 12.8426 14.5041 12.1363 14.8261 11.359C15.1481 10.5816 15.3138 9.74847 15.3138 8.90708C15.3138 8.06569 15.1481 7.23254 14.8261 6.4552C14.5041 5.67786 14.0322 4.97154 13.4372 4.37659C12.8423 3.78164 12.1359 3.3097 11.3586 2.98771C10.5813 2.66572 9.74811 2.5 8.90672 2.5C7.20745 2.5 5.57779 3.17503 4.37622 4.37659C3.17466 5.57815 2.49963 7.20782 2.49963 8.90708C2.49963 10.6063 3.17466 12.236 4.37622 13.4376C5.57779 14.6391 7.20745 15.3142 8.90672 15.3142Z"
+                  stroke="#48CFCB"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </a>
+          </div>
+          <!-- end form-cta -->
+          <!-- start trusted -->
+          <div class="z-10 flex flex-col gap-2 w-64">
+            <p class="text-[0.7rem] font-medium text-gray-600">
+              DIPERCAYA OLEH
+            </p>
+            <div class="flex justify-between items-center justify-start gap-2">
+              <img class="h-5" src="aset/indofood.png" alt="ind" />
+              <img src="aset/goto.png" class="h-5" alt="got" />
+              <img class="h-6" src="aset/telkom.png" alt="tel" />
+            </div>
+          </div>
+          <!-- end trusted -->
+        </div>
+        <!-- end cta -->
+
+        <!-- start popular-jobs -->
+        <div
+          class="overflow-hidden h-[95%] lg:h-[85%] w-full lg:w-[30%] bg-gradient-to-t from-white to-gray-100 border border-gray-300 rounded-2xl py-5 flex flex-col"
+        >
+          <h1 class="ml-5 font-medium text-[1.1rem] mb-4">Lowongan Trending</h1>
+          <div
+            x-data="{
+            companies: [
+              {
+                nama: 'Pt. Indofood',
+                role: 'Front Office',
+                alamat: 'KOTA MEDAN, SUMATERA UTARA',
+                gambar: 'indofood.png'
+              },
+              {
+                nama: 'Pt. Bukalapak',
+                role: 'Marketing Manager',
+                alamat: 'KOTA JAKARTA, DKI JAKARTA',
+                gambar: 'bukalapak.png'
+              },
+              {
+                nama: 'Pt. Traveloka',
+                role: 'Product Manager',
+                alamat: 'KOTA TANGERANG, BANTEN',
+                gambar: 'traveloka.png'
+              },
+              {
+                nama: 'Pt. Unilever',
+                role: 'HR Specialist',
+                alamat: 'KOTA SURABAYA, JAWA TIMUR',
+                gambar: 'unilever.jpg'
+              }
+            ]
+          }"
+            class="flex flex-col h-full"
+          >
+            <template x-for="company in companies" :key="company.nama">
+              <div
+                class="group hover:bg-[#00000010] transition-colors cursor-pointer flex justify-between align-top w-full border-b border-gray-300 h-28 px-5 py-4"
+              >
+                <div class="w-fit flex flex-col gap-[0.1rem]">
+                  <h1 class="font-medium" x-text="company.role"></h1>
+                  <h2 class="text-[0.9rem]" x-text="company.nama"></h2>
+                  <h3
+                    class="text-[0.9rem] text-gray-500"
+                    x-text="company.alamat"
+                  ></h3>
+                </div>
+                <div
+                  class="right-0 top-0 bg-gray-200 size-14 rounded-full overflow-hidden"
+                >
+                  <img
+                    class="transition-all duration-300 opacity-35 saturate-0 group-hover:opacity-100 group-hover:saturate-100"
+                    :src="`aset/perusahaan/${company.gambar}`"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+        <!-- end popular-jobs -->
+      </section>
+      <!-- end Hero CTA -->
+
+      <!-- start register-bait -->
+      <section
+        class="mt-8 m-auto h-[85vh] md:h-[45vh] max-w-[1280px] flex flex-col md:flex-row gap-4 md:gap-8"
+      >
+        <div
+          class="rounded-lg h-[13rem] bg-slate-200 md:h-full w-full md:w-[40%] overflow-hidden relative"
+        >
+          <img
+            class="absolute -top-14 md:top-0 left-0 md:h-full object-cover"
+            src="aset/enterprise-2024.webp"
+            alt="cvr"
+          />
+        </div>
+
+        <div
+          class="flex flex-col h-full w-full md:w-[60%] md:py-2 justify-between"
+        >
+          <h1 class="font-medium text-[2.9rem] m-0">
+            Jangan Sia-siakan Skillmu
+          </h1>
+
+          <div class="flex flex-col justify-between h-[46%] md:h-[56%]">
+            <div class="flex w-full gap-2 align-top justify-start">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.981 14.2V17.487C20.981 18.2819 20.6652 19.0442 20.1032 19.6062C19.5412 20.1682 18.7789 20.484 17.984 20.484H5.998C5.60426 20.4841 5.21435 20.4067 4.85056 20.2561C4.48677 20.1054 4.15622 19.8846 3.8778 19.6062C3.59938 19.3278 3.37856 18.9972 3.22794 18.6334C3.07732 18.2696 2.99987 17.8797 3 17.486V7.496C3.00027 6.70132 3.31614 5.93928 3.87815 5.37745C4.44017 4.81562 5.20232 4.5 5.997 4.5H10.992M16.242 6.559L18.979 9.316"
+                  stroke="black"
+                  stroke-opacity="0.72"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.99 15.858L10.501 16.148C10.3402 16.1887 10.1718 16.1887 10.011 16.148C9.85426 16.0966 9.71084 16.0113 9.59097 15.898C9.47594 15.7836 9.39048 15.6428 9.34197 15.488C9.29731 15.3281 9.29731 15.1589 9.34197 14.999L9.62197 13.491C9.70697 13.111 9.90197 12.763 10.182 12.491L17.544 5.129C17.7264 4.93765 17.9477 4.78761 18.193 4.689C18.44 4.573 18.709 4.509 18.983 4.5C19.247 4.502 19.508 4.556 19.751 4.66C19.998 4.76 20.222 4.91 20.411 5.1C20.599 5.28518 20.7486 5.50575 20.851 5.749C21.0499 6.24582 21.0499 6.80018 20.851 7.297C20.7487 7.54063 20.5992 7.76156 20.411 7.947L12.988 15.299C12.718 15.579 12.37 15.773 11.989 15.859L11.99 15.858Z"
+                  stroke="black"
+                  stroke-opacity="0.72"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div class="flex flex-col gap-1 justify-center leading-5">
+                <h2 class="text-[1.1rem] font-normal">
+                  Bergabung secara gratis
+                </h2>
+                <h3 class="text-[1rem] font-light text-gray-700 leading-6">
+                  Gabung dan temukan pekerjaan, jelanji perusahaan bahkan
+                  konsultasi
+                </h3>
+              </div>
+            </div>
+
+            <div class="flex w-full gap-2 align-top justify-start">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 19.5L15.3 19.2C18.1 16.4 18.1 12 15.3 9.19999C12.5 6.49999 8 6.49999 5.3 9.29999L5 9.49999L15 19.5Z"
+                  stroke="black"
+                  stroke-opacity="0.75"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17 12L20.3 8.69999C20.7 8.29999 20.7 7.69999 20.3 7.29999L17.2 4.19999C16.8 3.79999 16.2 3.79999 15.8 4.19999L12.5 7.49999M10 14.5L3 21.5"
+                  stroke="black"
+                  stroke-opacity="0.75"
+                  stroke-width="1.5"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <div class="flex flex-col gap-1 justify-center leading-5">
+                <h2 class="text-[1.1rem] font-normal">
+                  Publikasi lowongan tanpa batas
+                </h2>
+                <h3 class="text-[1rem] font-light text-gray-700 leading-6">
+                  Publikasi lowongan pekerjaan secara cepat, tanpa batas dan
+                  gratis!
+                </h3>
+              </div>
+            </div>
+
+            <div class="flex w-full gap-2 align-top justify-start">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.015 16.614L12.976 21.192C12.6666 21.393 12.3055 21.5 11.9365 21.5C11.5675 21.5 11.2064 21.393 10.897 21.192L3.85802 16.614C3.59307 16.4394 3.37586 16.2014 3.22604 15.9217C3.07623 15.642 2.99854 15.3293 3.00002 15.012V5.407C3.00002 4.90123 3.20094 4.41618 3.55857 4.05855C3.9162 3.70092 4.40125 3.5 4.90702 3.5H18.966C19.4717 3.50026 19.9566 3.70127 20.3142 4.05884C20.6718 4.41641 20.8728 4.90131 20.873 5.407V15.012C20.8745 15.3293 20.7968 15.642 20.647 15.9217C20.4972 16.2014 20.28 16.4394 20.015 16.614Z"
+                  stroke="black"
+                  stroke-opacity="0.75"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.939 5.82999L13.331 9.42599L17.185 9.63599L14.19 12.077L15.182 15.807L11.939 13.707L8.69599 15.807L9.69799 12.077L6.69299 9.63499L10.556 9.42499L11.939 5.82999Z"
+                  stroke="black"
+                  stroke-opacity="0.75"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <div class="flex flex-col gap-1 justify-center leading-5">
+                <h2 class="text-[1.1rem] font-normal">
+                  Bekerja di perusahaan yang tepat
+                </h2>
+                <h3 class="text-[1rem] font-light text-gray-700 leading-6">
+                  konsultasikan kondisimu kepada kami lalu kami carikan
+                  pekerjaan
+                  <br />yang tepat untuk mu
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="mt-8 flex gap-2 max-w-full md:max-w-[323px] h-12 justify-between"
+          >
+            <button
+              class="flex items-center justify-center gap-2 px-4 bg-black hover:bg-[#2e2e2e] rounded-lg"
+            >
+              <p
+                @click="register=true; loginpop=true"
+                class="font-normal text-teal-400"
+              >
+                Daftar Gratis
+              </p>
+              <svg
+                class="size-4"
+                viewBox="0 0 11 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M5.5 7.25H0V5.75H5.5V0.5L11 6.5L5.5 12.5V7.25Z"
+                  fill="#48CFCB"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- end register-bait -->
+
+      <!-- start Kategori Lowongan -->
+      <section
+        data-aos="fade-down"
+        class="mt-20 flex flex-col justify-between gap-8 m-auto max-w-[1280px]"
+      >
+        <h1 class="w-full font-medium text-[2rem] m-0">Kategori Lowongan</h1>
+        <div
+          id="lowngan-div"
+          class="w-full h-[20rem] overflow-hidden flex justify-center flex-wrap gap-x-4 gap-y-3"
+          x-data="kategorilow"
+        >
+          <template
+            id="cate-lowongan"
+            x-for="(item, index) in kat.slice(0, 8)"
+            x-key="index"
+          >
+            <div
+              class="group w-[26rem] flex flex-col justify-center items-center border border-gray-200 rounded-xl bg-gray-100 pt-2 pb-0 px-1 relative overflow-hidden"
+            >
+              <div
+                class="opacity-0 group-hover:opacity-100 transition-all duration-150 flex justify-center items-center z-10 absolute w-full h-full backdrop-blur-[3px] top-0"
+              >
+                <a
+                  href="jobPage.html"
+                  class="translate-y-5 group-hover:translate-y-0 transition-all duration-150 flex gap-1 items-center bg-teal-700 w-[80%] rounded-full p-4 text-[1.1rem] font-bold text-white justify-center text-center hover:bg-teal-600"
+                  >lihat kategori<svg
+                    viewBox="0 0 24 24"
+                    class="size-6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    transform="rotate(90)"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M12 5V19M12 5L6 11M12 5L18 11"
+                        stroke="#ffffff"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      ></path>
+                    </g>
+                  </svg>
+                </a>
+              </div>
+              <div
+                class="bg-white flex flex-col justify-between border-gray-200 border w-full h-[11rem] rounded-xl p-3 shadow-[0px_2px_6px_0px_rgba(0,_0,_0,_0.1)]"
+              >
+                <div>
+                  <h1 class="font-medium text-[1.3rem]" x-text="item.name">
+                    Development & IT
+                  </h1>
+                  <h1 x-text="item.desc" class="w-[90%] text-gray-600">
+                    Bidang yang mencakup pembuatan, pengelolaan, dan
+                    pemeliharaan teknologi.
+                  </h1>
+                </div>
+                <div class="text-[0.9rem] flex gap-1 w-full h-[2.1rem]">
+                  <template x-for="tag in item.tag" :key="tag">
+                    <div
+                      class="flex items-center justify-center h-full w-fit p-3 rounded-lg bg-none border border-gray-200"
+                      x-text="tag"
+                    >
+                      Full-time
+                    </div>
+                  </template>
+                </div>
+              </div>
+              <div class="w-full flex gap-4 items-center h-[3rem] px-4">
+                <div class="flex gap-1 items-center">
+                  <svg
+                    class="size-4 opacity-55"
+                    viewBox="0 0 24.00 24.00"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000"
+                    transform="rotate(0)matrix(1, 0, 0, 1, 0, 0)"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke="#000000"
+                      stroke-width="0.096"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <g>
+                        <path fill="none" d="M0 0h24v24H0z"></path>
+                        <path
+                          d="M3 19V5.7a1 1 0 0 1 .658-.94l9.671-3.516a.5.5 0 0 1 .671.47v4.953l6.316 2.105a1 1 0 0 1 .684.949V19h2v2H1v-2h2zm2 0h7V3.855L5 6.401V19zm14 0v-8.558l-5-1.667V19h5z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                  <p
+                    class="m-0 text-[0.9rem] opacity-60"
+                    x-text="`${item.rek} rekruter`"
+                  >
+                    17 Rektuter
+                  </p>
+                </div>
+                <div class="flex gap-1 items-center">
+                  <svg
+                    viewBox="0 0 1024 1024"
+                    class="icon size-4 opacity-55"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#000000"
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        d="M917.52 369.86L594.24 98.59l-98.62 117.52-181.15-67.54-124.33 290.24h-80.28V914h804.57V438.81h-54.78l57.87-68.95zM603.24 201.62l211.25 177.23-50.33 59.96H404.21l199.03-237.19z m-248.99 39.84l91.47 34.1-136.98 163.25h-39.01l84.52-197.35z m487.04 599.39H183.01v-328.9H841.3v328.9z"
+                        fill="#000000"
+                      ></path>
+                      <path
+                        d="M621.68 640.96h146.29v73.14H621.68z"
+                        fill="#000000"
+                      ></path>
+                    </g>
+                  </svg>
+                  <p
+                    x-text="`${item.gaji} / bulan`"
+                    class="m-0 text-[0.9rem] opacity-60"
+                  >
+                    1jt - 1,5jt / bulan
+                  </p>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+        <div class="w-full h-1 flex justify-between items-center mt-3">
+          <hr class="w-[28%] lg:w-[41%] h-[2px] bg-gray-400" />
+          <p
+            class="hover:text-gray-500 cursor-pointer text-[0.9rem] text-gray-400"
+            id="show-more"
+            onclick="toggleTemplateSlice()"
+          >
+            Lebih Banyak
+          </p>
+          <hr class="w-[28%] lg:w-[45%] h-[2px] bg-gray-400" />
+        </div>
+      </section>
+      <!-- end Kategori Lowongan -->
+
+      <!-- start konsultasi bait -->
+      <section
+        data-aos="fade-down"
+        class="mt-20 flex flex-col lg:flex-row justify-between m-auto lg:h-[34rem] max-w-[1280px] bg-[#005D5F] overflow-hidden rounded-lg"
+      >
+        <div
+          class="text-white px-8 py-8 flex flex-col justify-between h-full w-full bg-[#0000001e]"
+        >
+          <h3 class="text-[1.5rem] text-normal mb-4 lg:mb-0">Konsultasi</h3>
+          <h1
+            class="mb-4 lg:mb-0 text-[2.1rem] lg:text-[2.9rem] text-medium leading-[2.4rem] lg:leading-[3.5rem]"
+          >
+            Karier Anda,<br />pertumbuhan Anda,<br /><span
+              class="text-[#5BD7D3] text-[2.1rem] lg:text-[2.9rem] text-medium leading-[2.4rem] lg:leading-[3.5rem]"
+              >dukugan dari kami</span
+            >
+          </h1>
+          <p
+            class="mb-6 lg:mb-0 font-normal text-[1.1rem] lg:w-[38rem] leading-[1.7rem]"
+          >
+            Dapatkan saran karier pribadi dari para ahli untuk membantu Anda
+            menavigasi pasar kerja. Perkuat perjalanan karier Anda dengan
+            wawasan yang tepat.
+          </p>
+
+          <div class="mb-6 lg:mb-0 flex flex-col gap-3">
+            <div class="flex gap-3">
+              <svg
+                fill="#5BD7D3"
+                height="1.3rem"
+                width="2rem"
+                viewBox="0 0 35 35"
+                data-name="Layer 2"
+                id="e2a77c4e-abec-442a-bd4d-4f68a77f55af"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.1,34.75c-.047,0-.093,0-.139,0L3.8,34.541A3.5,3.5,0,0,1,.46,31.2L.253,26.04a3.49,3.49,0,0,1,1.016-2.6L22.676,2.034a6.087,6.087,0,0,1,8.611,0l1.68,1.679a6.1,6.1,0,0,1,0,8.611L11.559,33.731A3.483,3.483,0,0,1,9.1,34.75Zm17.882-32A3.562,3.562,0,0,0,24.444,3.8L3.037,25.208a.982.982,0,0,0-.286.732L2.958,31.1a.985.985,0,0,0,.939.94l5.164.206a.969.969,0,0,0,.731-.286L31.2,10.556a3.594,3.594,0,0,0,0-5.076L29.52,3.8A3.563,3.563,0,0,0,26.982,2.75Z"
+                />
+                <rect
+                  height="11.344"
+                  transform="translate(-0.758 20.188) rotate(-45)"
+                  width="5"
+                  x="22.74"
+                  y="5.338"
+                />
+              </svg>
+              <p class="font-light text-[1rem]">
+                Bantu bangun CV dan profil online yang lebih kuat
+              </p>
+            </div>
+            <div class="flex gap-3">
+              <svg
+                height="1.7rem"
+                width="2rem"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 10H6.75C7.44036 10 8 10.5596 8 11.25V14.75C8 15.4404 7.44036 16 6.75 16H6C4.34315 16 3 14.6569 3 13C3 11.3431 4.34315 10 6 10ZM6 10V9C6 5.68629 8.68629 3 12 3C15.3137 3 18 5.68629 18 9V10M18 10H17.25C16.5596 10 16 10.5596 16 11.25V14.75C16 15.4404 16.5596 16 17.25 16H18M18 10C19.6569 10 21 11.3431 21 13C21 14.6569 19.6569 16 18 16M18 16L17.3787 18.4851C17.1561 19.3754 16.3562 20 15.4384 20H13"
+                  stroke="#5BD7D3"
+                  stroke-width="1.3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <p class="font-light text-[1rem]">
+                Konsultasi yang disesuaikan dengan tujuan karier Anda
+              </p>
+            </div>
+          </div>
+          <a
+            href="konsultasi.html"
+            class="bg-white hover:bg-gray-200 flex items-center justify-center rounded-lg w-[11rem] h-[3.4rem] text-teal-600 font-medium"
+          >
+            Selengkapnya
+          </a>
+        </div>
+        <img class="h-full hidden lg:block" src="aset/cover.png" alt="cv" />
+      </section>
+      <!-- end konsultasi bait-->
+      <!-- start blogs -->
+      <section
+        data-aos="fade-down"
+        class="flex flex-col justify-between max-w-[1280px] m-auto mt-20"
+      >
+        <h1 class="w-full font-medium text-[2rem] m-0">Blog Terbaru</h1>
+        <div
+          class="mt-8 w-full h-[90%] flex flex-wrap justify-center gap-2"
+          x-data="kategorilow"
+        >
+          <template x-for="(item, index) in blog">
+            <div
+              class="cursor-pointer group overflow-hidden rounded-lg py-5 px-5 relative w-[635px] h-[20rem] text-white"
+              :style="{
+                backgroundImage: `url(aset/${item.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }"
+            >
+              <div
+                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#00000091] to-transparent"
+              ></div>
+
+              <div
+                class="flex w-[37rem] items-center justify-between absolute bottom-5"
+              >
+                <div class="max-w-[50%] lg:max-w-[70%]">
+                  <p>1 bulan lalu • Tips</p>
+                  <p
+                    class="text-2xl max-w-[90%] font-medium"
+                    x-text="item.title"
+                  >
+                    Membangun Karir Tanpa Batas: Tips untuk Penyandang
+                    Disabilitas Memulai di Dunia Kerja
+                  </p>
+                </div>
+                <button
+                  class="hidden md:flex justify-center items-center size-16 rounded-full bg-white hover:bg-gray-300"
+                >
+                  <svg
+                    fill="#000000"
+                    class="size-6"
+                    version="1.1"
+                    id="Layer_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 330.00 330.00"
+                    xml:space="preserve"
+                    data-darkreader-inline-fill=""
+                    style="
+                      --darkreader-inline-fill: #000000;
+                      --darkreader-inline-stroke: #e8e6e3;
+                    "
+                    stroke="#000000"
+                    stroke-width="14.52"
+                    data-darkreader-inline-stroke=""
+                  >
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g
+                      id="SVGRepo_tracerCarrier"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke="#CCCCCC"
+                      stroke-width="1.98"
+                      data-darkreader-inline-stroke=""
+                      style="--darkreader-inline-stroke: #c8c3bc"
+                    ></g>
+                    <g id="SVGRepo_iconCarrier">
+                      <path
+                        id="XMLID_222_"
+                        d="M250.606,154.389l-150-149.996c-5.857-5.858-15.355-5.858-21.213,0.001 c-5.857,5.858-5.857,15.355,0.001,21.213l139.393,139.39L79.393,304.394c-5.857,5.858-5.857,15.355,0.001,21.213 C82.322,328.536,86.161,330,90,330s7.678-1.464,10.607-4.394l149.999-150.004c2.814-2.813,4.394-6.628,4.394-10.606 C255,161.018,253.42,157.202,250.606,154.389z"
+                      ></path>
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </template>
+          <div
+            class="flex flex-col gap-8 py-5 px-5 relative w-[635px] h-[20rem]"
+          >
+            <h1 class="text-[2.3rem]">
+              Dapatkan inspirasi untuk masa depan inklusif!
+            </h1>
+            <button
+              class="text-[1.1rem] flex justify-center items-center h-16 w-44 rounded-lg bg-black text-white"
+            >
+              Selengkapnya
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- end blogs -->
+    </div>
+    <!-- start Hero CTA -->
+
+    <footer
+      class="text-black border-t-2 border-gray-200 lg:min-h-[30rem] min-h-[26rem] w-full flex flex-col justify-center items-center mt-[8rem]"
+    >
+      <div
+        class="w-[80vw] flex flex-col h-[95%] lg:flex-row justify-center items-center"
+      >
+        <div
+          class="py-[3rem] h-full w-full lg:w-[28%] flex flex-col justify-between"
+        >
+          <h1 class="text-[1.5rem] lg:text-[2.5rem] font-[500] text-teal-700">
+            Liveup
+          </h1>
+          <p class="text-[1rem] font-light lg:w-[80%] w-ful">
+            Jl. Poras No.07, RT.01/RW.04, Loji, Kec. Bogor Bar., Kota Bogor,
+            Jawa Barat 16117
+          </p>
+          <div class="h-[5rem] flex flex-col gap-[1rem]">
+            <div class="flex items-center justify-center gap-3 w-fit">
+              <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                class="size-7"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
+                  stroke="#000000"
+                  stroke-width="1"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              0823229911872
+            </div>
+            <div class="flex items-center justify-center gap-3 w-fit">
+              <svg
+                class="size-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"
+                  stroke="#000000"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              hello@liveup.id
+            </div>
+          </div>
+          <div class="w-[10rem] flex justify-between">
+            <div
+              class="size-10 rounded-full hover:border-2 border border-black flex justify-center items-center"
+            >
+              <svg
+                class="size-6"
+                viewBox="0 -0.5 25 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
+                  stroke="#000000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
+            >
+              <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+              <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                class="size-5"
+                viewBox="0 0 20 20"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <defs></defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="Dribbble-Light-Preview"
+                    transform="translate(-340.000000, -7439.000000)"
+                    fill="#000000"
+                  >
+                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                      <path
+                        d="M289.869652,7279.12273 C288.241769,7279.19618 286.830805,7279.5942 285.691486,7280.72871 C284.548187,7281.86918 284.155147,7283.28558 284.081514,7284.89653 C284.035742,7285.90201 283.768077,7293.49818 284.544207,7295.49028 C285.067597,7296.83422 286.098457,7297.86749 287.454694,7298.39256 C288.087538,7298.63872 288.809936,7298.80547 289.869652,7298.85411 C298.730467,7299.25511 302.015089,7299.03674 303.400182,7295.49028 C303.645956,7294.859 303.815113,7294.1374 303.86188,7293.08031 C304.26686,7284.19677 303.796207,7282.27117 302.251908,7280.72871 C301.027016,7279.50685 299.5862,7278.67508 289.869652,7279.12273 M289.951245,7297.06748 C288.981083,7297.0238 288.454707,7296.86201 288.103459,7296.72603 C287.219865,7296.3826 286.556174,7295.72155 286.214876,7294.84312 C285.623823,7293.32944 285.819846,7286.14023 285.872583,7284.97693 C285.924325,7283.83745 286.155174,7282.79624 286.959165,7281.99226 C287.954203,7280.99968 289.239792,7280.51332 297.993144,7280.90837 C299.135448,7280.95998 300.179243,7281.19026 300.985224,7281.99226 C301.980262,7282.98483 302.473801,7284.28014 302.071806,7292.99991 C302.028024,7293.96767 301.865833,7294.49274 301.729513,7294.84312 C300.829003,7297.15085 298.757333,7297.47145 289.951245,7297.06748 M298.089663,7283.68956 C298.089663,7284.34665 298.623998,7284.88065 299.283709,7284.88065 C299.943419,7284.88065 300.47875,7284.34665 300.47875,7283.68956 C300.47875,7283.03248 299.943419,7282.49847 299.283709,7282.49847 C298.623998,7282.49847 298.089663,7283.03248 298.089663,7283.68956 M288.862673,7288.98792 C288.862673,7291.80286 291.150266,7294.08479 293.972194,7294.08479 C296.794123,7294.08479 299.081716,7291.80286 299.081716,7288.98792 C299.081716,7286.17298 296.794123,7283.89205 293.972194,7283.89205 C291.150266,7283.89205 288.862673,7286.17298 288.862673,7288.98792 M290.655732,7288.98792 C290.655732,7287.16159 292.140329,7285.67967 293.972194,7285.67967 C295.80406,7285.67967 297.288657,7287.16159 297.288657,7288.98792 C297.288657,7290.81525 295.80406,7292.29716 293.972194,7292.29716 C292.140329,7292.29716 290.655732,7290.81525 290.655732,7288.98792"
+                        id="instagram-[#167]"
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
+            >
+              <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+              <svg
+                fill="#000000"
+                class="size-6"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 ul di tengah -->
+        <div
+          class="py-[3rem] w-full flex-wrap lg:w-[60%] justify-between flex gap-[1rem]"
+        >
+          <!-- Informasi Perusahaan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Perusahaan</p>
+            <li class="cursor-pointer hover:underline">Tentang Kami</li>
+            <li class="cursor-pointer hover:underline">Kontak</li>
+            <li class="cursor-pointer hover:underline">Karir</li>
+            <li class="cursor-pointer hover:underline">Blog</li>
+          </ul>
+
+          <!-- Sumber Daya -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Sumber Daya</p>
+            <li class="cursor-pointer hover:underline">Pusat Bantuan</li>
+            <li class="cursor-pointer hover:underline">Kebijakan Privasi</li>
+            <li class="cursor-pointer hover:underline">Ketentuan Layanan</li>
+            <li class="cursor-pointer hover:underline">FAQ</li>
+          </ul>
+
+          <!-- Layanan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Layanan</p>
+            <li class="cursor-pointer hover:underline">Konsultasi</li>
+            <li class="cursor-pointer hover:underline">Pengembangan Web</li>
+            <li class="cursor-pointer hover:underline">Aplikasi Mobile</li>
+            <li class="cursor-pointer hover:underline">Desain UI/UX</li>
+          </ul>
+
+          <!-- Tautan Cepat -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Tautan Cepat</p>
+            <li class="cursor-pointer hover:underline">Layanan Liveup</li>
+            <li class="cursor-pointer hover:underline">Daftar Pekerjaan</li>
+            <li class="cursor-pointer hover:underline">Syarat & Ketentuan</li>
+            <li class="cursor-pointer hover:underline">Kontak Dukungan</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-gray-400"
+      >
+        Copyrights © 2025, SMK Informatika Pesat. All rights Reserved
+      </div>
+    </footer>
+  </body>
+  <script src="../node_modules/nouislider/dist/nouislider.min.js"></script>
+  <script src="../node_modules/preline/preline.js"></script>
+  <script>
+    function toggleTemplateSlice() {
+      const template = document.getElementById("cate-lowongan");
+      const xForValue = template.getAttribute("x-for");
+      const buttonx = document.getElementById("show-more");
+      const lowdiv = document.getElementById("lowngan-div");
+
+      if (xForValue.includes("kat.slice(0, 8)")) {
+        // Mengubah menjadi "kat"
+        template.setAttribute("x-for", "(item, index) in kat");
+        lowdiv.classList.remove("h-[18.3rem]");
+        lowdiv.classList.add("h-fit");
+        buttonx.innerText = "Lebih Sedikit";
+      } else if (xForValue.includes("kat")) {
+        // Mengubah menjadi "kat.slice(0, 8)"
+        template.setAttribute("x-for", "(item, index) in kat.slice(0, 8)");
+        lowdiv.classList.remove("h-fit");
+        lowdiv.classList.add("h-[18.3rem]");
+        buttonx.innerText = "Lebih Banyak";
+      }
+    }
+
+    (function () {
+      window.addEventListener("load", () => {
+        const overlay = HSOverlay.getInstance(
+          "#html-example-using-modal-popup-with-shortcut-call-trigger",
+          true
+        );
+        const combobox = HSComboBox.getInstance(
+          "#html-example-using-modal-popup-with-shortcut-call-trigger [data-hs-combo-box]",
+          true
+        );
+
+        window.addEventListener("keydown", function (evt) {
+          if (evt.code === "Slash") {
+            if (
+              overlay.element &&
+              overlay.element.el.classList.contains("open")
+            )
+              return false;
+
+            overlay.element.open();
+            combobox.element.setCurrent();
+          }
+        });
+      });
+    })();
+
+    window.addEventListener("load", () => {
+      (function () {
+        const range = document.querySelector(
+          "#hs-pass-values-to-html-elements"
+        );
+        const rangeInstance = new HSRangeSlider(range);
+        const min = document.querySelector(
+          "#hs-pass-values-to-html-elements-min-target"
+        );
+        const max = document.querySelector(
+          "#hs-pass-values-to-html-elements-max-target"
+        );
+
+        range.noUiSlider.on("update", (values) => {
+          min.innerText = rangeInstance.formattedValue[0];
+          max.innerText = rangeInstance.formattedValue[1];
+        });
+      })();
+    });
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</html>

@@ -6,6 +6,9 @@
     <title>Liveup - Memulai Karir</title>
     <link rel="stylesheet" href="/public/css/style.css" />
     <!-- <link rel="stylesheet" href="/public/css/index.css" /> -->
+    <link rel="icon" href=
+    "aset/logo - svg.svg"
+            type="image/x-icon" />
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -507,7 +510,7 @@
                 <i
                   class="ri-search-line text-lg lg:text-base rounded-full cursor-pointer lg:transition lg:ease-in lg:duration-200 group-hover:text-black lg:group-hover:text-blue-600"
                 ></i>
-                <span class="hidden lg:inline">Quick Search...</span>
+                <span class="hidden lg:inline">Pencarian Cepat...</span>
               </div>
               <span class="font-medium hidden lg:inline"
                 ><i class="ri-command-line"></i> + /</span
@@ -682,7 +685,7 @@
               class="lg:flex block space-y-10 lg:space-y-0 lg:gap-x-10"
             >
               <li
-                class="link2 w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
+                class="link2 link2-active w-full lg:w-fit lg:inline-block flex justify-between transition-all duration-300 ease-in-out"
               >
                 <a href="index.html">Home</a>
                 <i class="ri-arrow-right-s-line lg:hidden"></i>
@@ -1558,6 +1561,43 @@
               9000 1234 5678 901 <span class="font-bold">BRI</span>
             </p>
           </button>
+          <div
+            data-hs-file-upload='{
+            "url": "/upload",
+            "maxFiles": 1,
+            "singleton": true
+          }'
+          >
+            <template data-hs-file-upload-preview="">
+              <div class="flex items-center w-full">
+                <span
+                  class="grow-0 overflow-hidden truncate"
+                  data-hs-file-upload-file-name=""
+                ></span>
+                <span class="grow-0">.</span>
+                <span class="grow-0" data-hs-file-upload-file-ext=""></span>
+              </div>
+            </template>
+
+            <button
+              type="button"
+              class="relative flex w-full border overflow-hidden border-gray-200 shadow-sm rounded-lg text-sm focus:outline-none focus:z-10 focus:border-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              <span class="h-full py-3 px-4 bg-gray-100 text-nowrap"
+                >Upload bukti</span
+              >
+              <span
+                class="group grow flex overflow-hidden h-full py-3 px-4"
+                data-hs-file-upload-previews=""
+              >
+                <span class="group-has-[div]:hidden">No Chosen File</span>
+              </span>
+              <span
+                class="absolute top-0 left-0 w-full h-full"
+                data-hs-file-upload-trigger=""
+              ></span>
+            </button>
+          </div>
         </div>
 
         <div class="w-full mt-24 h-[7rem] flex justify-between items-start">
@@ -1693,22 +1733,18 @@
 
     <!-- Start Footer -->
     <footer
-      class="text-white font-poppins lg:h-[30rem] h-[26rem] w-full flex flex-col justify-center items-center bg-[#010505] mt-[8rem]"
+      class="text-black border-t-2 border-gray-200 lg:min-h-[30rem] min-h-[26rem] w-full flex flex-col justify-center items-center mt-[8rem]"
     >
       <div
-        class="w-[80vw] bg flex flex-col h-[90%] lg:flex-row justify-between"
+        class="w-[80vw] flex flex-col h-[95%] lg:flex-row justify-center items-center"
       >
         <div
           class="py-[3rem] h-full w-full lg:w-[28%] flex flex-col justify-between"
         >
-          <h1
-            class="text-[1.5rem] lg:text-[2.5rem] font-[500] font-poppins text-teal-700"
-          >
+          <h1 class="text-[1.5rem] lg:text-[2.5rem] font-[500] text-teal-700">
             Liveup
           </h1>
-          <p
-            class="text-[1rem] font-poppins font-light lg:w-[80%] w-full text-[#ffffffea]"
-          >
+          <p class="text-[1rem] font-light lg:w-[80%] w-ful">
             Jl. Poras No.07, RT.01/RW.04, Loji, Kec. Bogor Bar., Kota Bogor,
             Jawa Barat 16117
           </p>
@@ -1723,8 +1759,8 @@
               >
                 <path
                   d="M3 5.5C3 14.0604 9.93959 21 18.5 21C18.8862 21 19.2691 20.9859 19.6483 20.9581C20.0834 20.9262 20.3009 20.9103 20.499 20.7963C20.663 20.7019 20.8185 20.5345 20.9007 20.364C21 20.1582 21 19.9181 21 19.438V16.6207C21 16.2169 21 16.015 20.9335 15.842C20.8749 15.6891 20.7795 15.553 20.6559 15.4456C20.516 15.324 20.3262 15.255 19.9468 15.117L16.74 13.9509C16.2985 13.7904 16.0777 13.7101 15.8683 13.7237C15.6836 13.7357 15.5059 13.7988 15.3549 13.9058C15.1837 14.0271 15.0629 14.2285 14.8212 14.6314L14 16C11.3501 14.7999 9.2019 12.6489 8 10L9.36863 9.17882C9.77145 8.93713 9.97286 8.81628 10.0942 8.64506C10.2012 8.49408 10.2643 8.31637 10.2763 8.1317C10.2899 7.92227 10.2096 7.70153 10.0491 7.26005L8.88299 4.05321C8.745 3.67376 8.67601 3.48403 8.55442 3.3441C8.44701 3.22049 8.31089 3.12515 8.15802 3.06645C7.98496 3 7.78308 3 7.37932 3H4.56201C4.08188 3 3.84181 3 3.63598 3.09925C3.4655 3.18146 3.29814 3.33701 3.2037 3.50103C3.08968 3.69907 3.07375 3.91662 3.04189 4.35173C3.01413 4.73086 3 5.11378 3 5.5Z"
-                  stroke="#ffffff"
-                  stroke-width="2"
+                  stroke="#000000"
+                  stroke-width="1"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
@@ -1740,14 +1776,14 @@
               >
                 <path
                   d="M4 9.00005L10.2 13.65C11.2667 14.45 12.7333 14.45 13.8 13.65L20 9"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
                   d="M3 9.17681C3 8.45047 3.39378 7.78123 4.02871 7.42849L11.0287 3.5396C11.6328 3.20402 12.3672 3.20402 12.9713 3.5396L19.9713 7.42849C20.6062 7.78123 21 8.45047 21 9.17681V17C21 18.1046 20.1046 19 19 19H5C3.89543 19 3 18.1046 3 17V9.17681Z"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="2"
                   stroke-linecap="round"
                 />
@@ -1757,7 +1793,7 @@
           </div>
           <div class="w-[10rem] flex justify-between">
             <div
-              class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+              class="size-10 rounded-full hover:border-2 border border-black flex justify-center items-center"
             >
               <svg
                 class="size-6"
@@ -1769,7 +1805,7 @@
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M18.168 19.0028C20.4724 19.0867 22.41 17.29 22.5 14.9858V9.01982C22.41 6.71569 20.4724 4.91893 18.168 5.00282H6.832C4.52763 4.91893 2.58998 6.71569 2.5 9.01982V14.9858C2.58998 17.29 4.52763 19.0867 6.832 19.0028H18.168Z"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1778,7 +1814,7 @@
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M12.008 9.17784L15.169 11.3258C15.3738 11.4454 15.4997 11.6647 15.4997 11.9018C15.4997 12.139 15.3738 12.3583 15.169 12.4778L12.008 14.8278C11.408 15.2348 10.5 14.8878 10.5 14.2518V9.75184C10.5 9.11884 11.409 8.77084 12.008 9.17784Z"
-                  stroke="#ffffff"
+                  stroke="#000000"
                   stroke-width="1.5"
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -1786,7 +1822,7 @@
               </svg>
             </div>
             <div
-              class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
             >
               <?xml version="1.0" encoding="UTF-8" standalone="no"?>
               <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
@@ -1808,7 +1844,7 @@
                   <g
                     id="Dribbble-Light-Preview"
                     transform="translate(-340.000000, -7439.000000)"
-                    fill="#ffffff"
+                    fill="#000000"
                   >
                     <g id="icons" transform="translate(56.000000, 160.000000)">
                       <path
@@ -1821,11 +1857,11 @@
               </svg>
             </div>
             <div
-              class="size-10 rounded-full border border-[#ffffffe0] flex justify-center items-center"
+              class="size-10 rounded-full hover:border-2 border border-[#000000e0] flex justify-center items-center"
             >
               <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
               <svg
-                fill="#ffffff"
+                fill="#000000"
                 class="size-6"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1837,28 +1873,58 @@
             </div>
           </div>
         </div>
+
+        <!-- 4 ul di tengah -->
         <div
-          class="py-[3rem] text-right h-full w-full lg:w-[20%] flex flex-col gap-[2rem] lg:block hidden"
+          class="py-[3rem] w-full flex-wrap lg:w-[60%] justify-between flex gap-[1rem]"
         >
-          <p class="w-full">Resources</p>
-          <ul class="w-full space-y-3">
-            <li>Bantuan</li>
-            <li>Riview Liveup</li>
-            <li>Blog</li>
-            <li>Tentang Kami</li>
-            <li>Konsulatasi</li>
-            <li>Daftar Perusahaan</li>
-            <li>Loker Liveup</li>
+          <!-- Informasi Perusahaan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Perusahaan</p>
+            <li class="cursor-pointer hover:underline">Tentang Kami</li>
+            <li class="cursor-pointer hover:underline">Kontak</li>
+            <li class="cursor-pointer hover:underline">Karir</li>
+            <li class="cursor-pointer hover:underline">Blog</li>
+          </ul>
+
+          <!-- Sumber Daya -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Sumber Daya</p>
+            <li class="cursor-pointer hover:underline">Pusat Bantuan</li>
+            <li class="cursor-pointer hover:underline">Kebijakan Privasi</li>
+            <li class="cursor-pointer hover:underline">Ketentuan Layanan</li>
+            <li class="cursor-pointer hover:underline">FAQ</li>
+          </ul>
+
+          <!-- Layanan -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Layanan</p>
+            <li class="cursor-pointer hover:underline">Konsultasi</li>
+            <li class="cursor-pointer hover:underline">Pengembangan Web</li>
+            <li class="cursor-pointer hover:underline">Aplikasi Mobile</li>
+            <li class="cursor-pointer hover:underline">Desain UI/UX</li>
+          </ul>
+
+          <!-- Tautan Cepat -->
+          <ul class="space-y-3 mb-5 text-left">
+            <p class="font-semibold">Tautan Cepat</p>
+            <li class="cursor-pointer hover:underline">Layanan Liveup</li>
+            <li class="cursor-pointer hover:underline">Daftar Pekerjaan</li>
+            <li class="cursor-pointer hover:underline">Syarat & Ketentuan</li>
+            <li class="cursor-pointer hover:underline">Kontak Dukungan</li>
           </ul>
         </div>
       </div>
+
       <div
-        class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-white"
+        class="w-[80vw] flex justify-center items-center font-light text-center text-[0.9rem] py-4 border-t-[1px] border-gray-400"
       >
         Copyrights © 2025, SMK Informatika Pesat. All rights Reserved
       </div>
     </footer>
     <!-- End Footer -->
+    <script src="./node_modules/lodash/lodash.min.js"></script>
+    <script src="./node_modules/dropzone/dist/dropzone-min.js"></script>
   </body>
   <script>
     var SelectedPackage = 0;
