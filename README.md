@@ -1,1 +1,1 @@
-https://liveuphost.vercel.app/
+https://liveup-host.vercel.app/
