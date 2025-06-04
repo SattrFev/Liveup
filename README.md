@@ -61,6 +61,7 @@ Membuat desain platform kerja yang **inklusif** dan dapat membantu **penyandang 
 ----
 
 > ⏱️ **Waktu Pengerjaan:** 67 Jam  *(Stresss bangett selamaa ngerjain karena deadlineee)*
+
 > 🏆 **Nilai:** N/A *(gak menang lomba, tapi pengalaman = priceless)*
 
 > 🤝 Banyak banget feedback dari juri soal UI yang belum cukup ramah disabilitas. Tapi justru dari situlah kami belajar
